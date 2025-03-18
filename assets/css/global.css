@@ -1,0 +1,43 @@
+html {
+  @apply h-auto scroll-smooth;
+  scroll-padding-top: 64px;
+}
+
+body {
+  @apply min-h-dvh font-sans text-sm lg:text-lg font-semibold overflow-x-hidden;
+  line-height: 1.2em;
+}
+
+#__lawyers-app {
+  @apply min-h-dvh flex flex-col;
+}
+
+.container {
+  @apply mx-auto md:max-w-[990px] xl:max-w-[1440px] px-4 sm:px-6 w-full h-full;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  @apply appearance-none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.ui-scrollbars ::-webkit-scrollbar {
+  @apply bg-transparent w-0 h-2 rounded;
+}
+
+.ui-scrollbars ::-webkit-scrollbar-track {
+  @apply bg-neutral2/50;
+}
+
+.ui-scrollbars ::-webkit-scrollbar-thumb {
+  @apply rounded bg-neutral2/50 w-4 transition-all;
+}
+
+.ui-scrollbars ::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral2/50 transition-all;
+}
