@@ -36,13 +36,13 @@ const { classes } = setBasicUiProps(props, 'icon-component')
   }
   &.type {
     &-default {
-      @apply p-1 rounded-xl mb-0.5;
+      @apply rounded-xl ;
     }
     &-primary {
-      @apply p-1 bg-primary  rounded-lg mb-0.5;
+      @apply  bg-primary  rounded-lg ;
     }
     &-secondary {
-      @apply p-1 text-primary border-2 border-primary  rounded-lg mb-0.5;
+      @apply text-primary border-2 border-primary  rounded-lg;
     }
   }
 }

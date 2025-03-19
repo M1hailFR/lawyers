@@ -1,3 +1,3 @@
-import VIcon from './VIcon.vue'
+import VIcon from './_VIcon.vue'
 
 export { VIcon }

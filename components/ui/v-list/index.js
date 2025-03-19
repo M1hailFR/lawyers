@@ -1,3 +1,3 @@
-import VList from './v-list.vue'
+import VList from './_VList.vue'
 
 export { VList }

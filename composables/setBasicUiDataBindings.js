@@ -11,6 +11,7 @@ export const setBasicUiDataBindings = (emit) => {
         'email',
         'range',
         'password',
+        'textarea',
       ].includes(type)
         ? value
         : value || 'undefined'
