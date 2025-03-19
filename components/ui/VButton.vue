@@ -33,11 +33,11 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['click'])
-const { classes } = setBasicUiProps(props, 'button-component')
+const { classes } = setBasicUiProps(props, 'v-button')
 </script>
 
 <style lang="scss" scoped>
-.button-component {
+.v-button {
   @apply font-semibold transition-colors duration-150 rounded-lg text-neutral2;
   &.type {
     &-flat {

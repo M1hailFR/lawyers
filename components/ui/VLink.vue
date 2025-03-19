@@ -48,11 +48,11 @@ const props = defineProps({
     default: null,
   },
 })
-const { classes } = setBasicUiProps(props, 'link-component')
+const { classes } = setBasicUiProps(props, 'v-link')
 </script>
 
 <style lang="scss" scoped>
-.link-component {
+.v-link {
   @apply transition-all duration-150 rounded-lg hover:text-primary;
 
   &.type {
