@@ -10,9 +10,9 @@
         class=""
         :name="icon"
         size="20" />
-        <div class="mt-[-4px]">
-          <slot />
-        </div>
+      <div class="mt-[-4px]">
+        <slot />
+      </div>
 
       <v-icon
         v-if="props.openIndicator"
