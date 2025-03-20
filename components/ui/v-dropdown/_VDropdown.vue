@@ -16,17 +16,17 @@
 
       <v-icon
         v-if="props.openIndicator"
-        class="chevron ml-auto mt-1"
+        class="chevron ml-auto"
         name="IconChevron"
         size="20" />
     </div>
     <div
       class="sub-level"
-      :class="variant">
+      :class="`bg-${color}`">
       <div class="sub-level-container flex flex-col gap-y-1 pl-2 pr-6">
         <div
           class="options"
-          :class="[variant]">
+          :class="`bg-${color}`">
           <slot name="options" />
         </div>
       </div>
@@ -55,10 +55,10 @@ const props = defineProps({
     type: String,
     default: 'IconCross',
   },
-  variant: {
+  color: {
     type: String,
-    default: 'light',
-  },
+    default: 'neutral6',
+  }
 })
 
 const emit = defineEmits(['change'])
@@ -66,9 +66,6 @@ const { change } = setBasicUiDataBindings(emit)
 const { classes } = setBasicUiProps(props, 'v-dropdown')
 
 const isOpen = ref(false)
-
-const mouseover = computed(() => (props.openOnHover ? open : ''))
-const mouseleave = computed(() => (props.openOnHover ? close : ''))
 
 const close = () => {
   isOpen.value = false
@@ -89,12 +86,12 @@ const toggle = () => {
 .v-dropdown {
   @apply relative;
   &-content {
-    @apply flex items-center w-full p-1;
+    @apply flex items-center w-full;
   }
   &:hover {
     @apply text-secondary visible drop-shadow-sm;
     .sub-level {
-      @apply visible opacity-100 bg-neutral5 drop-shadow-sm;
+      @apply visible opacity-100 drop-shadow-sm;
     }
     .chevron {
       @apply rotate-180;
@@ -102,20 +99,17 @@ const toggle = () => {
   }
 }
 .sub-level {
-  @apply absolute py-4 px-1 w-full left-0 top-16 invisible opacity-0 transition-all rounded-lg text-neutral2;
+  // left-1/2 -translate-x-1/2
+  @apply absolute w-max p-1 top-6 invisible opacity-0 transition-all rounded-lg text-neutral2;
   &::after {
     content: '';
-    @apply absolute left-0 top-[-24px] w-full h-full bg-transparent z-[-1];
+    @apply absolute left-0  w-full h-full bg-transparent z-[-1];
   }
-  &.dark {
-    // @apply w-max  drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)];
-  }
+
   &.light {
-    @apply bg-neutral5;
+    @apply w-max;
   }
-  &.transparent {
-    @apply bg-transparent;
-  }
+
   .sub-level-container {
     @apply max-h-[290px] overflow-auto;
   }

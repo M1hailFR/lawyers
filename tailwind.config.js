@@ -7,12 +7,22 @@ module.exports = {
     fontFamily: {
       sans: ['Noto Sans', 'sans-serif'],
     },
+    fontSize: {
+      xs: '0.75rem',
+      sm: '0.875rem',
+      base: '1rem',
+      lg: '1.125rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.75rem',
+      '4xl': '2.25rem',
+    },
     screens: {
-      xs: '400px',
-      sm: '576px',
+      sm: '568px',
       md: '768px',
       lg: '992px',
-      xl: '1440px',
+      xl: '1200px',
+      xxl: '1440px',
     },
     colors: {
       neutral1: '#fff',
