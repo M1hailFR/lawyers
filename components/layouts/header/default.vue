@@ -52,11 +52,10 @@
       <div class="header--bottom transition-transform">
         <div class="inline-flex items-center gap-6">
           <v-image
-            v-if="
-              (fields.logo && scrollSoter.isScrolling) || scrollSoter.isMobile
-            "
+            v-if="(fields.logo && scrollSoter.isScrolling) || scrollSoter.isMobile"
             :src="fields.logo"
-            class="h-8" />
+            cover
+            class="w-auto" />
           <v-button
             type="flat"
             size="small"
@@ -97,7 +96,7 @@
           </nav>
         </div>
         <div class="flex gap-2 items-center justify-end">
-          <div class="hidden sm:flex gap-2 items-center ">
+          <div class="hidden sm:flex gap-2 items-center">
             <VLink
               v-for="(item, idx) in fields.socials"
               :key="idx"
