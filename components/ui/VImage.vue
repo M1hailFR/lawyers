@@ -1,5 +1,5 @@
 <template>
-  <picture>
+  <picture class="">
     <template v-if="isSources">
       <source
         v-for="item in MODERN_EXTENSTIONS"
@@ -8,7 +8,8 @@
         :type="'image/' + item" />
     </template>
     <img
-      class="block h-full w-full object-cover"
+      class="block h-full w-full"
+      :class="[{ 'object-contain': contain }, { 'object-cover': cover }]"
       :src="src"
       :alt="alt" />
   </picture>
@@ -29,6 +30,14 @@ const props = defineProps({
     default: '',
   },
   modern: {
+    type: Boolean,
+    default: false,
+  },
+  cover: {
+    type: Boolean,
+    default: false,
+  },
+  contain: {
     type: Boolean,
     default: false,
   },

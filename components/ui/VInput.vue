@@ -81,7 +81,7 @@ const clear = () => {
 .v-input {
   @apply relative;
   input {
-    @apply w-full h-full cursor-pointer outline-none rounded-lg text-neutral2 pl-2 py-2 pr-6 bg-transparent border border-neutral5 appearance-none transition-[border-color,box-shadow] duration-150 ease-in-out hover:opacity-70;
+    @apply w-full cursor-pointer outline-none rounded-lg text-neutral2 pl-4 py-2 pr-6 bg-transparent border border-neutral5 appearance-none transition-[border-color,box-shadow] duration-150 ease-in-out hover:opacity-70;
 
     &:focus,
     &:hover {
@@ -101,7 +101,7 @@ const clear = () => {
   }
 
   &--floating-label {
-    @apply top-2 left-2 bg-neutral1 pointer-events-none absolute w-max overflow-hidden text-ellipsis;
+    @apply top-2 left-4 bg-neutral1 pointer-events-none absolute w-max overflow-hidden text-ellipsis;
     @apply transition-all duration-150 ease-out;
   }
 

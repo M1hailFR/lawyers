@@ -10,7 +10,7 @@ const { classes } = setBasicUiProps({}, 'v-dropdown-option')
 
 <style lang="scss" scoped>
 .v-dropdown-option {
-  @apply flex justify-between items-center py-1 px-2 cursor-pointer hover:text-secondary;
+  @apply flex justify-between items-center py-[2px] cursor-pointer hover:text-secondary;
   &.state-disabled {
     cursor: not-allowed;
     opacity: 0.5;
