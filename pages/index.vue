@@ -1,20 +1,76 @@
 <template>
   <div class="container">
     <div class="mt-10">index page</div>
-    colors
-    <div class="flex gap-2 mt-2 text-neutral2/30">
-      <div class="w-10 h-10 bg-primary rounded-md border">p</div>
-      <div class="w-10 h-10 bg-secondary rounded-md border">s</div>
-      <div class="w-10 h-10 bg-neutral1 rounded-md border">1</div>
-      <div class="w-10 h-10 bg-neutral2 rounded-md border">2</div>
-      <div class="w-10 h-10 bg-neutral3 rounded-md border">3</div>
-      <div class="w-10 h-10 bg-neutral4 rounded-md border">4</div>
-      <div class="w-10 h-10 bg-neutral5 rounded-md border">5</div>
-      <div class="w-10 h-10 bg-neutral6 rounded-md border">6</div>
-      <div class="w-10 h-10 bg-background rounded-md border">bg</div>
-      <div class="w-10 h-10 bg-danger rounded-md border">d</div>
+    текущая
+    <div class="flex my-2 text-neutral2/0 w-full justify-between">
+      <div class="w-full aspect-square bg-primary rounded-l-md">p</div>
+      <div class="w-full aspect-square bg-secondary">s</div>
+      <div class="w-full aspect-square bg-neutral3">3</div>
+      <div class="w-full aspect-square bg-neutral4">4</div>
+      <div class="w-full aspect-square bg-neutral5">5</div>
+      <div class="w-full aspect-square bg-neutral6">6</div>
+      <div class="w-full aspect-square bg-background">bg</div>
+      <div class="w-full aspect-square bg-neutral1">1</div>
+      <div class="w-full aspect-square bg-neutral2">2</div>
+      <div class="w-full aspect-square bg-danger rounded-r-md">d</div>
     </div>
-    <div class="my-2">
+
+    синяя
+    <div class="flex my-2 text-neutral2/0 w-full justify-between">
+      <div class="w-full aspect-square bg-primary2 rounded-l-md">p</div>
+      <div class="w-full aspect-square bg-secondary2">s</div>
+      <div class="w-full aspect-square bg-neutral23">3</div>
+      <div class="w-full aspect-square bg-neutral24">4</div>
+      <div class="w-full aspect-square bg-neutral25">5</div>
+      <div class="w-full aspect-square bg-neutral26">6</div>
+      <div class="w-full aspect-square bg-background">bg</div>
+      <div class="w-full aspect-square bg-neutral21">1</div>
+      <div class="w-full aspect-square bg-neutral22">2</div>
+      <div class="w-full aspect-square bg-danger2 rounded-r-md">d</div>
+    </div>
+
+    золото
+    <div class="flex my-2 text-neutral2/0 w-full justify-between">
+      <div class="w-full aspect-square bg-primary3 rounded-l-md">p</div>
+      <div class="w-full aspect-square bg-secondary3">s</div>
+      <div class="w-full aspect-square bg-neutral33">3</div>
+      <div class="w-full aspect-square bg-neutral34">4</div>
+      <div class="w-full aspect-square bg-neutral35">5</div>
+      <div class="w-full aspect-square bg-neutral36">6</div>
+      <div class="w-full aspect-square bg-background">bg</div>
+      <div class="w-full aspect-square bg-neutral31">1</div>
+      <div class="w-full aspect-square bg-neutral32">2</div>
+      <div class="w-full aspect-square bg-danger3 rounded-r-md">d</div>
+    </div>
+
+    изумрудная
+    <div class="flex my-2 text-neutral2/0 w-full justify-between">
+      <div class="w-full aspect-square bg-primary4 rounded-l-md">p</div>
+      <div class="w-full aspect-square bg-secondary4">s</div>
+      <div class="w-full aspect-square bg-neutral43">3</div>
+      <div class="w-full aspect-square bg-neutral44">4</div>
+      <div class="w-full aspect-square bg-neutral45">5</div>
+      <div class="w-full aspect-square bg-neutral46">6</div>
+      <div class="w-full aspect-square bg-background">bg</div>
+      <div class="w-full aspect-square bg-neutral41">1</div>
+      <div class="w-full aspect-square bg-neutral42">2</div>
+      <div class="w-full aspect-square bg-danger4 rounded-r-md">d</div>
+    </div>
+
+    бордовая
+    <div class="flex my-2 text-neutral2/0 w-full justify-between">
+      <div class="w-full aspect-square bg-primary5 rounded-l-md">p</div>
+      <div class="w-full aspect-square bg-secondary5">s</div>
+      <div class="w-full aspect-square bg-neutral53">3</div>
+      <div class="w-full aspect-square bg-neutral54">4</div>
+      <div class="w-full aspect-square bg-neutral55">5</div>
+      <div class="w-full aspect-square bg-neutral56">6</div>
+      <div class="w-full aspect-square bg-background">bg</div>
+      <div class="w-full aspect-square bg-neutral51">1</div>
+      <div class="w-full aspect-square bg-neutral52">2</div>
+      <div class="w-full aspect-square bg-danger5 rounded-r-md">d</div>
+    </div>
+    <!-- <div class="my-2">
       VButton
       <div class="my-2">
         <VButton
@@ -156,6 +212,7 @@
           :title="item.title"
           :text="item.text"
           @change="showStages(item)"
+          customMark
           class="mt-2">
           <template #header="{ list }">
             <div
@@ -193,7 +250,7 @@
             customMark />
         </div>
       </div>
-      <div class="my-2 mb-[200px] w-1/2">
+      <div class="my-2 mb-[100px] w-1/2">
         VDropdown
         <VDropdown
           class="block p-2 bg-neutral5 rounded-lg mt-2"
@@ -209,7 +266,10 @@
           </template>
         </VDropdown>
       </div>
-    </div>
+      <div class="my-10 w-1/2">
+        <SharedFormCallback :settings="modalSettings" />
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -228,6 +288,8 @@ import {
   VDropdownOptions,
 } from '~/components/ui'
 
+import { SharedFormCallback } from '~/components/shared/forms'
+
 const input = ref('')
 const input2 = ref('')
 const textarea = ref('')
@@ -240,6 +302,14 @@ const desktopPadding = {
 const mobilePadding = {
   top: '8px',
   bottom: '8px',
+}
+
+const modalSettings = {
+  title: 'Заказать консультацию',
+  body: ['name', 'phone', 'email', 'message'],
+  buttonText: 'Отправить',
+  showDescription: true,
+  description: 'Мы свяжемся с вами в ближайшее время',
 }
 
 const collapseLists = [

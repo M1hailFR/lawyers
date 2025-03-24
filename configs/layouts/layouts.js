@@ -19,7 +19,7 @@ export const HEADER_DEFAULT_CONFIG = Object.freeze({
           },
           {
             text: 'Контакты',
-            link: '/',
+            link: '/contacts',
           },
         ],
       },
@@ -37,7 +37,7 @@ export const HEADER_DEFAULT_CONFIG = Object.freeze({
       },
       {
         text: 'Контакты',
-        link: '/',
+        link: '/contacts',
       },
     ],
     phone: ' + 7 555 444-33-22',
@@ -56,14 +56,47 @@ export const HEADER_DEFAULT_CONFIG = Object.freeze({
         link: '/',
       },
     ],
-    buttonText: 'Получить консультацию',
-    formSettings: {
-      title: 'Заявка на консультацию',
-      subtitle: 'Заполните форму ниже. Мы ответим вам в течение N минут',
-      buttonText: 'Отправить заявку',
-      description: `Отправляя форму, вы даете <a href="/" class="text-brand-1">согласие</a> на обработку своих персональных данных и
+    mobileMenu: {
+      payload: {
+        icon: '',
+        logo: '/images/logo.png',
+        title: 'Меню',
+        showDescription: false,
+      },
+    },
+    phoneCall: {
+      payload: {
+        icon: '',
+        title: 'Заявка на звонок',
+        subtitle:
+          'Оставьте ваши контактные данные и мы перезвоним вам в течение 15 минут',
+        buttonText: 'Заказать звонок',
+        showDescription: true,
+        body: ['name', 'phone'],
+      },
+    },
+    askQuestion: {
+      payload: {
+        icon: '',
+        title: 'Задайте вопрос',
+        subtitle:
+          'Оставьте ваши контактные данные и мы ответим на ваш вопрос в течение 15 минут',
+        buttonText: 'Задать вопрос',
+        showDescription: true,
+        body: ['name', 'phone', 'email', 'message'],
+      },
+    },
+    auth: {
+      payload: {
+        title: 'Вход в систему',
+        buttonText: 'Войти',
+        showDescription: false,
+      },
+    },
+    modalSettings: {
+      description: `Отправляя форму, вы даете <mark><a href="/">согласие</a></mark> на обработку своих персональных данных и
                     соглашаетесь с
-                    <a href="/" class="text-brand-1">политикой обработки персональных данных</a>`,
+                    <mark><a href="/">политикой обработки персональных данных</a></mark>`,
     },
   },
 })

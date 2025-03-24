@@ -18,7 +18,7 @@ const props = defineProps({
   },
   defaultClass: {
     type: String,
-    default: 'text-center text-md xl:text-xl',
+    default: 'text-center text-md xl:text-2xl',
   },
   additionalClass: {
     type: String,
