@@ -7,8 +7,7 @@
       class="v-input--floating peer"
       :placeholder="placeholder"
       @change="change"
-      @input="change"
-    />
+      @input="change" />
     <!-- v-mask -->
     <label
       class="v-input--floating-label"
@@ -85,23 +84,25 @@ const clear = () => {
 
     &:focus,
     &:hover {
-      @apply bg-opacity-70 border border-neutral4;
-      &::placeholder {
-        @apply opacity-70;
-      }
+      @apply bg-opacity-70 border border-primary;
     }
 
     &::placeholder {
       @apply opacity-0;
     }
+    &:focus {
+      &::placeholder {
+        @apply opacity-70;
+      }
+    }
   }
 
   &--clear {
-    @apply absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-150 ease-in-out hover:rotate-90;
+    @apply absolute right-1 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-150 ease-in-out hover:rotate-90;
   }
 
   &--floating-label {
-    @apply top-2 left-4 bg-neutral1 pointer-events-none absolute w-max overflow-hidden text-ellipsis;
+    @apply top-2 left-4 bg-neutral1 pointer-events-none absolute w-max overflow-hidden text-ellipsis text-neutral3;
     @apply transition-all duration-150 ease-out;
   }
 
@@ -109,7 +110,7 @@ const clear = () => {
   .peer:focus-within ~ &--floating-label,
   .peer:not(:placeholder-shown) ~ &--floating-label {
     @apply top-0 left-0 ml-2 w-fit;
-    @apply -translate-y-1/2 px-1 text-xs leading-4;
+    @apply -translate-y-1/2 px-1 text-xs leading-4 text-primary border-primary;
   }
 
   &.error {

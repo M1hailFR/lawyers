@@ -5,8 +5,7 @@
       :value="modelValue"
       :placeholder="placeholder"
       class="v-textarea--floating peer"
-      @input="change"
-    />
+      @input="change" />
     <label
       class="v-textarea--floating-label"
       :class="[error ? 'text-danger/80' : 'text-neutral2/70']"
@@ -66,27 +65,34 @@ const clear = () => {
 .v-textarea {
   @apply relative;
   textarea {
-    @apply w-full h-full resize-none cursor-pointer outline-none rounded-lg text-neutral2 pl-2 py-2 pr-5 bg-transparent border border-neutral5 appearance-none transition-[border-color,box-shadow] duration-150 ease-in-out hover:opacity-70;
-
+    @apply w-full h-full resize-none cursor-pointer outline-none rounded-lg text-neutral2 pl-4 py-2 pr-6 bg-transparent border border-neutral5 appearance-none transition-[border-color,box-shadow] duration-150 ease-in-out hover:opacity-70;
+    &::-webkit-scrollbar {
+      @apply bg-transparent w-1 rounded-lg;
+    }
+    &::-webkit-scrollbar-track {
+      @apply bg-transparent;
+    }
     &:focus,
     &:hover {
       @apply bg-opacity-70 border border-primary;
-      &::placeholder {
-        @apply opacity-70;
-      }
     }
 
     &::placeholder {
       @apply opacity-0;
     }
+    &:focus {
+      &::placeholder {
+        @apply opacity-70;
+      }
+    }
   }
 
   &--clear {
-    @apply absolute right-0 top-0 cursor-pointer transition-transform duration-150 ease-in-out hover:rotate-90;
+    @apply absolute right-1 top-1 cursor-pointer transition-transform duration-150 ease-in-out hover:rotate-90;
   }
 
   &--floating-label {
-    @apply top-2 left-2 bg-neutral1 pointer-events-none absolute w-max overflow-hidden text-ellipsis;
+    @apply top-2 left-4 bg-neutral1 pointer-events-none absolute w-max overflow-hidden text-ellipsis text-neutral3;
     @apply transition-all duration-150 ease-out;
   }
 
@@ -94,7 +100,7 @@ const clear = () => {
   .peer:focus-within ~ &--floating-label,
   .peer:not(:placeholder-shown) ~ &--floating-label {
     @apply top-0 left-0 ml-2 w-fit;
-    @apply -translate-y-1/2 px-1 text-xs leading-4;
+    @apply -translate-y-1/2 px-1 text-xs leading-4 text-primary border-primary;
   }
 
   &.error {

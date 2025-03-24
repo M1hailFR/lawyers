@@ -2,38 +2,43 @@
   <div
     class="transition-all group"
     :class="[classes, isOpen ? 'border-primary' : 'border-neutral3']"
-    v-outside="close">
-    <div @click="toggle">
-      <div class="v-collapse--header">
-        <slot
-          name="header"
-          :list="props.content" />
-      </div>
-      <transition
-        name="collapse"
-        mode="out-in"
-        @before-enter="beforeEnter"
-        @enter="enter"
-        @after-enter="afterEnter"
-        @before-leave="beforeLeave"
-        @leave="leave"
-        @after-leave="afterLeave">
-        <div
-          v-show="isOpen && hasContent"
-          class="v-collapse--content">
-          <div class="v-collapse--wrapper">
-            <slot name="content" />
-          </div>
+    v-outside="close"
+    @click="toggle">
+    <div class="v-collapse--header">
+      <slot
+        name="header"
+        :list="props.content" />
+    </div>
+    <transition
+      name="collapse"
+      mode="out-in"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @before-leave="beforeLeave"
+      @leave="leave"
+      @after-leave="afterLeave">
+      <div
+        v-show="isOpen && hasContent"
+        class="v-collapse--content">
+        <div class="v-collapse--wrapper">
+          <slot name="content" />
         </div>
-      </transition>
-      <div class="v-collapse--show text-uppercase">
-        {{ isOpen ? 'Скрыть' : 'Показать' }}
-        <v-icon
-          name="IconCross"
-          size="20"
-          class="mx-2 group-hover:rotate-[135deg]"
-          :class="isOpen ? '' : 'rotate-45'" />
       </div>
+    </transition>
+    <div
+      v-if="customMark"
+      class="v-collapse--show text-uppercase "
+      :class="isOpen ? 'pt-5' : ''">
+      {{ isOpen ? 'Скрыть' : 'Показать' }}
+      <v-icon
+        name="IconCross"
+        class="mx-2 transition-transform duration-150 ease-in-out "
+        :class="
+          isOpen
+            ? 'group-hover:rotate-[180deg]'
+            : 'rotate-45 group-hover:rotate-[135deg]'
+        " />
     </div>
   </div>
 </template>
@@ -50,6 +55,10 @@ const props = defineProps({
   content: {
     type: Array,
     default: [],
+  },
+  customMark: {
+    type: Boolean,
+    default: false,
   },
 })
 
@@ -117,7 +126,7 @@ const afterLeave = (element) => {
 .v-collapse {
   @apply border rounded-xl p-3 mb-3 box-border cursor-pointer relative;
   &--header {
-    @apply mb-2;
+    @apply mb-0;
   }
   &--icon {
     @apply ml-auto hidden md:block;
@@ -126,7 +135,7 @@ const afterLeave = (element) => {
     @apply overflow-hidden;
   }
   &--wrapper {
-    @apply max-w-[900px] pb-5;
+    @apply max-w-[96%];
   }
   &--show {
     @apply flex items-center text-neutral3;

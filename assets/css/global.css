@@ -22,6 +22,10 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
+mark {
+  @apply no-underline bg-transparent text-primary hover:underline hover:text-secondary;
+}
+
 input[type='number'] {
   -moz-appearance: textfield;
 }

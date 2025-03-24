@@ -1,20 +1,22 @@
 <template>
   <header
-    ref="vHeader"
+    ref="headerDefault"
     class="header"
-    :class="[variant, scrollSoter.isScrolling ? 'fixed shadow-md' : '']">
+    :class="[scrollSoter.isScrolling ? 'fixed shadow-md' : '']">
     <div class="header--container container transition-transform">
       <div
         v-if="!scrollSoter.isScrolling"
         class="header--top">
         <div class="flex items-center w-full gap-6">
-          <v-image
-            v-if="fields.logo"
-            :src="fields.logo"
-            cover
-            class="w-auto" />
+          <VLink :to="'/'" class="mobile-menu--header-logo">
+            <v-image
+              v-if="fields.logo"
+              :src="fields.logo"
+              cover
+              class="w-auto" />
+          </VLink>
           <v-input
-            v-model="input"
+            v-model="search"
             nativeType="text"
             clearable
             placeholder="Найти..."
@@ -25,13 +27,8 @@
           <v-button
             type="outline"
             size="small"
-            class="text-sm">
-            <v-icon name="IconTelegram" />
-          </v-button>
-          <v-button
-            type="outline"
-            size="small"
-            class="text-xs">
+            class="text-xs"
+            @click="openModal('phoneCall')">
             <div class="flex items-center gap-1 pr-2">
               <v-icon name="IconPhone" />
               <span class="text-nowrap">Заказать звонок</span>
@@ -40,7 +37,8 @@
           <v-button
             type="outline"
             size="small"
-            class="text-xs">
+            class="text-xs"
+            @click="openModal('auth')">
             <div class="flex items-center gap-1 pr-2">
               <v-icon name="IconLogin" />
               <span>Войти</span>
@@ -52,14 +50,17 @@
       <div class="header--bottom transition-transform">
         <div class="inline-flex items-center gap-6">
           <v-image
-            v-if="(fields.logo && scrollSoter.isScrolling) || scrollSoter.isMobile"
+            v-if="
+              (fields.logo && scrollSoter.isScrolling) || scrollSoter.isMobile
+            "
             :src="fields.logo"
             cover
             class="w-auto" />
           <v-button
             type="flat"
             size="small"
-            class="text-sm hidden md:block">
+            class="text-sm hidden md:block"
+            @click="openModal('askQuestion')">
             <div class="flex items-center gap-1 pr-2">
               <v-icon name="IconQuestion" />
               <span class="text-nowrap">Задать вопрос</span>
@@ -111,7 +112,8 @@
           <v-button
             type="outline"
             size="small"
-            class="text-sm block md:hidden">
+            class="text-sm block md:hidden"
+            @click="openModal('mobileMenu', 'menu')">
             <v-icon
               name="IconMenu"
               :size="scrollSoter.isMobile ? 16 : 20" />
@@ -124,6 +126,8 @@
 
 <script setup>
 import { useScroll } from '~/stores/scroll'
+import { useModal } from '~/stores/modal'
+
 import {
   VButton,
   VIcon,
@@ -133,8 +137,9 @@ import {
   VDropdown,
   VDropdownOptions,
 } from '~/components/ui'
+
 defineOptions({
-  name: 'VHeader',
+  name: 'HeaderDefault',
 })
 
 const props = defineProps({
@@ -142,18 +147,27 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
-  variant: {
-    type: String,
-    default: 'light',
-  },
   position: {
     type: String,
     default: 'static',
   },
 })
 
-const vHeader = ref(null)
+const headerDefault = ref(null)
 const scrollSoter = useScroll()
+
+const modalStore = useModal()
+
+const openModal = (type, variant) => {
+  let payload = {
+    ...props.fields[type].payload,
+    ...props.fields.modalSettings,
+  }
+  modalStore.open(type, payload, variant)
+}
+
+const search = ref('')
+
 </script>
 
 <style lang="scss" scoped>
