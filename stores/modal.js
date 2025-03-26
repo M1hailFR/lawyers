@@ -4,8 +4,10 @@ export const useModal = defineStore('modal', {
   state: () => ({
     type: null,
     variant: null,
+    question: null,
     payload: {},
   }),
+
   actions: {
     open(type, payload = {}, variant = 'default') {
       this.type = type
@@ -18,4 +20,6 @@ export const useModal = defineStore('modal', {
       this.payload = {}
     },
   },
+
+  persist: true,
 })

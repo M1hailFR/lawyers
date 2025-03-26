@@ -31,7 +31,7 @@ watch(
   () => route.name,
   async () => {
     // await appStore.pageTransition()
-    modalStore.close()
+    // modalStore.close()
   },
 )
 </script>

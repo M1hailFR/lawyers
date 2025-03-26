@@ -5,13 +5,14 @@
       type="nativeType"
       :value="modelValue"
       class="v-input--floating peer"
+      :class="`bg-${color} text-${textColor}`"
       :placeholder="placeholder"
       @change="change"
       @input="change" />
     <!-- v-mask -->
     <label
       class="v-input--floating-label"
-      :class="{ error: error }"
+      :class="[`bg-${color}`, { error: error }]"
       :for="id"
       >{{ placeholder }}
     </label>
@@ -20,6 +21,7 @@
         v-if="modelValue && clearable"
         @click="clear"
         class="v-input--clear"
+        :class="`text-${textColor}`"
         name="IconCross" />
     </transition>
   </div>
@@ -64,6 +66,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  color: {
+    type: String,
+    default: 'neutral1',
+  },
+  textColor: {
+    type: String,
+    default: 'neutral2',
+  },
 })
 
 const emit = defineEmits(['update:modelValue', 'change'])
@@ -78,13 +88,13 @@ const clear = () => {
 
 <style lang="scss" scoped>
 .v-input {
-  @apply relative;
+  @apply relative hover:opacity-70  transition-all duration-150 ease-in-out;
   input {
-    @apply w-full cursor-pointer outline-none rounded-lg text-neutral2 pl-4 py-2 pr-6 bg-transparent border border-neutral5 appearance-none transition-[border-color,box-shadow] duration-150 ease-in-out hover:opacity-70;
+    @apply w-full cursor-pointer outline-none rounded-lg pl-4 py-2 pr-6 border border-neutral5 appearance-none;
 
     &:focus,
     &:hover {
-      @apply bg-opacity-70 border border-primary;
+      @apply border-primary;
     }
 
     &::placeholder {
@@ -98,11 +108,11 @@ const clear = () => {
   }
 
   &--clear {
-    @apply absolute right-1 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-150 ease-in-out hover:rotate-90;
+    @apply absolute right-1 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-150 ease-in-out hover:rotate-90 z-20;
   }
 
   &--floating-label {
-    @apply top-2 left-4 bg-neutral1 pointer-events-none absolute w-max overflow-hidden text-ellipsis text-neutral3;
+    @apply top-1 left-2 rounded-lg px-2 py-1 pointer-events-none absolute w-max overflow-hidden text-ellipsis text-neutral3;
     @apply transition-all duration-150 ease-out;
   }
 
@@ -110,7 +120,7 @@ const clear = () => {
   .peer:focus-within ~ &--floating-label,
   .peer:not(:placeholder-shown) ~ &--floating-label {
     @apply top-0 left-0 ml-2 w-fit;
-    @apply -translate-y-1/2 px-1 text-xs leading-4 text-primary border-primary;
+    @apply -translate-y-1/2 px-2 text-xs leading-4 border-primary;
   }
 
   &.error {
@@ -119,6 +129,9 @@ const clear = () => {
       &::placeholder {
         @apply text-danger;
       }
+    }
+    label {
+      @apply text-danger;
     }
   }
 }

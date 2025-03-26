@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="">index page</div>
+    <div class="">questions page</div>
   </div>
 </template>
 

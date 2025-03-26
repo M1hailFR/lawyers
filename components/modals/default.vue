@@ -59,11 +59,6 @@ const setSentStatus = (value) => {
     console.log('success')
   }
 }
-
-// watch(
-//   () => route.name,
-//   () => close(),
-// )
 </script>
 
 <style lang="scss" scoped>

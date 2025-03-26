@@ -1,5 +1,11 @@
 <template>
   <div class="container">
-    <div class="mt-10">contacts page</div>
+    <div class="">contacts page</div>
   </div>
 </template>
+
+<script setup>
+import { VVerticalPadding } from '~/components/ui'
+
+
+</script>

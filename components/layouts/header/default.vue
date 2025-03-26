@@ -2,13 +2,13 @@
   <header
     ref="headerDefault"
     class="header"
-    :class="[scrollSoter.isScrolling ? 'fixed shadow-md' : '']">
+    :class="[scrollStore.isScrolling ? 'fixed shadow-md' : '']">
     <div class="header--container container transition-transform">
       <div
-        v-if="!scrollSoter.isScrolling"
+        v-if="!scrollStore.isScrolling"
         class="header--top">
         <div class="flex items-center w-full gap-6">
-          <VLink :to="'/'" class="mobile-menu--header-logo">
+          <VLink :to="'/'">
             <v-image
               v-if="fields.logo"
               :src="fields.logo"
@@ -49,25 +49,27 @@
 
       <div class="header--bottom transition-transform">
         <div class="inline-flex items-center gap-6">
-          <v-image
+          <VLink
+            :to="'/'"
             v-if="
-              (fields.logo && scrollSoter.isScrolling) || scrollSoter.isMobile
-            "
-            :src="fields.logo"
-            cover
-            class="w-auto" />
+              (fields.logo && scrollStore.isScrolling) || scrollStore.isMobile
+            ">
+            <v-image
+              :src="fields.logo"
+              cover
+              class="w-auto h-6 sm:h-full" />
+          </VLink>
+
           <v-button
             type="flat"
             size="small"
-            class="text-sm hidden md:block"
+            class="text-sm hidden md:flex items-center gap-1"
             @click="openModal('askQuestion')">
-            <div class="flex items-center gap-1 pr-2">
-              <v-icon name="IconQuestion" />
-              <span class="text-nowrap">Задать вопрос</span>
-            </div>
+            <v-icon name="IconQuestion" />
+            <div class="text-nowrap pr-2">Задать вопрос</div>
           </v-button>
         </div>
-        <div class="hidden md:flex flex-1">
+        <div class="hidden md:flex flex-1 ml-5 mt-1">
           <nav class="flex gap-3 lg:gap-5 items-center text-base">
             <li
               v-for="(item, idx) of fields.menu"
@@ -103,10 +105,11 @@
               :key="idx"
               :link="item.link"
               type="flat"
+              target="_blank"
               class="h-full p-2">
               <v-icon
                 :name="`Icon${item.name}`"
-                :size="scrollSoter.isMobile ? 16 : 20" />
+                :size="scrollStore.isMobile ? 16 : 20" />
             </VLink>
           </div>
           <v-button
@@ -116,7 +119,7 @@
             @click="openModal('mobileMenu', 'menu')">
             <v-icon
               name="IconMenu"
-              :size="scrollSoter.isMobile ? 16 : 20" />
+              :size="scrollStore.isMobile ? 16 : 20" />
           </v-button>
         </div>
       </div>
@@ -154,7 +157,7 @@ const props = defineProps({
 })
 
 const headerDefault = ref(null)
-const scrollSoter = useScroll()
+const scrollStore = useScroll()
 
 const modalStore = useModal()
 
@@ -167,7 +170,6 @@ const openModal = (type, variant) => {
 }
 
 const search = ref('')
-
 </script>
 
 <style lang="scss" scoped>

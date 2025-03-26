@@ -31,56 +31,12 @@ module.exports = {
       neutral4: '#A1A1AA',
       neutral5: '#E4E4E7',
       neutral6: '#FAFAFA',
-      primary: '#00DC82',
-      secondary: '#00BD70',
+      primary: '#115b82',
+      secondary: '#1675a8',
       danger: '#EF4444',
       background: "#fff",
       transparent: 'transparent',
       none: 'none',
-
-      // Современная синяя
-      neutral21: '#FFFFFF',
-      neutral22: '#1A1A1A',
-      neutral23: '#4A5568',
-      neutral24: '#718096',
-      neutral25: '#E2E8F0',
-      neutral26: '#F7FAFC',
-      primary2: '#2563EB',    // Яркий синий
-      secondary2: '#1D4ED8',  // Насыщенный синий
-      danger2: '#DC2626',
-
-      // Золотая премиум
-      neutral31: '#FFFFFF',
-      neutral32: '#2D3748',
-      neutral33: '#4A5568',
-      neutral34: '#718096',
-      neutral35: '#EDF2F7',
-      neutral36: '#F7FAFC',
-      primary3: '#D97706',    // Яркое золото
-      secondary3: '#B45309',  // Насыщенный оранжевый
-      danger3: '#DC2626',
-
-      // Изумрудная
-      neutral41: '#FFFFFF',
-      neutral42: '#1A202C',
-      neutral43: '#4A5568',
-      neutral44: '#718096',
-      neutral45: '#E2E8F0',
-      neutral46: '#F7FAFC',
-      primary4: '#059669',    // Яркий изумрудный
-      secondary4: '#047857',  // Насыщенный зеленый
-      danger4: '#DC2626',
-
-      // Бордовая люкс
-      neutral51: '#FFFFFF',
-      neutral52: '#1A202C',
-      neutral53: '#4A5568',
-      neutral54: '#718096',
-      neutral55: '#E2E8F0',
-      neutral56: '#F7FAFC',
-      primary5: '#BE185D',    // Яркий бордовый
-      secondary5: '#9D174D',  // Насыщенный бордовый
-      danger5: '#DC2626',
     },
     backgroundImage: {
       'gradient-1': 'linear-gradient(45deg, #2A3B4D 0%, rgba(0,59,47) 100%);',

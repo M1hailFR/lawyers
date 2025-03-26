@@ -12,42 +12,88 @@
 
     <div class="callback--body">
       <form
-        class="callback--actions mt-6 mt-md-8 flex flex-col text-sm gap-4"
+        class="callback--actions mt-6 mt-md-8"
         @submit.prevent="onSendForm">
-        <v-input
-          v-if="settings.body.includes('name')"
-          v-model="form.name"
-          clearable
-          placeholder="Имя" />
-        <v-input
-          v-if="settings.body.includes('phone')"
-          v-model="form.phone"
-          clearable
-          placeholder="Телефон" />
-        <v-input
-          v-if="settings.body.includes('email')"
-          v-model="form.email"
-          clearable
-          placeholder="Email" />
-        <v-textarea
-          v-if="settings.body.includes('message')"
-          v-model="form.message"
-          clearable
-          placeholder="Сообщение"
-          class="h-24" />
-        <v-button
-          v-if="settings && settings.buttonText"
-          type="flat"
-          native-type="submit"
-          :disabled="!isValidForm"
-          size="small">
-          {{ settings.buttonText }}
-        </v-button>
+        <div
+          v-if="isModal"
+          class="flex flex-col text-sm gap-4">
+          <v-input
+            v-if="settings.body.includes('name')"
+            v-model="form.name"
+            clearable
+            placeholder="Имя" />
+          <v-input
+            v-if="settings.body.includes('phone')"
+            v-model="form.phone"
+            clearable
+            placeholder="Номер телефона" />
+          <v-input
+            v-if="settings.body.includes('email')"
+            v-model="form.email"
+            clearable
+            placeholder="Email" />
+          <v-textarea
+            v-if="settings.body.includes('message')"
+            v-model="form.message"
+            clearable
+            placeholder="Ваш вопрос..."
+            class="h-24" />
+        </div>
+        <div
+          v-else
+          class="flex flex-col text-base gap-5">
+          <div class="flex flex-col gap-4">
+            <span class="text-base font-medium">
+              Вопрос который Вас интересует
+            </span>
+            <v-textarea
+              v-if="settings.body.includes('message')"
+              v-model="message"
+              clearable
+              placeholder="Ваш вопрос..."
+              class="h-32" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex flex-col gap-3">
+              <span class="text-base font-medium"> Как к вам обращаться </span>
+              <v-input
+                v-if="settings.body.includes('name')"
+                v-model="form.name"
+                clearable
+                placeholder="Имя" />
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <span class="text-base font-medium"> Ваш телефон </span>
+              <v-input
+                v-if="settings.body.includes('phone')"
+                v-model="form.phone"
+                clearable
+                placeholder="Номер телефона" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex gap-x-4 mt-4"
+          :class="isModal ? 'flex-col' : 'flex-row items-center'">
+          <VButton
+            v-if="settings && settings.buttonText"
+            native-type="submit"
+            class="text-nowrap"
+            type="flat"
+            :disabled="!isValidForm"
+            :size="isModal ? 'small' : 'middle'">
+            {{ settings.buttonText }}
+          </VButton>
+          <!-- :type="isBackground ? 'flat' : 'flat'" -->
+          <VTitle
+            v-if="settings.showDescription"
+            :title="settings.description"
+            defaultClass="callback--body-description text-xs leading-4"
+            :class="isModal ? 'text-center mt-4' : 'max-w-[500px]'" />
+        </div>
       </form>
-      <VTitle
-        v-if="settings.showDescription"
-        :title="settings.description"
-        defaultClass="callback--body-description text-xs leading-4 mt-4 text-center" />
     </div>
   </div>
 </template>
@@ -70,6 +116,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  isBackground: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const emit = defineEmits(['send-form'])
@@ -79,6 +129,14 @@ const form = ref({
   phone: '',
   email: '',
   message: '',
+})
+
+const message = computed({
+  get: () => form.value.message,
+  set: (value) => {
+    form.value.message = value
+    modalStore.question = value
+  },
 })
 
 const modalStore = useModal()
@@ -119,4 +177,8 @@ const onSendForm = async () => {
     setTimeout(() => modalStore.close(), 2000)
   }
 }
+
+onMounted(() => {
+  form.value.message = modalStore.question || ''
+})
 </script>

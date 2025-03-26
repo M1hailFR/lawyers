@@ -38,22 +38,21 @@ const { classes } = setBasicUiProps(props, 'v-button')
 
 <style lang="scss" scoped>
 .v-button {
-  @apply font-semibold transition-colors duration-150 rounded-lg text-neutral2;
+  @apply font-semibold transition-all duration-150 rounded-lg text-neutral2;
   &.type {
     &-flat {
-      @apply bg-primary text-neutral1 hover:text-neutral2;
+      @apply bg-primary text-neutral1 hover:bg-secondary;
     }
     &-outline {
-      @apply border-neutral5 border;
+      @apply border-neutral5 border hover:text-neutral1 hover:bg-secondary;
     }
     &-default {
-      @apply bg-neutral6;
+      @apply bg-neutral1 hover:bg-neutral1;
     }
     &-flat,
-    &-outline,
-    &-default {
+    &-outline {
       &:hover {
-        @apply bg-opacity-70 bg-secondary;
+        @apply bg-opacity-70;
       }
     }
   }
@@ -65,8 +64,11 @@ const { classes } = setBasicUiProps(props, 'v-button')
       @apply py-3 px-4;
     }
     &-middle {
-      @apply px-7 py-4;
+      @apply px-6 py-3;
     }
+  }
+  &.state-disabled {
+    @apply opacity-50;
   }
 }
 </style>
