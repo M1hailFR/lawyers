@@ -6,13 +6,13 @@
     :target="target">
     <slot />
   </a>
-  <router-link
+  <nuxt-link
     v-else
     :class="[classes, essence]"
     :to="{ path: link, hash: hash }"
     :active-class="activeClass">
     <slot />
-  </router-link>
+  </nuxt-link>
 </template>
 
 <script setup>
@@ -57,10 +57,13 @@ const { classes } = setBasicUiProps(props, 'v-link')
 
   &.type {
     &-flat {
-      @apply bg-primary hover:text-neutral1;
+      @apply text-neutral1 bg-primary hover:text-neutral1;
     }
     &-outline {
-      @apply border-neutral5 border;
+      @apply border-neutral5 border hover:border-primary;
+    }
+    &-default {
+      @apply hover:text-primary;
     }
     &-flat,
     &-outline,

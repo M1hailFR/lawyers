@@ -99,8 +99,7 @@ const toggle = () => {
   }
 }
 .sub-level {
-  // left-1/2 -translate-x-1/2
-  @apply absolute w-max p-1 top-6 invisible opacity-0 transition-all rounded-lg text-neutral2;
+  @apply absolute w-max p-2 left-1/2 -translate-x-1/2 top-6 invisible opacity-0 transition-all rounded-lg text-neutral2 bg-background shadow-sm;
   &::after {
     content: '';
     @apply absolute left-0  w-full h-full bg-transparent z-[-1];

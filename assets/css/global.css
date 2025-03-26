@@ -26,6 +26,14 @@ mark {
   @apply no-underline bg-transparent text-primary hover:underline hover:text-secondary;
 }
 
+.title {
+  @apply text-left font-medium text-2xl xl:text-4xl mb-4;
+}
+
+.subtitle {
+  @apply text-left font-medium text-base xl:text-lg mb-4;
+}
+
 input[type='number'] {
   -moz-appearance: textfield;
 }

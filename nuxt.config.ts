@@ -1,8 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
+  ],
+  plugins: [
+    '~/plugins/pinia-persist.js'
+  ],
   pinia: {
-    autoImports: ['defineStore'],
+    // @ts-ignore
+    autoImports: ['defineStore', 'storeToRefs'],
   },
   app: {
     rootId: '__lawyers-app',
@@ -34,7 +42,7 @@ export default defineNuxtConfig({
         UserAgent: '*',
         Disallow: [],
       },
-    }
+    },
   },
   imports: {
     dirs: ['composables/**', 'stores/**'],
@@ -52,5 +60,5 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: true }
+  devtools: { enabled: true },
 })
