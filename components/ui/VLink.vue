@@ -1,14 +1,14 @@
 <template>
   <a
     v-if="isExternalUrl(link) || anchor"
-    :class="[classes, essence]"
+    :class="[classes, essence, `text-${color}`]"
     :href="link"
     :target="target">
     <slot />
   </a>
   <nuxt-link
     v-else
-    :class="[classes, essence]"
+    :class="[classes, essence, `text-${color}`]"
     :to="{ path: link, hash: hash }"
     :active-class="activeClass">
     <slot />
@@ -47,23 +47,31 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  color: {
+    type: String,
+    default: '',
+  },
 })
+
 const { classes } = setBasicUiProps(props, 'v-link')
 </script>
 
 <style lang="scss" scoped>
 .v-link {
-  @apply  transition-all duration-150 rounded-lg hover:text-primary flex items-center w-max ;
+  @apply  transition-all duration-150 rounded-lg flex items-center w-max ;
 
   &.type {
     &-flat {
       @apply text-neutral1 bg-primary hover:text-neutral1;
     }
+    &-secondary {
+      @apply hover:text-primary hover:translate-x-1;
+    }
     &-outline {
       @apply border-neutral5 border hover:border-primary;
     }
     &-default {
-      @apply hover:text-primary;
+      @apply hover:text-opacity-70;
     }
     &-flat,
     &-outline,

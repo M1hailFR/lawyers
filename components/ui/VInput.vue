@@ -112,7 +112,7 @@ const clear = () => {
   }
 
   &--floating-label {
-    @apply top-1 left-2 rounded-lg px-2 py-1 pointer-events-none absolute w-max overflow-hidden text-ellipsis text-neutral3;
+    @apply top-1 left-2 rounded-lg px-2 py-1 mt-[2px] pointer-events-none absolute w-max overflow-hidden text-ellipsis text-neutral3;
     @apply transition-all duration-150 ease-out;
   }
 
@@ -120,7 +120,7 @@ const clear = () => {
   .peer:focus-within ~ &--floating-label,
   .peer:not(:placeholder-shown) ~ &--floating-label {
     @apply top-0 left-0 ml-2 w-fit;
-    @apply -translate-y-1/2 px-2 text-xs leading-4 border-primary;
+    @apply -translate-y-1/2 px-2 py-0 mt-0 text-xs leading-4 border-primary;
   }
 
   &.error {

@@ -1,4 +1,17 @@
 <template>
+  <div>
+    companents page
+  </div>
+</template>
+
+<script setup>
+
+</script>
+
+<style lang="scss" scoped>
+
+</style>
+<!-- <template>
   <div class="container">
     <div class="">companents page</div>
     <div class="my-2">
@@ -452,4 +465,4 @@ const dropdownList = [
 ]
 </script>
 
-<style></style>
+<style></style> -->

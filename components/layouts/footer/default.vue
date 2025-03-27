@@ -76,40 +76,17 @@
                     v-for="(child, idx) in item.childs"
                     :key="idx"
                     :link="child.link"
-                    class="text-neutral3 text-sm mb-1">
+                    type="secondary"
+                    color="neutral3"
+                    class=" text-sm mb-1">
                     {{ child.text }}
                   </VLink>
                 </div>
               </li>
             </nav>
-            <div class="w-full h-full flex flex-col">
-              <VTitle
-                tag="h3"
-                :title="fields.consultation"
-                defaultClass="text-base font-medium sm:text-right mr-8 sm:mr-0">
-              </VTitle>
-              <VTextarea
-                v-model="modalStore.question"
-                clearable
-                placeholder="Ваш вопрос..."
-                class="text-sm leading-4 h-24 my-3" />
-              <div class="flex gap-2 w-full sm:justify-end">
-                <VButton
-                  type="flat"
-                  size="middle"
-                  class="text-xs md:text-sm leading-4 w-full sm:w-auto"
-                  @click="redirectTo()">
-                  {{ fields.buttonAskQuestion }}
-                </VButton>
-                <VButton
-                  type="outline"
-                  size="middle"
-                  class="text-xs md:text-sm leading-4 w-full sm:w-auto"
-                  @click="openModal('phoneCall')">
-                  {{ fields.buttonOrderCall }}
-                </VButton>
-              </div>
-            </div>
+            <BlockFormPrompt
+              :fields="fields.promptFormSettings"
+              isCompact />
           </div>
 
           <VTitle
@@ -125,19 +102,9 @@
 
 <script setup>
 import { useScroll } from '~/stores/scroll'
-import { useModal } from '~/stores/modal'
+import { BlockFormPrompt } from '~/components/blocks'
 
-import {
-  VButton,
-  VIcon,
-  VImage,
-  VInput,
-  VLink,
-  VDropdown,
-  VDropdownOptions,
-  VTitle,
-  VTextarea,
-} from '~/components/ui'
+import { VIcon, VImage, VLink, VTitle } from '~/components/ui'
 
 defineOptions({
   name: 'HeaderDefault',
@@ -155,22 +122,7 @@ const props = defineProps({
 })
 
 const footerDefault = ref(null)
-
-const router = useRouter()
-const modalStore = useModal()
 const scrollStore = useScroll()
-
-const openModal = (type, variant) => {
-  let payload = {
-    ...props.fields[type].payload,
-    ...props.fields.modalSettings,
-  }
-  modalStore.open(type, payload, variant)
-}
-
-const redirectTo = () => {
-  router.push('/questions/create')
-}
 </script>
 
 <style lang="scss" scoped>

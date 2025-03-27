@@ -8,7 +8,7 @@
         v-if="!scrollStore.isScrolling"
         class="header--top">
         <div class="flex items-center w-full gap-6">
-          <VLink :to="'/'">
+          <VLink :link="'/'">
             <v-image
               v-if="fields.logo"
               :src="fields.logo"
@@ -50,7 +50,7 @@
       <div class="header--bottom transition-transform">
         <div class="inline-flex items-center gap-6">
           <VLink
-            :to="'/'"
+            :link="'/'"
             v-if="
               (fields.logo && scrollStore.isScrolling) || scrollStore.isMobile
             ">
@@ -77,22 +77,30 @@
               class="list-none">
               <VDropdown
                 v-if="item?.childs?.length"
-                class=""
+                class="hover:translate-x-1"
                 icon="">
-                <div>{{ item.text }}</div>
+                <div class="h-[20px]">{{ item.text }}</div>
 
                 <template #options>
                   <VDropdownOptions
                     v-for="(item, idx) in item.childs"
                     :key="idx"
                     class="text-sm">
-                    <v-link :link="item.link">{{ item.text }}</v-link>
+                    <v-link
+                      :link="item.link"
+                      type="secondary"
+                      color="neutral3"
+
+                      >{{ item.text }}</v-link
+                    >
                   </VDropdownOptions>
                 </template>
               </VDropdown>
               <v-link
                 v-else
                 :link="item.link"
+                type="secondary"
+                class=""
                 >{{ item.text }}</v-link
               >
             </li>

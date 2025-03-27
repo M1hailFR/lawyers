@@ -1,14 +1,19 @@
 <template>
-  <div class="callback flex flex-col gap-4 items-center justify-center">
+  <div class="callback flex flex-col" :class="`text-${color}`, isModal ? 'items-center justify-center gap-4' : ''">
     <VTitle
       v-if="settings && settings.title"
       :title="settings.title"
-      additionalClass="font-semibold text-center" />
+      :defaultClass="isModal ? 'title' : 'title '" />
 
     <VTitle
       v-if="settings && settings.subtitle"
       :title="settings.subtitle"
-      defaultClass="text-sm xl:text-lg font-medium text-center" />
+      :class="`text-${color}`"
+      :defaultClass="
+        isModal
+          ? 'text-sm xl:text-lg text-opacity-50 font-medium text-center '
+          : 'subtitle text-opacity-70'
+      " />
 
     <div class="callback--body">
       <form
@@ -42,30 +47,42 @@
         <div
           v-else
           class="flex flex-col text-base gap-5">
-          <div class="flex flex-col gap-4">
-            <span class="text-base font-medium">
+          <div
+            class="flex flex-col gap-4"
+            v-if="settings.body.includes('message')">
+            <span
+              v-if="settings.showLabel"
+              class="text-base font-medium">
               Вопрос который Вас интересует
             </span>
             <v-textarea
-              v-if="settings.body.includes('message')"
               v-model="message"
               clearable
               placeholder="Ваш вопрос..."
-              class="h-32" />
+              class="h-40" />
           </div>
 
-          <div class="grid grid-cols-2 gap-3">
-            <div class="flex flex-col gap-3">
-              <span class="text-base font-medium"> Как к вам обращаться </span>
+          <div class="grid lg:grid-cols-2 gap-3">
+            <div
+              class="flex flex-col gap-3"
+              v-if="settings.body.includes('name')">
+              <span
+                v-if="settings.showLabel"
+                class="text-base font-medium">
+                Как к Вам обращаться
+              </span>
               <v-input
-                v-if="settings.body.includes('name')"
                 v-model="form.name"
                 clearable
                 placeholder="Имя" />
             </div>
 
             <div class="flex flex-col gap-3">
-              <span class="text-base font-medium"> Ваш телефон </span>
+              <span
+                v-if="settings.showLabel"
+                class="text-base font-medium">
+                Ваш телефон
+              </span>
               <v-input
                 v-if="settings.body.includes('phone')"
                 v-model="form.phone"
@@ -76,12 +93,14 @@
         </div>
         <div
           class="flex gap-x-4 mt-4"
-          :class="isModal ? 'flex-col' : 'flex-row items-center'">
+          :class="
+            isModal ? 'flex-col' : 'flex-col md:flex-row md:items-center'
+          ">
           <VButton
             v-if="settings && settings.buttonText"
             native-type="submit"
             class="text-nowrap"
-            type="flat"
+            :type="isBackground ? 'default' : 'flat'"
             :disabled="!isValidForm"
             :size="isModal ? 'small' : 'middle'">
             {{ settings.buttonText }}
@@ -91,7 +110,9 @@
             v-if="settings.showDescription"
             :title="settings.description"
             defaultClass="callback--body-description text-xs leading-4"
-            :class="isModal ? 'text-center mt-4' : 'max-w-[500px]'" />
+            :class="
+              isModal ? 'text-center mt-4' : 'max-w-[500px] mt-4 md:mt-0'
+            " />
         </div>
       </form>
     </div>
@@ -119,6 +140,10 @@ const props = defineProps({
   isBackground: {
     type: Boolean,
     default: false,
+  },
+  color: {
+    type: String,
+    default: 'neutral2',
   },
 })
 
@@ -178,7 +203,11 @@ const onSendForm = async () => {
   }
 }
 
-onMounted(() => {
-  form.value.message = modalStore.question || ''
-})
+watch(
+  () => modalStore.question,
+  (value) => {
+    form.value.message = value || ''
+  },
+  { immediate: true },
+)
 </script>
