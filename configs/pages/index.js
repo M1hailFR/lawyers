@@ -1,4 +1,4 @@
-import { GLOBAL_CONFIG } from '../../global'
+import { GLOBAL_CONFIG } from '~/configs/global'
 
 export const MAIN_FORM_CONFIG = Object.freeze({
   desktopPadding: {

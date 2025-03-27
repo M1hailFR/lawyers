@@ -1,4 +1,5 @@
-import { GLOBAL_CONFIG } from '../global'
+import { GLOBAL_CONFIG } from '~/configs/global'
+
 export const HEADER_DEFAULT_CONFIG = Object.freeze({
   block_fields: {
     logo: GLOBAL_CONFIG.logo,

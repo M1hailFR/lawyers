@@ -1,4 +1,4 @@
-import { GLOBAL_CONFIG } from '../../global'
+import { GLOBAL_CONFIG } from '~/configs/global'
 
 export const QUESTIONS_CREATE_CONFIG = Object.freeze({
   desktopPadding: {
