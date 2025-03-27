@@ -2,13 +2,13 @@
   <LoaderDefault
     :loading="appStore.loading"
     classes="h-dvh w-full">
-    <NuxtLayout>
-      <transition
-        name="fade"
-        mode="in-out">
-        <NuxtPage v-if="appStore.isShow" />
-      </transition>
-    </NuxtLayout>
+    <transition
+      name="fade"
+      mode="in-out">
+      <NuxtLayout v-if="appStore.isShow">
+        <NuxtPage />
+      </NuxtLayout>
+    </transition>
   </LoaderDefault>
 </template>
 
@@ -30,7 +30,7 @@ onMounted(() => {
 watch(
   () => route.name,
   async () => {
-    // await appStore.pageTransition()
+    await appStore.pageTransition()
     modalStore.close()
   },
 )

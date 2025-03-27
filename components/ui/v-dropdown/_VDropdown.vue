@@ -86,7 +86,7 @@ const toggle = () => {
 .v-dropdown {
   @apply relative;
   &-content {
-    @apply flex items-center w-full;
+    @apply flex items-center w-full h-full;
   }
   &:hover {
     @apply text-secondary visible drop-shadow-sm;
@@ -102,7 +102,7 @@ const toggle = () => {
   @apply absolute w-max p-2 left-1/2 -translate-x-1/2 top-6 invisible opacity-0 transition-all rounded-lg text-neutral2 bg-background shadow-sm;
   &::after {
     content: '';
-    @apply absolute left-0  w-full h-full bg-transparent z-[-1];
+    @apply absolute left-0 -top-10 w-full h-full bg-transparent z-[-1];
   }
 
   &.light {
