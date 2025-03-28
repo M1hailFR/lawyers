@@ -41,7 +41,7 @@ mark {
 }
 
 .subtitle {
-  @apply text-left font-medium text-base xl:text-lg xl:mb-4;
+  @apply text-left font-medium text-base xl:text-lg leading-5;
 }
 
 input[type='number'] {

@@ -3,13 +3,13 @@
     <template v-for="(item, idx) in list">
       <li
         v-if="divider && idx"
-        class="h-[1px] bg-neutral3 my-3" />
+        class="h-[1px] bg-neutral2/20 my-3" />
       <li class="v-list--item flex items-center">
         <component
           :is="getComponent(item)"
           :link="item.link"
           target="_target"
-          class="flex items-center gap-3">
+          class="flex items-start gap-3">
           <v-icon
             v-if="customMark"
             :name="item.icon || defaultCustomIcon"
@@ -18,18 +18,18 @@
 
           <span
             v-if="!customMark"
-            class="w-1 h-1 min-w-1 rounded-full"
+            class="w-[20px] h-[20px] min-w-[20px] rounded-full bg-neutral2/20 border-4 border-neutral1"
             :class="`bg-${textColor}`" />
 
           <span class="d-flex flex-column">
             <span
               v-if="item.title"
-              class="block text-base text-neutral2">
+              class="block text-lg mb-2 text-neutral2 leading-6">
               {{ item.title }}
             </span>
             <span
               v-if="item.text"
-              class="text-sm"
+              class="text-base leading-6"
               :class="`text-${textColor}`">
               {{ item.text }}
             </span>
