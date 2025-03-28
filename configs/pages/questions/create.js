@@ -18,7 +18,7 @@ export const QUESTIONS_CREATE_CONFIG = Object.freeze({
       showDescription: true,
       showLabel: true,
       body: ['name', 'phone', 'message'],
-      description: GLOBAL_CONFIG.formDescriptionPrimary,
+      description: GLOBAL_CONFIG.formDescriptionSecondary,
     },
   },
 })

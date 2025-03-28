@@ -8,20 +8,21 @@
           class="container flex flex-wrap items-center justify-between gap-4 w-full">
           <VLink
             :to="'/'"
-            class="footer--logo w-full">
+            class="footer--logo">
             <v-image
               v-if="fields.logo"
               :src="fields.logo"
               cover
               class="w-auto" />
           </VLink>
-          <div class="flex gap-x-4 md:gap-10 flex-wrap">
+          <div class="flex gap-x-10 md:gap-10 flex-wrap justify-between">
             <VLink
               v-for="(item, idx) in fields.contacts"
               :key="idx"
               :link="item.link"
               :target="item.link.startsWith('http') ? '_blank' : '_self'"
-              class="flex items-center gap-3">
+              class="flex items-center gap-3"
+              type="secondary">
               <v-icon
                 :name="item.icon"
                 class="bg-neutral5 rounded-full p-2" />
@@ -78,7 +79,7 @@
                     :link="child.link"
                     type="secondary"
                     color="neutral3"
-                    class=" text-sm mb-1">
+                    class=" text-sm mb-1 hover:translate-x-1">
                     {{ child.text }}
                   </VLink>
                 </div>

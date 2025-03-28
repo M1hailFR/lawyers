@@ -77,7 +77,6 @@
               class="list-none">
               <VDropdown
                 v-if="item?.childs?.length"
-                class="hover:translate-x-1"
                 icon="">
                 <div class="h-[20px]">{{ item.text }}</div>
 
@@ -90,7 +89,7 @@
                       :link="item.link"
                       type="secondary"
                       color="neutral3"
-
+                      class="hover:translate-x-1"
                       >{{ item.text }}</v-link
                     >
                   </VDropdownOptions>

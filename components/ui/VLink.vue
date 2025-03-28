@@ -58,14 +58,14 @@ const { classes } = setBasicUiProps(props, 'v-link')
 
 <style lang="scss" scoped>
 .v-link {
-  @apply  transition-all duration-150 rounded-lg flex items-center w-max ;
+  @apply transition-all duration-150 rounded-lg flex items-center;
 
   &.type {
     &-flat {
       @apply text-neutral1 bg-primary hover:text-neutral1;
     }
     &-secondary {
-      @apply hover:text-primary hover:translate-x-1;
+      @apply hover:text-primary ;
     }
     &-outline {
       @apply border-neutral5 border hover:border-primary;

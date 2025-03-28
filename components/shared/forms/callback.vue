@@ -1,5 +1,5 @@
 <template>
-  <div class="callback flex flex-col" :class="`text-${color}`, isModal ? 'items-center justify-center gap-4' : ''">
+  <div class="callback flex flex-col" :class="`text-${color}`, isModal ? 'items-center justify-center gap-x-4' : ''">
     <VTitle
       v-if="settings && settings.title"
       :title="settings.title"
