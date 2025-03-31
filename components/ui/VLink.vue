@@ -58,7 +58,7 @@ const { classes } = setBasicUiProps(props, 'v-link')
 
 <style lang="scss" scoped>
 .v-link {
-  @apply transition-all duration-150 rounded-lg flex items-center;
+  @apply transition-all duration-150 rounded-xl flex items-center;
 
   &.type {
     &-flat {

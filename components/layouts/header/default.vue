@@ -27,7 +27,7 @@
           <v-button
             type="outline"
             size="small"
-            class="text-xs"
+            textSize="text-xs"
             @click="openModal('phoneCall')">
             <div class="flex items-center gap-1 pr-2">
               <v-icon name="IconPhone" />
@@ -37,7 +37,7 @@
           <v-button
             type="outline"
             size="small"
-            class="text-xs"
+            textSize="text-xs"
             @click="openModal('auth')">
             <div class="flex items-center gap-1 pr-2">
               <v-icon name="IconLogin" />
@@ -63,22 +63,21 @@
           <v-button
             type="flat"
             size="small"
-            class="text-sm hidden md:flex items-center gap-1"
+            class="hidden md:flex items-center gap-1"
+            textSize="text-xs"
             @click="openModal('askQuestion')">
             <v-icon name="IconQuestion" />
             <div class="text-nowrap pr-2">Задать вопрос</div>
           </v-button>
         </div>
-        <div class="hidden md:flex flex-1 ml-5 mt-1">
-          <nav class="flex gap-3 lg:gap-5 items-center text-base">
+        <div class="hidden md:flex flex-1 mt-1">
+          <nav class="flex gap-3 xl:gap-5 items-center text-sm xl:text-base">
             <li
               v-for="(item, idx) of fields.menu"
               :key="idx"
               class="list-none">
-              <VDropdown
-                v-if="item?.childs?.length"
-                icon="">
-                <div class="h-[20px]">{{ item.text }}</div>
+              <VDropdown v-if="item?.childs?.length" icon="null">
+                <div class="">{{ item.text }}</div>
 
                 <template #options>
                   <VDropdownOptions
@@ -106,7 +105,7 @@
           </nav>
         </div>
         <div class="flex gap-2 items-center justify-end">
-          <div class="hidden sm:flex gap-2 items-center">
+          <div class="hidden lg:flex gap-2 items-center">
             <VLink
               v-for="(item, idx) in fields.socials"
               :key="idx"
@@ -122,7 +121,7 @@
           <v-button
             type="outline"
             size="small"
-            class="text-sm block md:hidden"
+            class="block md:hidden"
             @click="openModal('mobileMenu', 'menu')">
             <v-icon
               name="IconMenu"

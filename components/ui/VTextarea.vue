@@ -73,7 +73,7 @@ const clear = () => {
 
 <style lang="scss" scoped>
 .v-textarea {
-  @apply relative hover:opacity-70 transition-all duration-150 ease-in-out;
+  @apply relative hover:opacity-90 transition-all duration-300 ease-in-out;
   textarea {
     @apply w-full h-full resize-none cursor-pointer outline-none rounded-lg pl-4 py-2 pr-6  border border-neutral5 appearance-none;
     &::-webkit-scrollbar {

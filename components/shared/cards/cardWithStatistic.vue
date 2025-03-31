@@ -1,7 +1,7 @@
 <template>
   <component
     :is="getComponent"
-    class="card p-2 sm:p-3 w-full sm:w-auto"
+    class="card px-2 py-3 sm:p-3 w-full sm:w-auto"
     :class="`card--${item.variant}`"
     :link="item.link"
     :type="item.variant"

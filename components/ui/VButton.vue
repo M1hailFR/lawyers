@@ -1,10 +1,11 @@
 <template>
   <button
     :type="nativeType"
-    :class="[classes, disabled ? 'opacity-50 z-[-1]' : '']"
+    :class="[classes, disabled ? 'opacity-50 z-[-1]' : '', `${textSize}`]"
     :disabled="disabled"
     @click="emit('click')">
     <slot />
+
   </button>
 </template>
 
@@ -30,6 +31,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  textSize: {
+    type: String,
+    default: 'text-sm md:text-base',
+  },
 })
 
 const emit = defineEmits(['click'])
@@ -44,7 +49,7 @@ const { classes } = setBasicUiProps(props, 'v-button')
       @apply bg-primary text-neutral1 hover:bg-secondary;
     }
     &-outline {
-      @apply border-neutral5 border hover:text-neutral1 hover:bg-secondary;
+      @apply border-neutral5 border hover:text-neutral1 hover:bg-secondary hover:border-secondary/90;
     }
     &-default {
       @apply bg-neutral1 hover:bg-neutral1;

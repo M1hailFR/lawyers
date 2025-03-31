@@ -24,12 +24,12 @@
           <span class="d-flex flex-column">
             <span
               v-if="item.title"
-              class="block text-lg mb-2 text-neutral2 leading-6">
+              class="title2 block">
               {{ item.title }}
             </span>
             <span
               v-if="item.text"
-              class="text-base leading-6"
+              class="text-sm md:text-base leading-6"
               :class="`text-${textColor}`">
               {{ item.text }}
             </span>

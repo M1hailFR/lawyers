@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-cols-1 gap-4"
+    class="grid grid-cols-1 gap-2 sm:gap-4"
     :class="isSimple ? '' : 'md:grid-cols-2'">
     <div class="flex flex-col">
       <div class="flex-1">
@@ -18,7 +18,7 @@
 
       <div
         v-if="fields.items"
-        class="flex flex-wrap gap-4 mt-4 ">
+        class="flex flex-wrap gap-2 sm:gap-4 mt-4 ">
         <CardWithStatistic
           v-for="(item, idx) in fields.items"
           :key="idx"

@@ -18,6 +18,7 @@ module.exports = {
       '4xl': '2.25rem',
     },
     screens: {
+      xs: '400px',
       sm: '568px',
       md: '768px',
       lg: '992px',
