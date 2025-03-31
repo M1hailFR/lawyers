@@ -49,13 +49,12 @@
         :fields="MAIN_CONSULTATIONS_ONLINE_LIST_CONFIG.block_fields" />
     </VVerticalPadding>
 
-    <!-- to do: add block with how it works -->
-    <div class="p-2 mb-10 h-[200px] border rounded-xl">
-      <VTitle
-        title="Как это работает?"
-        tag="h2"
-        defaultClass="title" />
-    </div>
+    <VVerticalPadding
+      :desktop-padding="MAIN_HOW_IT_WORKS_GRID_CONFIG.desktopPadding"
+      :mobile-padding="MAIN_HOW_IT_WORKS_GRID_CONFIG.mobilePadding">
+      <BlockGridWithCards
+        :fields="MAIN_HOW_IT_WORKS_GRID_CONFIG.block_fields" />
+    </VVerticalPadding>
 
     <VVerticalPadding
       :desktop-padding="MAIN_PHONE_BANNER_CONFIG.desktopPadding"
@@ -107,21 +106,17 @@
         defaultClass="title" />
     </div>
 
-    <!-- to do: add block with new legal materials -->
-    <div class="p-2 mb-10 h-[200px] border rounded-xl">
-      <VTitle
-        title="Новые правовые материалы"
-        tag="h2"
-        defaultClass="title" />
-    </div>
+    <VVerticalPadding
+      :desktop-padding="MAIN_MATERIALS_GRID_CONFIG.desktopPadding"
+      :mobile-padding="MAIN_MATERIALS_GRID_CONFIG.mobilePadding">
+      <BlockGridWithCards :fields="MAIN_MATERIALS_GRID_CONFIG.block_fields" />
+    </VVerticalPadding>
 
-    <!-- to do: add block with fqa -->
-    <div class="p-2 mb-10 h-[200px] border rounded-xl">
-      <VTitle
-        title="Как задать вопрос бесплатно?"
-        tag="h2"
-        defaultClass="title" />
-    </div>
+    <VVerticalPadding
+      :desktop-padding="MAIN_FQA_COLLAPSE_CONFIG.desktopPadding"
+      :mobile-padding="MAIN_FQA_COLLAPSE_CONFIG.mobilePadding">
+      <BlockCollapseWithTitle :fields="MAIN_FQA_COLLAPSE_CONFIG.block_fields" />
+    </VVerticalPadding>
 
     <VVerticalPadding
       :desktop-padding="MAIN_ABOUT_US_LIST_CONFIG.desktopPadding"
@@ -143,6 +138,9 @@ import {
   MAIN_CONSULTATIONS_ONLINE_LIST_CONFIG,
   MAIN_WHY_NEED_CONSULTATIONS_LIST_CONFIG,
   MAIN_ABOUT_US_LIST_CONFIG,
+  MAIN_HOW_IT_WORKS_GRID_CONFIG,
+  MAIN_FQA_COLLAPSE_CONFIG,
+  MAIN_MATERIALS_GRID_CONFIG,
 } from '~/configs/pages/index'
 import {
   BlockFormPrompt,
@@ -150,5 +148,7 @@ import {
   BlockStatistics,
   BlockSimpleStatistics,
   BlockListWithTitle,
+  BlockGridWithCards,
+  BlockCollapseWithTitle,
 } from '~/components/blocks'
 </script>

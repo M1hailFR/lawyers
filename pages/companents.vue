@@ -139,7 +139,7 @@
         <VCollapse
           v-for="(item, idx) in collapseLists"
           :key="idx"
-          :content="[item]"
+          :content="item"
           :title="item.title"
           :text="item.text"
           @change="showStages(item)"
@@ -149,13 +149,13 @@
             <div
               class="flex flex-wrap gap-4 justify-between text-lx mb-4 flex-row w-full">
               <div class="collapse--title">
-                {{ list?.[0].title }}
+                {{ list.title }}
               </div>
               <div class="text-neutral3">
-                {{ list?.[0].price }}
+                {{ list.price }}
               </div>
               <div class="text-neutral3">
-                {{ list?.[0].duration }}
+                {{ list.duration }}
               </div>
             </div>
           </template>

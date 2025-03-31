@@ -9,6 +9,10 @@ import BlockSimpleStatistics from './statistics/simpleStatistics.vue'
 
 import BlockListWithTitle from './lists/listWithTitle.vue'
 
+import BlockGridWithCards from './grids/gridWithCards.vue'
+
+import BlockCollapseWithTitle from './collapse/collapseWithTitle.vue'
+
 export {
   BlockBannerDefault,
   BlockBannerSimple,
@@ -20,4 +24,8 @@ export {
   BlockSimpleStatistics,
 
   BlockListWithTitle,
+
+  BlockGridWithCards,
+
+  BlockCollapseWithTitle,
 }

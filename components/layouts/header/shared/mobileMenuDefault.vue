@@ -38,7 +38,7 @@
         <VCollapse
           v-for="(item, idx) in fields.menu"
           :key="idx"
-          :content="[item]"
+          :content="item"
           :title="item.text"
           :text="item.text"
           class="">
@@ -46,9 +46,9 @@
             <div
               class="flex flex-wrap gap-4 justify-between text-sm md:text-lg font-medium flex-row w-full h-full">
               <VLink
-                :link="list?.[0].link"
+                :link="list?.link"
                 class="collapse--title">
-                {{ list?.[0].text }}
+                {{ list?.text }}
               </VLink>
             </div>
           </template>

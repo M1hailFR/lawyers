@@ -1,3 +1,15 @@
+
+:root {
+  --color-neutral1: #FFF;
+  --color-neutral2: #000;
+  --color-neutral3: #71717A;
+  --color-neutral4: #A1A1AA;
+  --color-neutral5: #E4E4E7;
+  --color-neutral6: #FAFAFA;
+  --color-primary: #115b82;
+  --color-secondary: #1675a8;
+}
+
 html {
   @apply h-auto scroll-smooth;
   scroll-padding-top: 64px;
@@ -36,12 +48,16 @@ mark {
   @apply text-left font-medium text-2xl xl:text-4xl mb-4 leading-6 xl:leading-9;
 }
 
+.title2 {
+  @apply text-left font-medium text-base xl:text-lg leading-5 mb-2;
+}
+
 .title-compact {
   @apply text-base font-medium sm:text-right mr-8 sm:mr-0;
 }
 
 .subtitle {
-  @apply text-left font-medium text-base xl:text-lg leading-5;
+  @apply text-left font-medium text-base xl:text-lg leading-6;
 }
 
 input[type='number'] {

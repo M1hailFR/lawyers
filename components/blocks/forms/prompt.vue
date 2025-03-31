@@ -1,7 +1,9 @@
 <template>
   <div
     class="w-full relative"
-    :class="isCompact ? '' : 'grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-0'">
+    :class="
+      isCompact ? '' : 'grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-0'
+    ">
     <div class="w-full h-full flex flex-col">
       <VTitle
         tag="h2"
@@ -18,22 +20,26 @@
         v-model="modalStore.question"
         clearable
         placeholder="Ваш вопрос..."
-        class="text-sm leading-4 my-3"
+        class="text-sm md:text-base leading-4 my-3"
         :class="isCompact ? 'h-24' : 'h-24 md:h-40'" />
       <div
         class="flex gap-2 w-full"
-        :class="isCompact ? 'sm:justify-end' : ''">
+        :class="
+          isCompact ? 'sm:justify-end' : 'flex-wrap'
+        ">
         <VButton
           type="flat"
           size="middle"
-          class="text-xs md:text-sm leading-4 w-full sm:w-auto"
+          class="w-full sm:w-auto"
+          :textSize="isCompact ? 'text-xs md:text-sm' : 'text-sm md:text-base'"
           @click="redirectTo()">
           {{ fields.buttonAskQuestion }}
         </VButton>
         <VButton
           type="outline"
           size="middle"
-          class="text-xs md:text-sm leading-4 w-full sm:w-auto"
+          class=" w-full sm:w-auto"
+          :textSize="isCompact ? 'text-xs md:text-sm' : 'text-sm md:text-base'"
           @click="openModal('phoneCall')">
           {{ fields.buttonOrderCall }}
         </VButton>

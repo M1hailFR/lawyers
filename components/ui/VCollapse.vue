@@ -53,8 +53,8 @@ defineOptions({
 
 const props = defineProps({
   content: {
-    type: Array,
-    default: [],
+    type: Object,
+    default: () => ({}),
   },
   customMark: {
     type: Boolean,
@@ -68,7 +68,7 @@ const emit = defineEmits(['change'])
 
 const { classes } = setBasicUiProps(props, 'v-collapse')
 
-const hasContent = computed(() => props.content && props.content.length > 0)
+const hasContent = computed(() => props.content && Object.keys(props.content).length > 0)
 const close = () => (isOpen.value = false)
 const open = () => (isOpen.value = true)
 const toggle = () => {
