@@ -1,5 +1,5 @@
 <template>
-  <div class="border w-full h-full">
+  <div class="border w-full h-full bg-neutral3">
     CardWithLogo
     {{ item }}
   </div>

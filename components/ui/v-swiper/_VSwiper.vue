@@ -1,103 +1,96 @@
 <template>
-    <swiper
-    :modules="modules"
-    :slides-per-view="3"
-    :space-between="swiperOptions.spaceBetween || 30"
-    :pagination="swiperOptions.pagination || false"
-    :navigation="swiperOptions.navigation || false"
-    :autoplay="swiperOptions.autoplay || false"
-    :loop="swiperOptions.loop || false"
-    :free-mode="swiperOptions.freeMode || false"
-    :breakpoints="{
-      '375': {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        freeMode: true
-      },
-      '580': {
-        slidesPerView: 1.5,
-        spaceBetween: 2
-      },
-      '780': {
-        slidesPerView: 1.5,
-        spaceBetween: 1
-      },
-      '1024': {
-        slidesPerView: 4,
-        spaceBetween: 10
-      }
-    }"
-    class="mySwiper relative w-full h-full">
-    <slot />
-  </swiper>
+  <div
+    v-if="settings"
+    class="slider"
+    @mouseenter="isHover = true"
+    @mouseleave="isHover = false">
+    <ClientOnly>
+      <swiper-container
+        ref="containerRef"
+        :init="false"
+        class="relative">
+        <slot />
+      </swiper-container>
+    </ClientOnly>
+
+    <div v-if="settings.customNavigation">
+      <button
+        @click="prevSlide"
+        class="custom-prev-button"
+        :class="isHover ? 'opacity-100' : 'opacity-0'">
+        <VIcon
+          class="-ml-[2px]"
+          name="IconChevron"
+          size="28"
+          rotate="left" />
+      </button>
+      <button
+        @click="nextSlide"
+        class="custom-next-button"
+        :class="isHover ? 'opacity-100' : 'opacity-0'">
+        <VIcon
+          class="ml-[2px]"
+          name="IconChevron"
+          size="28"
+          rotate="right" />
+      </button>
+    </div>
+  </div>
 </template>
 
-
-<!-- <script setup>
-import { Navigation, Pagination, Autoplay, A11y } from 'swiper/modules'
-import { Swiper } from 'swiper/vue'
-
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-
-const props = defineProps({
-  swiperOptions: {
-    type: Object,
-    default: () => ({}),
-  },
-})
-
-const swiperOptions = {
-  modules: [Navigation, Pagination, Autoplay, A11y],
-  ...props.swiperOptions,
-}
-</script> -->
 <script setup>
-import { Navigation, Pagination, Autoplay, A11y, FreeMode } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+import { VIcon } from '@/components/ui'
+import { register } from 'swiper/element/bundle'
 
 const props = defineProps({
-  swiperOptions: {
+  settings: {
     type: Object,
     default: () => ({}),
   },
 })
 
-// Явно регистрируем все необходимые модули
-const modules = [Navigation, Pagination, Autoplay, A11y, FreeMode]
+register()
+
+const containerRef = ref(null)
+const isHover = ref(false)
+function prevSlide() {
+  if (containerRef.value) {
+    containerRef.value.swiper.slidePrev()
+  }
+}
+
+function nextSlide() {
+  if (containerRef.value) {
+    containerRef.value.swiper.slideNext()
+  }
+}
+const swiper = useSwiper(containerRef, props.settings || {})
 </script>
-<style>
-.swiper-button-next,
-.swiper-button-prev {
-  /* @apply hidden md:block text-primary; */
-  color: #ff0000 !important;
-  transform: scale(0.7);
-  transition: 0.3s linear;
-}
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  transform: scale(0.8);
-  color: hsla(138, 100%, 51%, 0.9);
+
+<style lang="scss" scoped>
+.custom-prev-button,
+.custom-next-button {
+  @apply bg-neutral1 w-10 transition-all duration-300 ease-in-out aspect-square rounded-full shadow-md absolute top-1/2 -translate-y-1/2 z-10 cursor-pointer flex items-center justify-center;
+  &:hover {
+    @apply bg-secondary text-neutral1;
+  }
 }
 
-.swiper-pagination-bullet {
-  background: linear-gradient(90deg, #07ff53, #edb7d6);
-  transition: 0.3s linear;
-  opacity: 0.5;
-}
-.swiper-pagination-bullet:hover {
-  transform: scale(1.1);
-  opacity: 1;
+.custom-prev-button {
+  @apply -left-8;
 }
 
-.swiper-pagination-bullet-active {
-  background: linear-gradient(90deg, #07ff53, #edb7d6);
-  transform: scale(1.2);
-  opacity: 1;
+.custom-next-button {
+  @apply -right-8;
+}
+</style>
+
+<style lang="scss">
+swiper-container::part(bullet) {
+  @apply bg-neutral3;
+}
+
+swiper-container::part(bullet-active) {
+  @apply bg-secondary scale-125;
 }
 </style>

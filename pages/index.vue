@@ -19,14 +19,6 @@
       <BlockBannerDefault :fields="MAIN_INFO_BANNER_CONFIG.block_fields" />
     </VVerticalPadding>
 
-    <!-- to do: add block with last consultations -->
-    <div class="p-2 mb-10 h-[200px] border rounded-xl">
-      <VTitle
-        title="Последние консультации"
-        tag="h2"
-        defaultClass="title" />
-    </div>
-
     <VVerticalPadding
       :desktop-padding="MAIN_CONSULTATIONS_SLIDER_CONFIG.desktopPadding"
       :mobile-padding="MAIN_CONSULTATIONS_SLIDER_CONFIG.mobilePadding">

@@ -179,38 +179,31 @@ export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
         cardVariant: 'outline',
       },
     ],
-    swiperOptions: {
-      freeMode: true,
+    swiperSettings: {
       loop: true,
+      customNavigation: true,
+      pagination: { clickable: true },
       breakpoints: {
         300: {
           slidesPerView: 1.1,
           spaceBetween: 8,
+          freeMode: true,
         },
-        780: {
-          slidesPerView: 2.5,
+        568: {
+          slidesPerView: 2.1,
           spaceBetween: 8,
         },
-        1024: {
+        768: {
+          slidesPerView: 3.5,
+          spaceBetween: 8,
+        },
+        992: {
           slidesPerView: 3.5,
           spaceBetween: 16,
         },
       },
-
-      pagination: { clickable: true },
-      navigation: true,
       autoplay: {
         delay: 5000,
-      },
-      creativeEffect: {
-        prev: {
-          shadow: true,
-          translate: [0, 0, -400],
-        },
-        next: {
-          shadow: true,
-          translate: [0, 0, -400],
-        },
       },
     },
   },
@@ -315,44 +308,51 @@ export const MAIN_REVIEWS_SLIDER_CONFIG = Object.freeze({
         cardVariant: 'outline',
       },
     ],
-    swiperOptions: {
-      freeMode: true,
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        dynamicBullets: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+
+    swiperSettings: {
+      effect: "creative",
+      grabCursor: true,
+      centeredSlides: true,
       breakpoints: {
         300: {
-          slidesPerView: 1.1,
+          slidesPerView: 1.5,
           spaceBetween: 8,
         },
-        780: {
-          slidesPerView: 3.5,
+        768: {
+          slidesPerView: 3,
           spaceBetween: 8,
         },
-        1024: {
-          slidesPerView: 5.5,
+        1200: {
+          slidesPerView: 4,
+          spaceBetween: 16,
+        },
+        1440: {
+          slidesPerView: 5,
           spaceBetween: 16,
         },
       },
+      loop: true,
       autoplay: {
         delay: 5000,
       },
+      pagination: { clickable: true },
+      customNavigation: true,
       creativeEffect: {
+        limitProgress: 5,
+        perspective: 1200,
         prev: {
-          shadow: true,
-          translate: [0, 0, -400],
+          translate: ['-110%', 0, -300],
+          rotate: [0, 0, 0],
+          opacity: 0.6,
+          scale: 0.9,
         },
         next: {
-          shadow: true,
-          translate: [0, 0, -400],
+          translate: ['110%', 0, -300],
+          rotate: [0, 0, 0],
+          opacity: 0.6,
+          scale: 0.9,
         },
-      },
+      }
     },
   },
 })
