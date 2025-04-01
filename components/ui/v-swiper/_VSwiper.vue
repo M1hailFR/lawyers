@@ -13,7 +13,7 @@
       </swiper-container>
     </ClientOnly>
 
-    <div v-if="settings.customNavigation">
+    <div v-if="settings.customNavigation" class="hidden md:flex">
       <button
         @click="prevSlide"
         class="custom-prev-button"
@@ -77,11 +77,11 @@ const swiper = useSwiper(containerRef, props.settings || {})
 }
 
 .custom-prev-button {
-  @apply -left-8;
+  @apply left-2;
 }
 
 .custom-next-button {
-  @apply -right-8;
+  @apply right-2;
 }
 </style>
 

@@ -182,6 +182,7 @@ export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
     swiperSettings: {
       loop: true,
       customNavigation: true,
+      grabCursor: true,
       pagination: { clickable: true },
       breakpoints: {
         300: {
