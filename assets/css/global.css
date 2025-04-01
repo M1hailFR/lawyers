@@ -79,3 +79,31 @@ input[type='number'] {
 .ui-scrollbars ::-webkit-scrollbar-thumb:hover {
   @apply bg-neutral2/50 transition-all;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply hidden md:block text-primary;
+  transform: scale(0.7);
+  transition: 0.3s linear;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(0.8);
+  color: hsla(138, 100%, 51%, 0.9);
+}
+
+.swiper-pagination-bullet {
+  background: linear-gradient(90deg, #07ff53, #edb7d6);
+  transition: 0.3s linear;
+  opacity: 0.5;
+}
+.swiper-pagination-bullet:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: linear-gradient(90deg, #07ff53, #edb7d6);
+  transform: scale(1.2);
+  opacity: 1;
+}

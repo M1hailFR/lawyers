@@ -10,6 +10,7 @@ import VCollapse from "./VCollapse.vue";
 export * from './v-dropdown'
 export * from './v-icon'
 export * from './v-list'
+export * from './v-swiper'
 
 export {
   VButton,

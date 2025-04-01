@@ -13,6 +13,8 @@ import BlockGridWithCards from './grids/gridWithCards.vue'
 
 import BlockCollapseWithTitle from './collapse/collapseWithTitle.vue'
 
+import BlockSliderDefault from './sliders/default.vue'
+
 export {
   BlockBannerDefault,
   BlockBannerSimple,
@@ -28,4 +30,6 @@ export {
   BlockGridWithCards,
 
   BlockCollapseWithTitle,
+
+  BlockSliderDefault,
 }

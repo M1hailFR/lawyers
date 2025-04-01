@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="border w-full h-full">
     CardWithLogo
+    {{ item }}
   </div>
 </template>
 
