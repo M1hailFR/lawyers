@@ -111,6 +111,105 @@ export const MAIN_INFO_BANNER_CONFIG = Object.freeze({
   },
 })
 
+export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
+  desktopPadding: {
+    top: '32px',
+    bottom: '32px',
+  },
+  mobilePadding: {
+    top: '16px',
+    bottom: '16px',
+  },
+  block_fields: {
+    title: 'Последние консультации',
+    cardType: 'cardWithLogo',
+    cards: [
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+    ],
+    swiperSettings: {
+      loop: true,
+      customNavigation: true,
+      grabCursor: true,
+      pagination: { clickable: true },
+      breakpoints: {
+        300: {
+          slidesPerView: 1.1,
+          spaceBetween: 8,
+          freeMode: true,
+        },
+        568: {
+          slidesPerView: 2.1,
+          spaceBetween: 8,
+        },
+        768: {
+          slidesPerView: 3.5,
+          spaceBetween: 8,
+        },
+        992: {
+          slidesPerView: 3.5,
+          spaceBetween: 16,
+        },
+      },
+      autoplay: {
+        delay: 5000,
+      },
+    },
+  },
+})
+
 export const MAIN_WHY_NEED_CONSULTATIONS_LIST_CONFIG = Object.freeze({
   desktopPadding: {
     top: '32px',
@@ -139,6 +238,123 @@ export const MAIN_WHY_NEED_CONSULTATIONS_LIST_CONFIG = Object.freeze({
         text: 'Гарантированная помощь с учетом действующего законодательства, особенно в сделках с недвижимостью и важных бизнес-решениях. В отличие от устаревшей информации в интернете, мы предоставляем актуальные решения, основанные на последних изменениях в законодательстве.',
       },
     ],
+  },
+})
+
+export const MAIN_REVIEWS_SLIDER_CONFIG = Object.freeze({
+  desktopPadding: {
+    top: '32px',
+    bottom: '32px',
+  },
+  mobilePadding: {
+    top: '16px',
+    bottom: '16px',
+  },
+  block_fields: {
+    title: 'Отзывы наших клиентов',
+    cardType: 'cardWithLogo',
+    cards: [
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Аннулирование свидетельства о праве на наследство нотариусом',
+        text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
+        rating: 4.5,
+        date: '17 мар. 2025',
+        name: 'Иван Иванов',
+        cardVariant: 'outline',
+      },
+    ],
+
+    swiperSettings: {
+      effect: "creative",
+      grabCursor: true,
+      centeredSlides: true,
+      breakpoints: {
+        300: {
+          slidesPerView: 1.5,
+          spaceBetween: 8,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 8,
+        },
+        1200: {
+          slidesPerView: 4,
+          spaceBetween: 16,
+        },
+        1440: {
+          slidesPerView: 5,
+          spaceBetween: 16,
+        },
+      },
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+      pagination: { clickable: true },
+      customNavigation: true,
+      creativeEffect: {
+        limitProgress: 5,
+        perspective: 1200,
+        prev: {
+          translate: ['-110%', 0, -300],
+          rotate: [0, 0, 0],
+          opacity: 0.6,
+          scale: 0.9,
+        },
+        next: {
+          translate: ['110%', 0, -300],
+          rotate: [0, 0, 0],
+          opacity: 0.6,
+          scale: 0.9,
+        },
+      }
+    },
   },
 })
 
@@ -357,7 +573,8 @@ export const MAIN_FQA_COLLAPSE_CONFIG = Object.freeze({
   },
   block_fields: {
     title: 'Часто задаваемые вопросы',
-    subtitle: 'Вы можете задать вопрос бесплатно, используя форму на сайте или обратившись к нам по телефону',
+    subtitle:
+      'Вы можете задать вопрос бесплатно, используя форму на сайте или обратившись к нам по телефону',
     buttonText: 'Задать вопрос',
     askQuestion: GLOBAL_CONFIG.askQuestion,
     image: '/images/pages/main/management.png',
@@ -385,7 +602,7 @@ export const MAIN_FQA_COLLAPSE_CONFIG = Object.freeze({
       {
         title: 'Что делать после консультации?',
         text: 'После консультации вы получаете четкий план действий и рекомендации по вашей ситуации. При необходимости мы можем организовать дальнейшее юридическое сопровождение вашего дела. Все материалы консультации сохраняются в вашем личном кабинете для последующего доступа. Вы всегда можете задать дополнительные вопросы по итогам консультации. Наши специалисты остаются на связи и готовы оказать поддержку на всех этапах решения вашего вопроса.',
-      }
+      },
     ],
   },
 })

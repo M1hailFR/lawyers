@@ -10,6 +10,10 @@ const props = defineProps({
     type: String,
     default: '20px',
   },
+  rotate: {
+    type: String,
+    default: null,
+  },
 })
 
 const { classes } = setBasicUiProps(props, 'icon-component')
@@ -19,6 +23,7 @@ const { classes } = setBasicUiProps(props, 'icon-component')
   <div :class="classes">
     <component
       :size="size"
+      :rotate="rotate"
       :is="components[name]" />
   </div>
 </template>

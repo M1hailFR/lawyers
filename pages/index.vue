@@ -19,13 +19,11 @@
       <BlockBannerDefault :fields="MAIN_INFO_BANNER_CONFIG.block_fields" />
     </VVerticalPadding>
 
-    <!-- to do: add block with last consultations -->
-    <div class="p-2 mb-10 h-[200px] border rounded-xl">
-      <VTitle
-        title="Последние консультации"
-        tag="h2"
-        defaultClass="title" />
-    </div>
+    <VVerticalPadding
+      :desktop-padding="MAIN_CONSULTATIONS_SLIDER_CONFIG.desktopPadding"
+      :mobile-padding="MAIN_CONSULTATIONS_SLIDER_CONFIG.mobilePadding">
+      <BlockSliderDefault :fields="MAIN_CONSULTATIONS_SLIDER_CONFIG.block_fields" />
+    </VVerticalPadding>
 
     <VVerticalPadding
       :desktop-padding="MAIN_WHY_NEED_CONSULTATIONS_LIST_CONFIG.desktopPadding"
@@ -34,13 +32,11 @@
         :fields="MAIN_WHY_NEED_CONSULTATIONS_LIST_CONFIG.block_fields" />
     </VVerticalPadding>
 
-    <!-- to do: add block with reviews -->
-    <div class="p-2 mb-10 h-[200px] border rounded-xl">
-      <VTitle
-        title="Отзывы наших клиентов"
-        tag="h2"
-        defaultClass="title" />
-    </div>
+    <VVerticalPadding
+      :desktop-padding="MAIN_REVIEWS_SLIDER_CONFIG.desktopPadding"
+      :mobile-padding="MAIN_REVIEWS_SLIDER_CONFIG.mobilePadding">
+      <BlockSliderDefault :fields="MAIN_REVIEWS_SLIDER_CONFIG.block_fields" />
+    </VVerticalPadding>
 
     <VVerticalPadding
       :desktop-padding="MAIN_CONSULTATIONS_ONLINE_LIST_CONFIG.desktopPadding"
@@ -141,6 +137,8 @@ import {
   MAIN_HOW_IT_WORKS_GRID_CONFIG,
   MAIN_FQA_COLLAPSE_CONFIG,
   MAIN_MATERIALS_GRID_CONFIG,
+  MAIN_CONSULTATIONS_SLIDER_CONFIG,
+  MAIN_REVIEWS_SLIDER_CONFIG,
 } from '~/configs/pages/index'
 import {
   BlockFormPrompt,
@@ -150,5 +148,6 @@ import {
   BlockListWithTitle,
   BlockGridWithCards,
   BlockCollapseWithTitle,
+  BlockSliderDefault,
 } from '~/components/blocks'
 </script>
