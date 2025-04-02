@@ -31,6 +31,7 @@ import {
   SharedFormCallback,
   SharedFormSuccess,
   SharedFormAuth,
+  SharedFormInfo,
 } from '~/components/shared'
 import MobileMenuDefault from '~/components/layouts/header/shared/mobileMenuDefault'
 
@@ -52,6 +53,7 @@ const components = {
   success: SharedFormSuccess,
   auth: SharedFormAuth,
   mobileMenu: MobileMenuDefault,
+  info: SharedFormInfo
 }
 
 const setSentStatus = (value) => {

@@ -128,7 +128,7 @@ export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
         image: '/images/pages/main/management.png',
         title: 'Аннулирование свидетельства о праве на наследство нотариусом',
         text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
-        rating: 4.5,
+
         date: '17 мар. 2025',
         name: 'Иван Иванов',
         cardVariant: 'outline',
@@ -137,7 +137,7 @@ export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
         image: '/images/pages/main/management.png',
         title: 'Аннулирование свидетельства о праве на наследство нотариусом',
         text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
-        rating: 4.5,
+
         date: '17 мар. 2025',
         name: 'Иван Иванов',
         cardVariant: 'outline',
@@ -146,7 +146,7 @@ export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
         image: '/images/pages/main/management.png',
         title: 'Аннулирование свидетельства о праве на наследство нотариусом',
         text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
-        rating: 4.5,
+
         date: '17 мар. 2025',
         name: 'Иван Иванов',
         cardVariant: 'outline',
@@ -155,7 +155,6 @@ export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
         image: '/images/pages/main/management.png',
         title: 'Аннулирование свидетельства о праве на наследство нотариусом',
         text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
-        rating: 4.5,
         date: '17 мар. 2025',
         name: 'Иван Иванов',
         cardVariant: 'outline',
@@ -164,7 +163,6 @@ export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
         image: '/images/pages/main/management.png',
         title: 'Аннулирование свидетельства о праве на наследство нотариусом',
         text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
-        rating: 4.5,
         date: '17 мар. 2025',
         name: 'Иван Иванов',
         cardVariant: 'outline',
@@ -173,7 +171,6 @@ export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
         image: '/images/pages/main/management.png',
         title: 'Аннулирование свидетельства о праве на наследство нотариусом',
         text: 'Как аннулируется свидетельство о праве на наследство? Процедура',
-        rating: 4.5,
         date: '17 мар. 2025',
         name: 'Иван Иванов',
         cardVariant: 'outline',
@@ -320,15 +317,15 @@ export const MAIN_REVIEWS_SLIDER_CONFIG = Object.freeze({
           spaceBetween: 8,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: 2,
           spaceBetween: 8,
         },
         1200: {
-          slidesPerView: 4,
+          slidesPerView: 3,
           spaceBetween: 16,
         },
         1440: {
-          slidesPerView: 5,
+          slidesPerView: 4.1,
           spaceBetween: 16,
         },
       },
@@ -340,17 +337,15 @@ export const MAIN_REVIEWS_SLIDER_CONFIG = Object.freeze({
       customNavigation: true,
       creativeEffect: {
         limitProgress: 5,
-        perspective: 1200,
+        perspective: 1400,
         prev: {
           translate: ['-110%', 0, -300],
-          rotate: [0, 0, 0],
-          opacity: 0.6,
+          opacity: 0.7,
           scale: 0.9,
         },
         next: {
           translate: ['110%', 0, -300],
-          rotate: [0, 0, 0],
-          opacity: 0.6,
+          opacity: 0.7,
           scale: 0.9,
         },
       }
