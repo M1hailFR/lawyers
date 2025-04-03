@@ -9,6 +9,7 @@
           <VImage
             v-if="item.image"
             :src="item.image"
+            cover
             class="card--logo" />
         </div>
 
@@ -126,7 +127,7 @@ const openModal = (type, variant) => {
   &:hover {
     @apply cursor-pointer;
     .card--bottom-circle {
-      @apply w-[1000px] h-[1000px] -bottom-1/2 -left-1/2;
+      @apply w-[1000px] h-[1000px] -bottom-64 -left-64;
     }
   }
 }

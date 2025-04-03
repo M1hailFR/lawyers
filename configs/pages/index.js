@@ -1,4 +1,5 @@
 import { GLOBAL_CONFIG } from '~/configs/global'
+import { SWIPER_DEFAULT_CONFIG, SWIPER_CREATIVE_CONFIG } from '~/configs/swiper'
 
 export const MAIN_FORM_CONFIG = Object.freeze({
   desktopPadding: {
@@ -123,6 +124,7 @@ export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
   block_fields: {
     title: 'Последние консультации',
     cardType: 'cardWithLogo',
+    swiperSettings: SWIPER_DEFAULT_CONFIG,
     cards: [
       {
         image: '/images/pages/main/management.png',
@@ -176,34 +178,6 @@ export const MAIN_CONSULTATIONS_SLIDER_CONFIG = Object.freeze({
         cardVariant: 'outline',
       },
     ],
-    swiperSettings: {
-      loop: true,
-      customNavigation: true,
-      grabCursor: true,
-      pagination: { clickable: true },
-      breakpoints: {
-        300: {
-          slidesPerView: 1.1,
-          spaceBetween: 8,
-          freeMode: true,
-        },
-        568: {
-          slidesPerView: 2.1,
-          spaceBetween: 8,
-        },
-        768: {
-          slidesPerView: 3.5,
-          spaceBetween: 8,
-        },
-        992: {
-          slidesPerView: 3.5,
-          spaceBetween: 16,
-        },
-      },
-      autoplay: {
-        delay: 5000,
-      },
-    },
   },
 })
 
@@ -250,6 +224,7 @@ export const MAIN_REVIEWS_SLIDER_CONFIG = Object.freeze({
   block_fields: {
     title: 'Отзывы наших клиентов',
     cardType: 'cardWithLogo',
+    swiperSettings: SWIPER_CREATIVE_CONFIG,
     cards: [
       {
         image: '/images/pages/main/management.png',
@@ -306,50 +281,6 @@ export const MAIN_REVIEWS_SLIDER_CONFIG = Object.freeze({
         cardVariant: 'outline',
       },
     ],
-
-    swiperSettings: {
-      effect: "creative",
-      grabCursor: true,
-      centeredSlides: true,
-      breakpoints: {
-        300: {
-          slidesPerView: 1.5,
-          spaceBetween: 8,
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 8,
-        },
-        1200: {
-          slidesPerView: 3,
-          spaceBetween: 16,
-        },
-        1440: {
-          slidesPerView: 4.1,
-          spaceBetween: 16,
-        },
-      },
-      loop: true,
-      autoplay: {
-        delay: 5000,
-      },
-      pagination: { clickable: true },
-      customNavigation: true,
-      creativeEffect: {
-        limitProgress: 5,
-        perspective: 1400,
-        prev: {
-          translate: ['-110%', 0, -300],
-          opacity: 0.7,
-          scale: 0.9,
-        },
-        next: {
-          translate: ['110%', 0, -300],
-          opacity: 0.7,
-          scale: 0.9,
-        },
-      }
-    },
   },
 })
 
@@ -390,19 +321,17 @@ export const MAIN_HOW_IT_WORKS_GRID_CONFIG = Object.freeze({
   },
   block_fields: {
     title: 'Как это работает?',
-    subtitle:
-      'Мы предлагаем три основных способа получения юридической помощи:',
+    subtitle: 'Мы предлагаем три основных способа получения юридической помощи',
     cardType: 'cardWithIndex',
     cards: [
       {
         title: 'Бесплатная онлайн-консультация',
-        icon: 'IconChat',
         text: 'Получите профессиональную юридическую консультацию в любое удобное для вас время, без необходимости регистрации и раскрытия личных данных.',
         askQuestion: GLOBAL_CONFIG.askQuestion,
         buttonText: 'Задать вопрос',
         cardVariant: 'flat',
         textColor: 'neutral2',
-        icon: 'IconCross',
+        icon: 'IconPhone',
       },
       {
         title: 'Бесплатная онлайн-консультация',
@@ -446,6 +375,138 @@ export const MAIN_PHONE_BANNER_CONFIG = Object.freeze({
   },
 })
 
+export const MAIN_SERVICES_GRID_CONFIG = Object.freeze({
+  desktopPadding: {
+    top: '32px',
+    bottom: '32px',
+  },
+  mobilePadding: {
+    top: '16px',
+    bottom: '16px',
+  },
+  block_fields: {
+    title: 'Услуги наших юристов',
+    subtitle:
+      'Юридические услуги от «100 Юристов» - это гарантированная помощь по защите прав в любой ситуации. С полным перечнем направлений работы ознакомьтесь в каталоге.',
+    cardType: 'cardWithIndex',
+    cards: [
+      {
+        title: 'Гражданские дела',
+        text: 'Юрист поможет в решении вопросов с муниципальными, образовательными, имущественными и земельными спорами. В зависимости от ситуации возможно применение досудебного или судебного урегулирования.',
+        cardVariant: 'outline',
+        textColor: 'neutral2',
+        icon: 'IconCross',
+      },
+      {
+        title: 'Уголовные дела',
+        text: 'Помощь опытного адвоката тем, кто стал обвиняемым, пострадавшим или свидетелем преступления. При необходимости будет разработана стратегия действий.',
+        cardVariant: 'outline',
+        textColor: 'neutral2',
+        icon: 'IconCross',
+      },
+      {
+        title: 'Семейные дела',
+        text: 'Многие спорные ситуации требуют вмешательства юриста и адвоката. И в этом случае специалисты сервиса готовы прийти на помощь, предоставив полный объем услуг.',
+        cardVariant: 'outline',
+        textColor: 'neutral2',
+        icon: 'IconCross',
+      },
+      {
+        title: 'Наследство',
+        text: 'Часто наследственные дела проходят с конфликтами. Особенно это касается ситуаций, когда умерший не оставил завещания. При необходимости готовы представить интересы клиента в суде.',
+        cardVariant: 'outline',
+        textColor: 'neutral2',
+        icon: 'IconCross',
+      },
+      {
+        title: 'Кредиты',
+        text: 'Юрист проконсультирует при оформлении кредита или выгодных условий. При финансовом положении не позволяющем оплачивать уже имеющийся долг, поможем найти решение.',
+        cardVariant: 'outline',
+        textColor: 'neutral2',
+        icon: 'IconCross',
+      },
+      {
+        title: 'Трудовые споры',
+        text: 'Самое популярное направление, по которому часто обращаются за юридической консультацией. Поможем если ваши права как работника той или иной организации нарушены.',
+        cardVariant: 'outline',
+        textColor: 'neutral2',
+        icon: 'IconCross',
+      },
+    ],
+    cols: 3,
+    gap: 'gap-4',
+  },
+})
+
+export const MAIN_OUR_LAWYERS_SLIDER_CONFIG = Object.freeze({
+  desktopPadding: {
+    top: '32px',
+    bottom: '32px',
+  },
+  mobilePadding: {
+    top: '16px',
+    bottom: '16px',
+  },
+  block_fields: {
+    title: 'Наши юристы и адвокаты',
+    link: '/',
+    buttonRedirectText: 'Все юристы',
+    buttonRedirectIcon: 'IconCross',
+    cardType: 'cardWithExtendedLink',
+    swiperSettings: SWIPER_DEFAULT_CONFIG,
+    cards: [
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Иванов Петр Сергеевич',
+        subtitle: 'Адвокат, Москва',
+        text: 'Уголовные дела, Семейные споры',
+        link: '/',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Смирнова Анна Владимировна',
+        subtitle: 'Юрист, Санкт-Петербург',
+        text: 'Недвижимость, Договоры',
+        link: '/',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Козлов Дмитрий Александрович',
+        subtitle: 'Адвокат, Казань',
+        text: 'Банкротство, Арбитраж',
+        link: '/',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Попова Елена Михайловна',
+        subtitle: 'Юрист, Новосибирск',
+        text: 'Трудовые споры, Защита прав',
+        link: '/',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Морозов Андрей Игоревич',
+        subtitle: 'Адвокат, Екатеринбург',
+        text: 'Корпоративное право, Налоги',
+        link: '/',
+        cardVariant: 'outline',
+      },
+      {
+        image: '/images/pages/main/management.png',
+        title: 'Соколова Мария Дмитриевна',
+        subtitle: 'Юрист, Владивосток',
+        text: 'Медицинские споры, Страхование',
+        link: '/',
+        cardVariant: 'outline',
+      },
+    ],
+  },
+})
+
 export const MAIN_ACHIEVEMENTS_CONFIG = Object.freeze({
   desktopPadding: {
     top: '32px',
@@ -482,6 +543,280 @@ export const MAIN_ACHIEVEMENTS_CONFIG = Object.freeze({
   },
 })
 
+export const MAIN_REFERENCE_GRID_CONFIG = Object.freeze({
+  desktopPadding: {
+    top: '32px',
+    bottom: '32px',
+  },
+  mobilePadding: {
+    top: '16px',
+    bottom: '16px',
+  },
+  block_fields: {
+    title: 'Правовой справочник',
+    cardType: 'cardWithList',
+    cards: [
+      {
+        title: 'А',
+        list: [
+          {
+            title: 'Автокредит',
+            link: '/components',
+          },
+          {
+            title: 'Авторское право',
+            link: '/',
+          },
+          {
+            title: 'Административное право',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'Б',
+        list: [
+          {
+            title: 'Банкротство',
+            link: '/',
+          },
+          {
+            title: 'Бизнес-право',
+            link: '/',
+          },
+          {
+            title: 'Брачный договор',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'В',
+        list: [
+          {
+            title: 'Военное право',
+            link: '/',
+          },
+          {
+            title: 'Вексельное право',
+            link: '/',
+          },
+          {
+            title: 'Взыскание долгов',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'Г',
+        list: [
+          {
+            title: 'Гражданское право',
+            link: '/',
+          },
+          {
+            title: 'Государственные закупки',
+            link: '/',
+          },
+          {
+            title: 'Градостроительное право',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'Ж',
+        list: [
+          {
+            title: 'Жилищное право',
+            link: '/',
+          },
+          {
+            title: 'Жалобы',
+            link: '/',
+          },
+          {
+            title: 'ЖКХ',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'З',
+        list: [
+          {
+            title: 'Защита прав потребителей',
+            link: '/',
+          },
+          {
+            title: 'Земельное право',
+            link: '/',
+          },
+          {
+            title: 'Залоговое право',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'И',
+        list: [
+          {
+            title: 'Ипотека',
+            link: '/',
+          },
+          {
+            title: 'Интеллектуальная собственность',
+            link: '/',
+          },
+          {
+            title: 'Иммиграционное право',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'К',
+        list: [
+          {
+            title: 'Корпоративное право',
+            link: '/',
+          },
+          {
+            title: 'Кредиты',
+            link: '/',
+          },
+          {
+            title: 'Коммерческое право',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'М',
+        list: [
+          {
+            title: 'Медицинское право',
+            link: '/',
+          },
+          {
+            title: 'Миграционное право',
+            link: '/',
+          },
+          {
+            title: 'Международное право',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'Н',
+        list: [
+          {
+            title: 'Наследственное право',
+            link: '/',
+          },
+          {
+            title: 'Налоговое право',
+            link: '/',
+          },
+          {
+            title: 'Недвижимость',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'П',
+        list: [
+          {
+            title: 'Патентное право',
+            link: '/',
+          },
+          {
+            title: 'Предпринимательское право',
+            link: '/',
+          },
+          {
+            title: 'Пенсионное право',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'С',
+        list: [
+          {
+            title: 'Семейное право',
+            link: '/',
+          },
+          {
+            title: 'Страхование',
+            link: '/',
+          },
+          {
+            title: 'Соцобеспечение',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'Т',
+        list: [
+          {
+            title: 'Таможенное право',
+            link: '/',
+          },
+          {
+            title: 'Трудовое право',
+            link: '/',
+          },
+          {
+            title: 'Транспортное право',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'У',
+        list: [
+          {
+            title: 'Уголовное право',
+            link: '/',
+          },
+          {
+            title: 'Услуги',
+            link: '/',
+          },
+          {
+            title: 'Учредительные документы',
+            link: '/',
+          },
+        ],
+      },
+      {
+        title: 'Ю',
+        list: [
+          {
+            title: 'Юридические услуги',
+            link: '/',
+          },
+          {
+            title: 'Юридическая экспертиза',
+            link: '/',
+          },
+          {
+            title: 'Юридические консультации',
+            link: '/',
+          },
+        ],
+      },
+    ],
+    cols: 4,
+    gap: 'gap-4',
+  },
+})
+
 export const MAIN_PHONE_BANNER2_CONFIG = Object.freeze({
   desktopPadding: {
     top: '16px',
@@ -508,6 +843,57 @@ export const MAIN_PHONE_BANNER2_CONFIG = Object.freeze({
   },
 })
 
+export const MAIN_ADVANTAGES_GRID_CONFIG = Object.freeze({
+  desktopPadding: {
+    top: '32px',
+    bottom: '32px',
+  },
+  mobilePadding: {
+    top: '16px',
+    bottom: '16px',
+  },
+  block_fields: {
+    title: 'Преимущества помощи от «NN»',
+    subtitle:
+      'Онлайн-консультация на нашей платформе обладает множеством преимуществ',
+    cardType: 'cardWithIcon',
+    cards: [
+      {
+        title: 'Высокая скорость ответа',
+        text: 'У сотрудников, работающих в формате онлайн, есть определённые графики, по которому они предоставляют ответы на ваши вопросы. Многие юридические фирмы делают такой выбор и предлагают клиентам удалённую форму консультирования. На нашем сайте задать вопрос и в кратчайшие сроки получить на него квалифицированный и понятный ответ, можно круглосуточно. Необходимо просто зарегистрироваться на траве и написать нам в офис.',
+        icon: 'IconCross',
+        cardVariant: 'outline',
+      },
+      {
+        title: 'Экономия',
+        text: 'Онлайн-консультации практически все являются платными. Средняя стоимость обращения не требует больших вложений и достижима для многих клиентов. Наш сервис предлагает своим клиентам бесплатную помощь квалифицированных специалистов. Некоторые услуги предоставляются платно. Но стоимость онлайн а гораздо для каждого желающего.',
+        icon: 'IconCross',
+        cardVariant: 'outline',
+      },
+      {
+        title: 'Удобство',
+        text: 'Получить консультацию можно в любой точке земли. При наличии интернета воспользоваться помощью юридического сервиса смогут абсолютно все люди, так и из крупных городов а также во время деловых и частных поездок. В некоторых случаях работа с клиентами с ограниченными возможностями.',
+        icon: 'IconCross',
+        cardVariant: 'outline',
+      },
+      {
+        title: 'Анонимность',
+        text: 'Иногда крайне важна защита прав требуется в условиях жесткой конфиденциальности. В законе предусмотрено право сделать все со 100% гарантией не всегда означает безопасно. Общение-онлайн или по телефону обеспечивает вам эффективнее и безопаснее.',
+        icon: 'IconCross',
+        cardVariant: 'outline',
+      },
+      {
+        title: 'Компетентность',
+        text: 'Многие бояться обращаться к правозащитникам через интернет, считая, что люди с низкой квалификацией за консультацией. Да, сайте юридических компаний, работает индивидуально. На нашем сайте, имеет реальный опыт и профессионализм, подкрепленный документально.',
+        icon: 'IconCross',
+        cardVariant: 'outline',
+      },
+    ],
+    cols: 2,
+    gap: 'gap-4',
+  },
+})
+
 export const MAIN_MATERIALS_GRID_CONFIG = Object.freeze({
   desktopPadding: {
     top: '32px',
@@ -521,6 +907,7 @@ export const MAIN_MATERIALS_GRID_CONFIG = Object.freeze({
     title: 'Новые правовые материалы',
     link: '/',
     buttonRedirectText: 'Все материалы',
+    buttonRedirectIcon: 'IconCross',
     cardType: 'cardWithLink',
     cards: [
       {
@@ -553,7 +940,7 @@ export const MAIN_MATERIALS_GRID_CONFIG = Object.freeze({
       },
     ],
     cols: 4,
-    gap: 'gap-6',
+    gap: 'gap-4',
   },
 })
 
@@ -632,5 +1019,3 @@ export const MAIN_ABOUT_US_LIST_CONFIG = Object.freeze({
     ],
   },
 })
-
-export const MAIN_CALLBACK_BANNER_CONFIG = Object.freeze({})

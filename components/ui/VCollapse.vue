@@ -124,7 +124,7 @@ const afterLeave = (element) => {
 
 <style lang="scss" scoped>
 .v-collapse {
-  @apply border rounded-xl p-3 mb-3 box-border cursor-pointer relative;
+  @apply border rounded-xl p-4 md:p-6 mb-3 box-border cursor-pointer relative;
   &--header {
     @apply mb-0;
   }

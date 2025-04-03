@@ -12,7 +12,7 @@
           cover
           class="card--image rounded-xl overflow-hidden" />
 
-        <div class="flex flex-col gap-2 px-4 pt-1 pb-4 relative z-10 bg-neutral1">
+        <div class="flex flex-col gap-2 px-4 md:px-6 pt-2 pb-4 relative z-10 bg-neutral1">
           <VTitle
             :title="item.title"
             tag="h3"
@@ -49,9 +49,9 @@ const props = defineProps({
 <style lang="scss" scoped>
 .card {
   &:hover {
-    @apply scale-105 shadow-lg transition-all duration-500 delay-200;
+    @apply scale-105 shadow-lg transition-all duration-300;
     .card--image {
-      @apply scale-125 transition-all duration-500;
+      @apply scale-125 transition-all duration-300;
     }
   }
 }
