@@ -1,11 +1,28 @@
 <template>
   <div class="relative">
-    <VTitle
+    <!-- <VTitle
       v-if="fields.title"
       :title="fields.title"
       default-class="title"
-      style="text-align: center;" />
-
+      style="text-align: center" /> -->
+    <div
+      :class="
+        isSingle
+          ? ''
+          : 'flex gap-4 flex-wrap items-center justify-between w-full mb-4'
+      ">
+      <VTitle
+        :title="fields.title"
+        default-class="title"
+        :style="isSingle ? 'text-align: center' : 'margin-bottom: 0px'" />
+      <VButton
+        v-if="fields.buttonRedirectText"
+        @click="redirectTo(fields.link)"
+        class="flex items-center gap-1">
+        <VIcon :name="fields.buttonRedirectIcon" />
+        {{ fields.buttonRedirectText }}
+      </VButton>
+    </div>
     <VSwiper
       :settings="fields.swiperSettings"
       :total-slides="fields.cards.length">
@@ -25,7 +42,7 @@
 </template>
 
 <script setup>
-import { VTitle, VSwiper, VSwiperSlide } from '@/components/ui'
+import { VTitle, VButton, VIcon, VSwiper, VSwiperSlide } from '@/components/ui'
 
 import {
   CardWithIcon,
@@ -35,6 +52,7 @@ import {
   CardWithLogo,
   CardWithStatistic,
   CardWithExtendedStatistic,
+  CardWithExtendedLink,
 } from '~/components/shared'
 
 defineOptions({
@@ -56,5 +74,16 @@ const components = {
   cardWithLogo: CardWithLogo,
   cardWithStatistic: CardWithStatistic,
   cardWithExtendedStatistic: CardWithExtendedStatistic,
+  cardWithExtendedLink: CardWithExtendedLink,
+}
+
+const router = useRouter()
+
+const isSingle = computed(() => {
+  return props.fields.link ? false : true
+})
+
+const redirectTo = (link) => {
+  router.push(link)
 }
 </script>

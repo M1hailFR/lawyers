@@ -8,26 +8,24 @@
               :class="
                 isSingle
                   ? ''
-                  : 'flex gap-4 flex-wrap items-center justify-between w-full'
+                  : 'flex gap-4 flex-wrap items-center justify-between w-full mb-4'
               ">
               <VTitle
                 :title="fields.title"
                 default-class="title"
-                :style="{
-                  marginBottom: fields.buttonRedirectText ? '0px' : '',
-                }" />
+                :style="isSingle ? '' : 'margin-bottom: 0px'" />
               <VButton
                 v-if="fields.buttonRedirectText"
                 @click="redirectTo(fields.link)"
                 class="flex items-center gap-1">
-                <VIcon name="IconCross" />
+                <VIcon :name="fields.buttonRedirectIcon" />
                 {{ fields.buttonRedirectText }}
               </VButton>
             </div>
             <VTitle
               :title="fields.subtitle"
               :tag="h3"
-              default-class="subtitle mb-4" />
+              default-class="subtitle text-neutral2/70 mb-4 md:max-w-[800px]" />
           </div>
           <div
             v-if="fields.buttonOpenModalText"
@@ -77,6 +75,8 @@ import {
   CardWithLogo,
   CardWithStatistic,
   CardWithExtendedStatistic,
+  CardWithExtendedLink,
+  CardWithList,
 } from '~/components/shared'
 
 const scrollStore = useScroll()
@@ -89,6 +89,8 @@ const components = {
   cardWithLogo: CardWithLogo,
   cardWithStatistic: CardWithStatistic,
   cardWithExtendedStatistic: CardWithExtendedStatistic,
+  cardWithExtendedLink: CardWithExtendedLink,
+  cardWithList: CardWithList,
 }
 
 defineOptions({
@@ -118,14 +120,6 @@ const computedMaxWidth = computed(() => {
   const width = String(props.fields.maxWidth).replace(/%|px/, '')
   return width ? `${width}px` : DEFAULT_MAX_WIDTH
 })
-
-// const computedGap = computed(() => {
-//   const DEFAULT_GAP = '20px'
-//   if (!props.fields.gap) return DEFAULT_GAP
-
-//   const gap = String(props.fields.gap).replace(/%|px/, '')
-//   return gap ? `gap-[${gap}px]` : DEFAULT_GAP
-// })
 
 const getGridCols = (maxCols = 4) => {
   if (!maxCols || maxCols < 1) return 'grid-cols-1'

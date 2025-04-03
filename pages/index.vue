@@ -58,21 +58,17 @@
       <BlockBannerDefault :fields="MAIN_PHONE_BANNER_CONFIG.block_fields" />
     </VVerticalPadding>
 
-    <!-- to do: add block with services -->
-    <div class="p-2 mb-10 h-[200px] border rounded-xl">
-      <VTitle
-        title="Услуги наших юристов"
-        tag="h2"
-        defaultClass="title" />
-    </div>
+    <VVerticalPadding
+      :desktop-padding="MAIN_SERVICES_GRID_CONFIG.desktopPadding"
+      :mobile-padding="MAIN_SERVICES_GRID_CONFIG.mobilePadding">
+      <BlockGridWithCards :fields="MAIN_SERVICES_GRID_CONFIG.block_fields" />
+    </VVerticalPadding>
 
-    <!-- to do: add block with our lawyers -->
-    <div class="p-2 mb-10 h-[200px] border rounded-xl">
-      <VTitle
-        title="Наши юристы"
-        tag="h2"
-        defaultClass="title" />
-    </div>
+    <VVerticalPadding
+      :desktop-padding="MAIN_OUR_LAWYERS_SLIDER_CONFIG.desktopPadding"
+      :mobile-padding="MAIN_OUR_LAWYERS_SLIDER_CONFIG.mobilePadding">
+      <BlockSliderDefault :fields="MAIN_OUR_LAWYERS_SLIDER_CONFIG.block_fields" />
+    </VVerticalPadding>
 
     <VVerticalPadding
       :desktop-padding="MAIN_ACHIEVEMENTS_CONFIG.desktopPadding"
@@ -94,13 +90,17 @@
         defaultClass="title" />
     </div>
 
-    <!-- to do: add block with advantages -->
-    <div class="p-2 mb-10 h-[200px] border rounded-xl">
-      <VTitle
-        title="Преимущества помощи от «100 Юристов»"
-        tag="h2"
-        defaultClass="title" />
-    </div>
+    <VVerticalPadding
+      :desktop-padding="MAIN_REFERENCE_GRID_CONFIG.desktopPadding"
+      :mobile-padding="MAIN_REFERENCE_GRID_CONFIG.mobilePadding">
+      <BlockGridWithCards :fields="MAIN_REFERENCE_GRID_CONFIG.block_fields" />
+    </VVerticalPadding>
+
+    <VVerticalPadding
+      :desktop-padding="MAIN_ADVANTAGES_GRID_CONFIG.desktopPadding"
+      :mobile-padding="MAIN_ADVANTAGES_GRID_CONFIG.mobilePadding">
+      <BlockGridWithCards :fields="MAIN_ADVANTAGES_GRID_CONFIG.block_fields" />
+    </VVerticalPadding>
 
     <VVerticalPadding
       :desktop-padding="MAIN_MATERIALS_GRID_CONFIG.desktopPadding"
@@ -139,6 +139,10 @@ import {
   MAIN_MATERIALS_GRID_CONFIG,
   MAIN_CONSULTATIONS_SLIDER_CONFIG,
   MAIN_REVIEWS_SLIDER_CONFIG,
+  MAIN_OUR_LAWYERS_SLIDER_CONFIG,
+  MAIN_SERVICES_GRID_CONFIG,
+  MAIN_ADVANTAGES_GRID_CONFIG,
+  MAIN_REFERENCE_GRID_CONFIG
 } from '~/configs/pages/index'
 import {
   BlockFormPrompt,

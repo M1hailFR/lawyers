@@ -9,6 +9,9 @@
           :is="getComponent(item)"
           :link="item.link"
           target="_target"
+          type="secondary"
+          color="neutral3"
+          :class="getComponent(item).name === 'VLink' ? ' mb-1 hover:translate-x-2' : ''"
           class="flex items-start gap-3">
           <v-icon
             v-if="customMark"
@@ -24,7 +27,8 @@
           <span class="d-flex flex-column">
             <span
               v-if="item.title"
-              class="title2 block">
+              class="block "
+              :class="textSize">
               {{ item.title }}
             </span>
             <span
@@ -59,6 +63,10 @@ const props = defineProps({
   customMark: {
     type: Boolean,
     default: false,
+  },
+  textSize: {
+    type: String,
+    default: 'title2',
   },
   textColor: {
     type: String,

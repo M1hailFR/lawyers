@@ -168,11 +168,7 @@ const scrollStore = useScroll()
 const modalStore = useModal()
 
 const openModal = (type, variant) => {
-  let payload = {
-    ...props.fields[type].payload,
-    ...props.fields.modalSettings,
-  }
-  modalStore.open(type, payload, variant)
+  modalStore.open(type, props.fields[type].payload, variant)
 }
 
 const search = ref('')

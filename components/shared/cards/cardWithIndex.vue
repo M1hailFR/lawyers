@@ -23,14 +23,15 @@
       </div>
       <span
         v-if="item.text"
-        class="block text-neutral3 text-sm md:text-base leading-6 mb-4 mt-1">
+        class="block text-neutral3 text-sm md:text-base leading-6 mt-1">
         {{ item.text }}
       </span>
     </div>
 
-    <div class="card--bottom">
+    <div
+      v-if="item.buttonText"
+      class="card--bottom mt-4">
       <VButton
-        v-if="item.buttonText"
         @click="openModal('askQuestion')"
         type="flat"
         size="middle"
@@ -81,8 +82,6 @@ const props = defineProps({
     default: 1,
   },
 })
-
-const bgColor = ref('')
 
 const openModal = (type, variant) => {
   modalStore.open(type, props.item[type].payload, variant)
