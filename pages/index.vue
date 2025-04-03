@@ -82,14 +82,6 @@
       <BlockBannerDefault :fields="MAIN_PHONE_BANNER2_CONFIG.block_fields" />
     </VVerticalPadding>
 
-    <!-- to do: add block with legal reference -->
-    <div class="p-2 mb-10 h-[200px] border rounded-xl">
-      <VTitle
-        title="Правовой справочник"
-        tag="h2"
-        defaultClass="title" />
-    </div>
-
     <VVerticalPadding
       :desktop-padding="MAIN_REFERENCE_GRID_CONFIG.desktopPadding"
       :mobile-padding="MAIN_REFERENCE_GRID_CONFIG.mobilePadding">
