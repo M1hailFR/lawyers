@@ -146,12 +146,12 @@ const afterLeave = (element) => {
       @apply text-primary;
     }
   }
-  &:first-child {
-    @apply border-t-0;
-  }
+  // &:first-child {
+  //   @apply border-t-0;
+  // }
 
-  &:last-child {
-    @apply border-b-0;
-  }
+  // &:last-child {
+  //   @apply border-b-0;
+  // }
 }
 </style>

@@ -49,7 +49,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .card {
   &:hover {
-    @apply scale-105 shadow-lg transition-all duration-300;
+    @apply lg:scale-105 shadow-lg transition-all duration-300;
     .card--image {
       @apply scale-125 transition-all duration-300;
     }

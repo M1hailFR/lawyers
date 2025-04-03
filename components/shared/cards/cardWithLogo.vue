@@ -5,7 +5,7 @@
     @click="openModal('info')">
     <div class="flex flex-col gap-2">
       <div class="flex gap-2 items-center">
-        <div class="w-14 h-14 rounded-full overflow-hidden">
+        <div class="w-16 h-16 rounded-full overflow-hidden">
           <VImage
             v-if="item.image"
             :src="item.image"
@@ -22,7 +22,7 @@
           </span>
           <div
             v-if="item.rating"
-            class="flex pb-1 md:pb-0">
+            class="flex pb-1 md:py-1">
             <div
               v-for="(n, index) in 5"
               :key="index"

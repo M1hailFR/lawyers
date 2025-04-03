@@ -42,11 +42,12 @@
             class="grid--cards grid"
             :class="
               ({
-                'mt-8 md:mt-14 ':
+                'mt-8 md:mt-14':
                   fields.title || fields.subtitle || fields.buttonText,
               },
-              `${getGridCols(fields.cols)} ${fields.gap}`)
-            ">
+              `${getGridCols(fields.cols)} ${fields.gap} ${fields.compact ? 'grid--cards-compact' : ''}`
+            )"
+            >
             <component
               v-for="(card, idx) in fields.cards"
               :key="idx"
@@ -102,6 +103,10 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  compact: {
+    type: Boolean,
+    default: false,
+  },
   // title
   // subtitle
   // cards
@@ -148,4 +153,8 @@ const isSingle = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.grid--cards-compact {
+  @apply max-h-[250px] overflow-y-scroll md:max-h-full md:overflow-hidden;
+}
+</style>

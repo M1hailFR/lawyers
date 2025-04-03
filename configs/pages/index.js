@@ -555,6 +555,7 @@ export const MAIN_REFERENCE_GRID_CONFIG = Object.freeze({
   block_fields: {
     title: 'Правовой справочник',
     cardType: 'cardWithList',
+    compact: true,
     cards: [
       {
         title: 'А',
