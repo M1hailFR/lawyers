@@ -103,7 +103,7 @@ const openModal = (type, variant) => {
     }
   }
   &--outline {
-    @apply border border-neutral2/20;
+    @apply border border-neutral5;
     .card--customMark {
       @apply bg-neutral3;
     }
