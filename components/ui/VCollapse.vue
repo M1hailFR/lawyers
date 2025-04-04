@@ -1,7 +1,7 @@
 <template>
   <div
     class="transition-all group"
-    :class="[classes, isOpen ? 'border-primary' : 'border-neutral3']"
+    :class="[classes, isOpen ? 'border-primary' : 'border-neutral5']"
     v-outside="close"
     @click="toggle">
     <div class="v-collapse--header">
