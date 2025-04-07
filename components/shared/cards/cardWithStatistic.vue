@@ -1,14 +1,15 @@
 <template>
   <component
     :is="getComponent"
-    class="card px-2 py-3 sm:p-3 w-full sm:w-auto"
+    class="card px-2 py-3 pr-4 w-full sm:w-auto"
     :class="`card--${item.variant}`"
     :link="item.link"
     :type="item.variant"
     >
     <div class="card--content flex items-center gap-2">
-      <VIcon :name="item.icon" :size="scrollStore.isMobile ? 20 : 40" />
-      <div class="flex flex-wrap sm:block justify-between w-full items-center">
+      <VImage v-if="item.image" :src="item.image" :size="scrollStore.isMobile ? 30 : 50" />
+      <VIcon v-if="item.icon" :name="item.icon" :size="scrollStore.isMobile ? 30 : 50" />
+      <div class="block justify-between w-full items-center">
         <VTitle
           :title="item.title"
           tag="h3"
@@ -23,7 +24,7 @@
 </template>
 
 <script setup>
-import { VTitle, VIcon, VLink } from '~/components/ui'
+import { VTitle, VIcon, VLink, VImage } from '~/components/ui'
 import { useScroll } from '~/stores/scroll'
 
 const scrollStore = useScroll()
