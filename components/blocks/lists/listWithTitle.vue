@@ -5,6 +5,7 @@
       <v-list
         :list="fields.list"
         divider
+        customMark="fields.customMark"
       />
     </div>
   </div>

@@ -27,6 +27,7 @@ import IconOk from '~/components/icons/statistics/IconOk.vue'
 import IconPlus from '~/components/icons/statistics/IconPlus.vue'
 import IconService from '~/components/icons/statistics/IconService.vue'
 import IconTrophy from '~/components/icons/statistics/IconTrophy.vue'
+import IconCircle from '~/components/icons/statistics/IconCircle.vue'
 
 export default {
   IconCross,
@@ -56,4 +57,5 @@ export default {
   IconPlus,
   IconService,
   IconTrophy,
+  IconCircle,
 }

@@ -50,7 +50,7 @@ const props = defineProps({
 .card {
   &:hover {
     @apply lg:scale-105 shadow-lg transition-all duration-300;
-    .card--image {
+    > div > .card--image {
       @apply scale-125 transition-all duration-300;
     }
   }
