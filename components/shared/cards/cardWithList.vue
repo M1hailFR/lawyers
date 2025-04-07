@@ -1,5 +1,5 @@
 <template>
-    <div class="p-4 md:p-6">
+    <div class="">
       <VTitle :title="item.title" tag="h2" defaultClass="title2 ml-1" />
       <div :key="idx">
         <v-list

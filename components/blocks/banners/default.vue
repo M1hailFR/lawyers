@@ -17,7 +17,7 @@
       <!-- phone block -->
       <div
         v-if="fields.phone"
-        class="flex-1 w-full flex flex-col relative z-10 items-center md:items-start mb-4 md:mb-0">
+        class="flex-1 w-full min-w-[340px] flex flex-col relative z-10 items-center md:items-start mb-4 md:mb-0">
         <VTitle
           :title="fields.phone.text"
           defaultClass="subtitle text-neutral1/70 mb-4" />

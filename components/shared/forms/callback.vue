@@ -197,7 +197,8 @@ const onSendForm = async () => {
     if (props.isModal) {
       modalStore.close()
     }
-
+    
+    modalStore.question = ''
     modalStore.open('success')
     setTimeout(() => modalStore.close(), 2000)
   }

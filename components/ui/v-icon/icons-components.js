@@ -17,6 +17,17 @@ import IconMir from '~/components/icons/payments/IconMir.vue'
 import IconMasterCard from '~/components/icons/payments/IconMasterCard.vue'
 import IconSbp from '~/components/icons/payments/IconSbp.vue'
 
+import IconSmiley from '~/components/icons/statistics/IconSmiley.vue'
+import IconCompare from '~/components/icons/statistics/IconCompare.vue'
+import IconClash from '~/components/icons/statistics/IconClash.vue'
+import IconTeam from '~/components/icons/statistics/IconTeam.vue'
+import IconTimer from '~/components/icons/statistics/IconTimer.vue'
+import IconLaw from '~/components/icons/statistics/IconLaw.vue'
+import IconOk from '~/components/icons/statistics/IconOk.vue'
+import IconPlus from '~/components/icons/statistics/IconPlus.vue'
+import IconService from '~/components/icons/statistics/IconService.vue'
+import IconTrophy from '~/components/icons/statistics/IconTrophy.vue'
+
 export default {
   IconCross,
   IconChevron,
@@ -34,4 +45,15 @@ export default {
   IconMir,
   IconMasterCard,
   IconSbp,
+
+  IconSmiley,
+  IconCompare,
+  IconClash,
+  IconTeam,
+  IconTimer,
+  IconLaw,
+  IconOk,
+  IconPlus,
+  IconService,
+  IconTrophy,
 }

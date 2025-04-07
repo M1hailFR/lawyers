@@ -1,5 +1,5 @@
 <template>
-  <section v-if="fields">
+  <section v-if="fields" class="card">
     <div>
       <div class="d-flex flex-col items-center">
         <div :class="`max-w-[${computedMaxWidth}]`">
@@ -39,13 +39,13 @@
             v-if="
               fields.cards && fields.cards.length && components[fields.cardType]
             "
-            class="grid--cards grid"
+            class="grid"
             :class="
               ({
                 'mt-8 md:mt-14':
                   fields.title || fields.subtitle || fields.buttonText,
               },
-              `${getGridCols(fields.cols)} ${fields.gap} ${fields.compact ? 'grid--cards-compact' : ''}`
+              `${getGridCols(fields.cols)} ${fields.gap} ${fields.compact ? 'card--compact card--scroll' : ''}`
             )"
             >
             <component
@@ -154,7 +154,22 @@ const isSingle = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.grid--cards-compact {
-  @apply max-h-[250px] overflow-y-scroll md:max-h-full md:overflow-hidden;
+// .grid--cards-compact {
+//   @apply max-h-[250px] overflow-y-scroll md:max-h-full md:overflow-hidden;
+// }
+
+.card {
+  &--compact {
+    @apply max-h-[250px] overflow-y-scroll md:max-h-full md:overflow-hidden;
+  }
+  &--scroll {
+    @apply overflow-y-scroll ;
+    &::-webkit-scrollbar {
+      @apply bg-transparent w-1 rounded-lg;
+    }
+    &::-webkit-scrollbar-track {
+      @apply bg-transparent;
+    }
+  }
 }
 </style>

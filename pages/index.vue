@@ -95,6 +95,12 @@
     </VVerticalPadding>
 
     <VVerticalPadding
+      :desktop-padding="MAIN_QUESTIONS_CALLBACK_CONFIG.desktopPadding"
+      :mobile-padding="MAIN_QUESTIONS_CALLBACK_CONFIG.mobilePadding">
+      <BlockFormCallback :fields="MAIN_QUESTIONS_CALLBACK_CONFIG.block_fields" />
+    </VVerticalPadding>
+
+    <VVerticalPadding
       :desktop-padding="MAIN_MATERIALS_GRID_CONFIG.desktopPadding"
       :mobile-padding="MAIN_MATERIALS_GRID_CONFIG.mobilePadding">
       <BlockGridWithCards :fields="MAIN_MATERIALS_GRID_CONFIG.block_fields" />
@@ -115,7 +121,7 @@
 </template>
 
 <script setup>
-import { VVerticalPadding, VTitle } from '~/components/ui'
+import { VVerticalPadding } from '~/components/ui'
 import {
   MAIN_FORM_CONFIG,
   MAIN_STATISTICS_CONFIG,
@@ -134,8 +140,10 @@ import {
   MAIN_OUR_LAWYERS_SLIDER_CONFIG,
   MAIN_SERVICES_GRID_CONFIG,
   MAIN_ADVANTAGES_GRID_CONFIG,
-  MAIN_REFERENCE_GRID_CONFIG
+  MAIN_REFERENCE_GRID_CONFIG,
+  MAIN_QUESTIONS_CALLBACK_CONFIG
 } from '~/configs/pages/index'
+
 import {
   BlockFormPrompt,
   BlockBannerDefault,
@@ -145,5 +153,6 @@ import {
   BlockGridWithCards,
   BlockCollapseWithTitle,
   BlockSliderDefault,
+  BlockFormCallback
 } from '~/components/blocks'
 </script>
