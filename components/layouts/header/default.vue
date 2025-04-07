@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="header--bottom transition-transform">
+      <div class="header--bottom transition-all">
         <div class="inline-flex items-center gap-6">
           <VLink
             :link="'/'"
@@ -57,10 +57,10 @@
             <v-image
               :src="fields.logo"
               cover
-              class="w-auto h-6 sm:h-full" />
+              class="w-auto h-6 sm:h-full pr-6" />
           </VLink>
 
-          <v-button
+          <!-- <v-button
             type="flat"
             size="small"
             class="hidden md:flex items-center gap-1"
@@ -68,15 +68,17 @@
             @click="openModal('askQuestion')">
             <v-icon name="IconQuestion" />
             <div class="text-nowrap pr-2">Задать вопрос</div>
-          </v-button>
+          </v-button> -->
         </div>
         <div class="hidden md:flex flex-1 mt-1">
-          <nav class="flex gap-3 xl:gap-5 items-center text-sm xl:text-base">
+          <nav class="flex gap-3 xl:gap-5 items-center text-sm xl:text-base ml-1">
             <li
               v-for="(item, idx) of fields.menu"
               :key="idx"
               class="list-none">
-              <VDropdown v-if="item?.childs?.length" icon="null">
+              <VDropdown
+                v-if="item?.childs?.length"
+                icon="null">
                 <div class="">{{ item.text }}</div>
 
                 <template #options>
@@ -117,6 +119,15 @@
                 :name="`Icon${item.name}`"
                 :size="scrollStore.isMobile ? 16 : 20" />
             </VLink>
+            <v-button
+              type="flat"
+              size="small"
+              class="hidden md:flex items-center gap-1"
+              textSize="text-xs"
+              @click="openModal('askQuestion')">
+              <v-icon name="IconQuestion" />
+              <div class="text-nowrap pr-2">Задать вопрос</div>
+            </v-button>
           </div>
           <v-button
             type="outline"
@@ -182,7 +193,7 @@ const search = ref('')
     @apply pb-2 pt-4 hidden md:flex items-center gap-2;
   }
   &--bottom {
-    @apply py-4 flex items-center justify-between gap-6;
+    @apply py-4 flex items-center justify-between;
   }
 }
 </style>
