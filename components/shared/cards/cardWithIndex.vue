@@ -8,7 +8,7 @@
           <v-icon
             v-if="customMark"
             :name="item.icon || defaultCustomIcon"
-            size="24"
+            :size="scrollStore.isMobile ? 30 : 44"
             class="card--icon" />
 
           <span
@@ -91,7 +91,7 @@ const openModal = (type, variant) => {
 <style lang="scss" scoped>
 .card {
   &--icon {
-    @apply w-10 h-10 flex items-center justify-center -mt-2;
+    @apply w-12 h-12 flex items-center justify-center -mt-3;
   }
   &--flat {
     @apply bg-secondary/20 text-neutral2;
@@ -99,7 +99,7 @@ const openModal = (type, variant) => {
       @apply bg-neutral2;
     }
     .card--icon {
-      @apply text-neutral1 bg-primary rounded-full;
+      @apply text-neutral1 bg-neutral1 rounded-full;
     }
   }
   &--outline {
@@ -108,7 +108,7 @@ const openModal = (type, variant) => {
       @apply bg-neutral3;
     }
     .card--icon {
-      @apply text-neutral2 bg-neutral3/20 rounded-full;
+      @apply text-neutral2 bg-neutral3/5 rounded-full;
     }
   }
   &--default {
