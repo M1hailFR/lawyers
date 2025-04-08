@@ -1,7 +1,7 @@
 <template>
   <div>
     <VLink
-      :href="item.link"
+      :link="item.link"
       target="_blank"
       type="outline"
       essence="block"
@@ -16,7 +16,8 @@
           <VTitle
             :title="item.title"
             tag="h3"
-            defaultClass="title2 line-clamp-2" />
+            defaultClass="title2 line-clamp-2"
+            style="margin-bottom: 0;" />
           <VTitle
             :title="item.text"
             tag="h5"
@@ -49,9 +50,9 @@ const props = defineProps({
 <style lang="scss" scoped>
 .card {
   &:hover {
-    @apply lg:scale-105 shadow-lg transition-all duration-300;
+    @apply shadow-lg transition-all;
     > div > .card--image {
-      @apply scale-125 transition-all duration-300;
+      @apply scale-125 transition-all duration-300 ease-in-out;
     }
   }
 }

@@ -11,7 +11,8 @@
       class="block h-full w-full"
       :class="[{ 'object-contain': contain }, { 'object-cover': cover }]"
       :src="src"
-      :alt="alt" />
+      :alt="alt"
+      loading="lazy" />
   </picture>
 </template>
 

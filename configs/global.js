@@ -106,6 +106,10 @@ export const GLOBAL_CONFIG = Object.freeze({
       link: '/',
     },
     {
+      text: 'Статьи',
+      link: '/articles',
+    },
+    {
       text: 'Блог',
       link: '/',
     },

@@ -7,6 +7,7 @@ import CardWithIndex from './cardWithIndex.vue'
 import CardWithImageExample from './cardWithImageExample.vue'
 import CardWithIcon from './cardWithIcon.vue'
 import CardWithList from './cardWithList.vue'
+import CardWithGrid from './cardWithGrid.vue'
 
 export {
   CardWithStatistic,
@@ -18,4 +19,5 @@ export {
   CardWithExtendedStatistic,
   CardWithIcon,
   CardWithList,
+  CardWithGrid,
 }
