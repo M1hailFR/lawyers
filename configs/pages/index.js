@@ -562,7 +562,7 @@ export const MAIN_REFERENCE_GRID_CONFIG = Object.freeze({
         list: [
           {
             title: 'Автокредит',
-            link: '/components',
+            link: '/articles/avtokredit',
           },
           {
             title: 'Авторское право',

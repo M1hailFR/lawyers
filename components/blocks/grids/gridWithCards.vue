@@ -1,62 +1,61 @@
 <template>
-  <section v-if="fields" class="card">
-    <div>
-      <div class="d-flex flex-col items-center">
-        <div :class="`max-w-[${computedMaxWidth}]`">
-          <div class="d-flex flex-col items-center">
-            <div
-              :class="
-                isSingle
-                  ? ''
-                  : 'flex gap-4 flex-wrap items-center justify-between w-full mb-4'
-              ">
-              <VTitle
-                :title="fields.title"
-                default-class="title"
-                :style="isSingle ? '' : 'margin-bottom: 0px'" />
-              <VButton
-                v-if="fields.buttonRedirectText"
-                @click="redirectTo(fields.link)"
-                class="flex items-center gap-1">
-                <VIcon :name="fields.buttonRedirectIcon" />
-                {{ fields.buttonRedirectText }}
-              </VButton>
-            </div>
-            <VTitle
-              :title="fields.subtitle"
-              :tag="h3"
-              default-class="subtitle text-neutral2/70 mb-4 md:max-w-[800px]" />
-          </div>
+  <section
+    v-if="fields"
+    class="card">
+    <div class="d-flex flex-col items-center">
+      <div :class="`max-w-[${computedMaxWidth}]`">
+        <div class="d-flex flex-col items-center">
           <div
-            v-if="fields.buttonOpenModalText"
-            class="d-flex justify-center mt-5 mt-md-8 flex-row items-center gap-2 w-full">
-            <VButton @click="openModal('askQuestion')">
-              {{ fields.buttonOpenModalText }}
+            :class="
+              isSingle
+                ? ''
+                : 'flex gap-4 flex-wrap items-center justify-between w-full mb-4'
+            ">
+            <VTitle
+              :title="fields.title"
+              default-class="title"
+              :style="isSingle ? '' : 'margin-bottom: 0px'" />
+            <VButton
+              v-if="fields.buttonRedirectText"
+              @click="redirectTo(fields.link)"
+              class="flex items-center gap-1">
+              <VIcon :name="fields.buttonRedirectIcon" />
+              {{ fields.buttonRedirectText }}
             </VButton>
           </div>
+          <VTitle
+            :title="fields.subtitle"
+            :tag="h3"
+            default-class="subtitle text-neutral2/70 mb-4 md:max-w-[800px]" />
+        </div>
+        <div
+          v-if="fields.buttonOpenModalText"
+          class="d-flex justify-center mt-5 mt-md-8 flex-row items-center gap-2 w-full">
+          <VButton @click="openModal('askQuestion')">
+            {{ fields.buttonOpenModalText }}
+          </VButton>
+        </div>
 
-          <div
-            v-if="
-              fields.cards && fields.cards.length && components[fields.cardType]
-            "
-            class="grid"
-            :class="
-              ({
-                'mt-8 md:mt-14':
-                  fields.title || fields.subtitle || fields.buttonText,
-              },
-              `${getGridCols(fields.cols)} ${fields.gap} ${fields.compact ? 'card--compact card--scroll' : ''}`
-            )"
-            >
-            <component
-              v-for="(card, idx) in fields.cards"
-              :key="idx"
-              :is="components[fields.cardType]"
-              :item="card"
-              :textColor="card.textColor"
-              :customMark="card.customMark || card.icon"
-              :index="idx + 1" />
-          </div>
+        <div
+          v-if="
+            fields.cards && fields.cards.length && components[fields.cardType]
+          "
+          class="grid"
+          :class="
+            ({
+              'mt-8 md:mt-14':
+                fields.title || fields.subtitle || fields.buttonText,
+            },
+            `${getGridCols(fields.cols)} ${fields.gap} ${fields.compact ? 'card--compact card--scroll' : ''}`)
+          ">
+          <component
+            v-for="(card, idx) in fields.cards"
+            :key="idx"
+            :is="components[fields.cardType]"
+            :item="card"
+            :textColor="card.textColor"
+            :customMark="card.customMark || card.icon"
+            :index="idx + 1" />
         </div>
       </div>
     </div>
@@ -78,6 +77,7 @@ import {
   CardWithExtendedStatistic,
   CardWithExtendedLink,
   CardWithList,
+  CardWithGrid,
 } from '~/components/shared'
 
 const scrollStore = useScroll()
@@ -92,6 +92,7 @@ const components = {
   cardWithExtendedStatistic: CardWithExtendedStatistic,
   cardWithExtendedLink: CardWithExtendedLink,
   cardWithList: CardWithList,
+  cardWithGrid: CardWithGrid,
 }
 
 defineOptions({
@@ -126,7 +127,7 @@ const computedMaxWidth = computed(() => {
   return width ? `${width}px` : DEFAULT_MAX_WIDTH
 })
 
-const getGridCols = (maxCols = 4) => {
+const getGridCols = (maxCols = 0) => {
   if (!maxCols || maxCols < 1) return 'grid-cols-1'
   const breakpoints = [
     { size: 'xs', cols: 1 },
@@ -154,16 +155,12 @@ const isSingle = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-// .grid--cards-compact {
-//   @apply max-h-[250px] overflow-y-scroll md:max-h-full md:overflow-hidden;
-// }
-
 .card {
   &--compact {
     @apply max-h-[250px] overflow-y-scroll md:max-h-full md:overflow-hidden;
   }
   &--scroll {
-    @apply overflow-y-scroll ;
+    @apply overflow-y-scroll;
     &::-webkit-scrollbar {
       @apply bg-transparent w-1 rounded-lg;
     }
