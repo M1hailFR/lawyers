@@ -1,64 +1,74 @@
 <template>
   <div class="container">
-    <h1>{{ article.title }}</h1>
-    <div class="article-meta">
-      <span>{{ formatDate(article.date) }}</span>
-      <NuxtLink
-        :to="`/articles/${categorySlug}`"
-        class="back-link"
-        >← Назад к списку</NuxtLink
-      >
-    </div>
-
-    <div
-      class="article-content"
-      v-html="article.content"></div>
-
-    <div class="article-footer">
-      <h3>Поделиться статьей</h3>
-      <!-- Кнопки для шаринга -->
-    </div>
+    <VVerticalPadding
+      :desktop-padding="ARTICLES_SLUG_GRID_CONFIG.desktopPadding"
+      :mobile-padding="ARTICLES_SLUG_GRID_CONFIG.mobilePadding">
+      <BlockCardBlog :fields="CONFIG" />
+    </VVerticalPadding>
   </div>
 </template>
 
 <script setup>
-import { ARTICLES_GRID_CONFIG } from '~/configs/pages/articles'
+import { VVerticalPadding } from '~/components/ui'
+import { BlockCardBlog } from '~/components/blocks'
+
+import { ARTICLES_SLUG_GRID_CONFIG } from '~/configs/pages/articles'
 
 const route = useRoute()
 const categorySlug = route.params.category
 const articleSlug = route.params.slug
 
-// Находим категорию и статью
-const category = computed(() => {
+const CONFIG = computed(() => {
   let foundCategory = null
-  
-  // Перебираем все группы карточек (буквенные группы)
-  for (const letterGroup of ARTICLES_GRID_CONFIG.block_fields.cards) {
-    // Ищем карточку с нужным slug в текущей группе
-    const foundCard = letterGroup.cards.find(card => card.slug === categorySlug)
+  let foundArticle = null
+
+  // Находим категорию
+  for (const letterGroup of ARTICLES_SLUG_GRID_CONFIG.block_fields.cards) {
+    const foundCard = letterGroup.cards.find(
+      (card) => card.slug === categorySlug,
+    )
     if (foundCard) {
       foundCategory = foundCard
       break
     }
   }
-  
-  return foundCategory || { articles: [] }
-})
 
-const article = computed(() => {
-  return (
-    category.value.articles.find((a) => a.slug === articleSlug) || {
-      title: 'Статья не найдена',
-      content: 'Запрашиваемая статья не существует',
-      description: 'Статья не найдена',
-      date: new Date().toISOString()
+  // Если категория не найдена, возвращаем пустой конфиг
+  if (!foundCategory || !foundCategory.articles) {
+    return {
+      ...ARTICLES_SLUG_GRID_CONFIG.block_fields,
+      cards: [],
     }
+  }
+
+  // Находим конкретную статью по slug
+  foundArticle = foundCategory.articles.find(
+    (article) => article.slug === articleSlug
   )
+
+  // Если статья не найдена, возвращаем пустой конфиг
+  if (!foundArticle) {
+    return {
+      ...ARTICLES_SLUG_GRID_CONFIG.block_fields,
+      cards: [],
+    }
+  }
+
+  // Возвращаем конфиг с одной карточкой-статьей
+  return {
+    ...ARTICLES_SLUG_GRID_CONFIG.block_fields,
+    ...foundArticle,
+   
+  }
 })
 
-const formatDate = (date) => {
-  return new Date(date).toLocaleDateString('ru-RU')
-}
+// Получаем статью для мета-тегов
+const article = computed(() => {
+  return CONFIG.value || {
+    title: 'Статья не найдена',
+    description: 'Запрашиваемая статья не существует',
+  }
+})
 
 useHead({
   title: article.value.title,
@@ -74,27 +84,4 @@ useHead({
 })
 </script>
 
-<style scoped>
-.article-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.article-meta {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem 0 2rem;
-  color: #666;
-}
-
-.article-content {
-  line-height: 1.8;
-}
-
-.article-footer {
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
-}
-</style>
+<style scoped></style>

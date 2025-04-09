@@ -15,6 +15,8 @@ import BlockCollapseWithTitle from './collapse/collapseWithTitle.vue'
 
 import BlockSliderDefault from './sliders/default.vue'
 
+import BlockCardBlog from './cards/blog.vue'
+
 export {
   BlockBannerDefault,
   BlockBannerSimple,
@@ -32,4 +34,6 @@ export {
   BlockCollapseWithTitle,
 
   BlockSliderDefault,
+
+  BlockCardBlog,
 }
