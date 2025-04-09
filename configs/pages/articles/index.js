@@ -177,7 +177,45 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
                 title: 'Могут ли приставы забрать автомобиль за долги?',
                 description: 'Разбираемся в правах приставов и должников',
                 date: '2023-04-07',
-                content: '...',
+                author: 'Александр Иванов',
+                banner: true,
+                content: [
+                  {
+                    title: 'Могут ли приставы забрать автомобиль за долги?',
+                    description: 'Разбираемся в правах приставов и должников',
+                    image: '/images/pages/main/management.png',
+                  },
+                  {
+                    title: 'Могут ли приставы забрать автомобиль за долги?',
+                    description: 'Разбираемся в правах приставов и должников',
+                    image: '/images/pages/main/management.png',
+                    list: [
+                      {
+                        icon: 'IconCircle',
+                        title: 'Могут ли приставы забрать автомобиль за долги?',
+                        text: 'Разбираемся в правах приставов и должников',
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Могут ли приставы забрать автомобиль за долги?',
+                    description: 'Разбираемся в правах приставов и должников',
+                    image: '/images/pages/main/management.png',
+                  },
+                  {
+                    title: 'Могут ли приставы забрать автомобиль за долги?',
+                    description: 'Разбираемся в правах приставов и должников',
+                    image: '/images/pages/main/management.png',
+                    list: [
+                      {
+                        icon: 'IconCircle',
+                        title: 'Могут ли приставы забрать автомобиль за долги?',
+                        text: 'Разбираемся в правах приставов и должников',
+                        
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 slug: 'mogut-li-pristavy-zabrat-avtomobil-za-dolg2',
@@ -521,14 +559,23 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
                 title: 'Могут ли приставы забрать автомобиль за долги?',
                 description: 'Разбираемся в правах приставов и должников',
                 date: '2023-04-07',
-                content: '...',
+                content: {
+                  title: 'Могут ли приставы забрать автомобиль за долги?',
+                  description: 'Разбираемся в правах приставов и должников',
+                  image: '/images/pages/main/management.png',
+                },
               },
               {
                 slug: 'mogut-li-pristavy-zabrat-avtomobil-za-dolg2',
                 title: 'Могут ли приставы забрать автомобиль за долги?',
                 description: 'Разбираемся в правах приставов и должников',
                 date: '2023-04-07',
-                content: '...',
+                content: {
+                  title: 'Могут ли приставы забрать автомобиль за долги?2',
+                  description: 'Разбираемся в правах приставов и должников',
+                  image: '/images/pages/main/management.png',
+                  
+                },
               },
               // Другие статьи
             ],
@@ -556,7 +603,25 @@ export const ARTICLES_CATEGORY_GRID_CONFIG = Object.freeze({
   },
   block_fields: {
     title: 'Автокредит',
-    subtitle: 'Узнайте все об автокредитовании: от базовых условий до тонкостей оформления. Разберем типичные ошибки и поможем избежать подводных камней. Расскажем, как выбрать оптимальные условия и сэкономить на выплатах. Поделимся реальным опытом и практическими советами от экспертов.',
+    subtitle:
+      'Узнайте все об автокредитовании: от базовых условий до тонкостей оформления. Разберем типичные ошибки и поможем избежать подводных камней. Расскажем, как выбрать оптимальные условия и сэкономить на выплатах. Поделимся реальным опытом и практическими советами от экспертов.',
+    cards: ARTICLES_GRID_CONFIG.block_fields.cards,
+    cardType: 'cardWithLink',
+    gap: 'gap-4',
+    cols: 4,
+  },
+})
+
+export const ARTICLES_SLUG_GRID_CONFIG = Object.freeze({
+  desktopPadding: {
+    top: '32px',
+    bottom: '32px',
+  },
+  mobilePadding: {
+    top: '16px',
+    bottom: '16px',
+  },
+  block_fields: {
     cards: ARTICLES_GRID_CONFIG.block_fields.cards,
     cardType: 'cardWithLink',
     gap: 'gap-4',
