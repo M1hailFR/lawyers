@@ -1,5 +1,5 @@
 <template>
-  <div class="article-container">
+  <div class="container">
     <h1>{{ article.title }}</h1>
     <div class="article-meta">
       <span>{{ formatDate(article.date) }}</span>
@@ -28,12 +28,21 @@ const route = useRoute()
 const categorySlug = route.params.category
 const articleSlug = route.params.slug
 
+// Находим категорию и статью
 const category = computed(() => {
-  return (
-    ARTICLES_GRID_CONFIG.block_fields.cards.find((c) => c.slug === categorySlug) || {
-      articles: [],
+  let foundCategory = null
+  
+  // Перебираем все группы карточек (буквенные группы)
+  for (const letterGroup of ARTICLES_GRID_CONFIG.block_fields.cards) {
+    // Ищем карточку с нужным slug в текущей группе
+    const foundCard = letterGroup.cards.find(card => card.slug === categorySlug)
+    if (foundCard) {
+      foundCategory = foundCard
+      break
     }
-  )
+  }
+  
+  return foundCategory || { articles: [] }
 })
 
 const article = computed(() => {
@@ -41,6 +50,8 @@ const article = computed(() => {
     category.value.articles.find((a) => a.slug === articleSlug) || {
       title: 'Статья не найдена',
       content: 'Запрашиваемая статья не существует',
+      description: 'Статья не найдена',
+      date: new Date().toISOString()
     }
   )
 })
@@ -48,6 +59,7 @@ const article = computed(() => {
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString('ru-RU')
 }
+
 useHead({
   title: article.value.title,
   meta: [
