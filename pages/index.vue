@@ -142,7 +142,7 @@ import {
   MAIN_ADVANTAGES_GRID_CONFIG,
   MAIN_REFERENCE_GRID_CONFIG,
   MAIN_QUESTIONS_CALLBACK_CONFIG
-} from '~/configs/pages/index'
+} from '~/configs/pages/main'
 
 import {
   BlockFormPrompt,

@@ -1,36 +1,58 @@
 <template>
-    <div>
-      <h1>{{ category.title }}</h1>
-      
-      
-      <!-- <div class="grid grid-cols-1 gap-4 mt-8">
-        <div v-for="article in category.articles" :key="article.slug" class="card p-4 rounded-xl">
-          <h2>{{ article.title }}</h2>
-          <p>{{ article.description }}</p>
-          <div class="flex justify-between items-center mt-4">
-            <span>{{ formatDate(article.date) }}</span>
-            <NuxtLink :to="`/articles/${category.slug}/${article.slug}`" class="btn">Читать далее</NuxtLink>
-          </div>
-        </div>
-      </div> -->
-    </div>
-  </template>
+  <div class="container">
+    <VVerticalPadding
+      :desktop-padding="ARTICLES_CATEGORY_GRID_CONFIG.desktopPadding"
+      :mobile-padding="ARTICLES_CATEGORY_GRID_CONFIG.mobilePadding">
+      <BlockGridWithCards :fields="CONFIG" />
+    </VVerticalPadding>
+  </div>
+</template>
 
 <script setup>
-import { ARTICLES_GRID_CONFIG } from '~/configs/pages/articles'
+import { VVerticalPadding } from '~/components/ui'
+import { ARTICLES_CATEGORY_GRID_CONFIG } from '~/configs/pages/articles'
+import {
+  BlockBannerDefault,
+  BlockGridWithCards,
+  BlockFormCallback,
+} from '~/components/blocks'
 
-  const route = useRoute()
-  const categorySlug = route.params.category
-  
-  const category = computed(() => {
-    return ARTICLES_GRID_CONFIG.block_fields.cards.find(c => c.slug === categorySlug) || {
-      title: 'Категория не найдена',
-      description: '',
-      articles: []
+const route = useRoute()
+const categorySlug = route.params.category
+
+const CONFIG = computed(() => {
+  let foundCategory = null
+
+  for (const letterGroup of ARTICLES_CATEGORY_GRID_CONFIG.block_fields.cards) {
+    const foundCard = letterGroup.cards.find(
+      (card) => card.slug === categorySlug,
+    )
+    if (foundCard) {
+      foundCategory = foundCard
+      break
     }
-  })
-  
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString('ru-RU')
   }
-  </script>
+
+  if (!foundCategory || !foundCategory.articles) {
+    return {
+      ...ARTICLES_CATEGORY_GRID_CONFIG.block_fields,
+      cards: [],
+    }
+  }
+
+  const articleCards = foundCategory.articles.map((article) => ({
+    slug: article.slug,
+    title: article.title,
+    text: article.description || '',
+    image: foundCategory.image || '/images/pages/main/management.png',
+    cardVariant: 'outline',
+    link: `/articles/${categorySlug}/${article.slug}`,
+    date: article.date,
+  }))
+
+  return {
+    ...ARTICLES_CATEGORY_GRID_CONFIG.block_fields,
+    cards: articleCards,
+  }
+})
+</script>

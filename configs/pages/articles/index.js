@@ -186,11 +186,39 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
                 date: '2023-04-07',
                 content: '...',
               },
+              {
+                slug: 'mogut-li-pristavy-zabrat-avtomobil-za-dolg2',
+                title: 'Могут ли приставы забрать автомобиль за долги?',
+                description: 'Разбираемся в правах приставов и должников',
+                date: '2023-04-07',
+                content: '...',
+              },
+              {
+                slug: 'mogut-li-pristavy-zabrat-avtomobil-za-dolg2',
+                title: 'Могут ли приставы забрать автомобиль за долги?',
+                description: 'Разбираемся в правах приставов и должников',
+                date: '2023-04-07',
+                content: '...',
+              },
+              {
+                slug: 'mogut-li-pristavy-zabrat-avtomobil-za-dolg2',
+                title: 'Могут ли приставы забрать автомобиль за долги?',
+                description: 'Разбираемся в правах приставов и должников',
+                date: '2023-04-07',
+                content: '...',
+              },
+              {
+                slug: 'mogut-li-pristavy-zabrat-avtomobil-za-dolg2',
+                title: 'Могут ли приставы забрать автомобиль за долги?',
+                description: 'Разбираемся в правах приставов и должников',
+                date: '2023-04-07',
+                content: '...',
+              },
               // Другие статьи
             ],
           },
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit3',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -215,7 +243,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
             ],
           },
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit2',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -240,7 +268,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
             ],
           },
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit1',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -273,7 +301,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
         cardType: 'cardWithLink',
         cards: [
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit4',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -298,7 +326,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
             ],
           },
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit5',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -323,7 +351,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
             ],
           },
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit6',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -348,7 +376,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
             ],
           },
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit8',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -373,7 +401,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
             ],
           },
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit9',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -398,7 +426,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
             ],
           },
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit10',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -431,7 +459,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
         cardType: 'cardWithLink',
         cards: [
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit11',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -456,7 +484,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
             ],
           },
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit12',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -481,7 +509,7 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
             ],
           },
           {
-            slug: 'avtokredit',
+            slug: 'avtokredit14',
             title: 'Автокредит',
             text: 'Статьи об автокредитовании',
             image: '/images/pages/main/management.png',
@@ -514,5 +542,24 @@ export const ARTICLES_GRID_CONFIG = Object.freeze({
     ],
 
     gap: 'gap-4',
+  },
+})
+
+export const ARTICLES_CATEGORY_GRID_CONFIG = Object.freeze({
+  desktopPadding: {
+    top: '32px',
+    bottom: '32px',
+  },
+  mobilePadding: {
+    top: '16px',
+    bottom: '16px',
+  },
+  block_fields: {
+    title: 'Автокредит',
+    subtitle: 'Узнайте все об автокредитовании: от базовых условий до тонкостей оформления. Разберем типичные ошибки и поможем избежать подводных камней. Расскажем, как выбрать оптимальные условия и сэкономить на выплатах. Поделимся реальным опытом и практическими советами от экспертов.',
+    cards: ARTICLES_GRID_CONFIG.block_fields.cards,
+    cardType: 'cardWithLink',
+    gap: 'gap-4',
+    cols: 4,
   },
 })
