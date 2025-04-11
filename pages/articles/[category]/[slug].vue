@@ -43,7 +43,7 @@ const CONFIG = computed(() => {
 
   // Находим конкретную статью по slug
   foundArticle = foundCategory.articles.find(
-    (article) => article.slug === articleSlug
+    (article) => article.slug === articleSlug,
   )
 
   // Если статья не найдена, возвращаем пустой конфиг
@@ -58,16 +58,18 @@ const CONFIG = computed(() => {
   return {
     ...ARTICLES_SLUG_GRID_CONFIG.block_fields,
     ...foundArticle,
-   
+    image: '/images/pages/main/management.png',
   }
 })
 
 // Получаем статью для мета-тегов
 const article = computed(() => {
-  return CONFIG.value || {
-    title: 'Статья не найдена',
-    description: 'Запрашиваемая статья не существует',
-  }
+  return (
+    CONFIG.value || {
+      title: 'Статья не найдена',
+      description: 'Запрашиваемая статья не существует',
+    }
+  )
 })
 
 useHead({
