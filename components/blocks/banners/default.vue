@@ -34,7 +34,7 @@
         </VLink>
         <VTitle
           :title="fields.phone.description"
-          defaultClass="text-sm text-center max-w- md:text-left text-neutral1/70" />
+          defaultClass="text-sm text-center max-w-[290px] md:max-w-full md:text-left text-neutral1/70" />
       </div>
 
       <!-- layers block -->
