@@ -313,11 +313,11 @@ export const MAIN_CONSULTATIONS_ONLINE_LIST_CONFIG = Object.freeze({
 export const MAIN_HOW_IT_WORKS_GRID_CONFIG = Object.freeze({
   desktopPadding: {
     top: '32px',
-    bottom: '32px',
+    bottom: '0px',
   },
   mobilePadding: {
     top: '16px',
-    bottom: '16px',
+    bottom: '0px',
   },
   block_fields: {
     title: 'Как это работает?',
@@ -354,7 +354,7 @@ export const MAIN_HOW_IT_WORKS_GRID_CONFIG = Object.freeze({
 
 export const MAIN_PHONE_BANNER_CONFIG = Object.freeze({
   desktopPadding: {
-    top: '32px',
+    top: '16px',
     bottom: '32px',
   },
   mobilePadding: {

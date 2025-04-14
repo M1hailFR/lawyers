@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full relative">
-    <div class="md:sticky top-20 h-max">
+    <div class="md:sticky top-[90px] h-max">
       <div class="d-flex flex-col items-center">
         <VTitle
           :title="fields.title"

@@ -60,7 +60,7 @@ export const GLOBAL_CONFIG = Object.freeze({
         'Оставьте ваши контактные данные и мы ответим на ваш вопрос в течение 15 минут',
       buttonText: 'Задать вопрос',
       showDescription: true,
-      body: ['name', 'phone', 'email', 'message'],
+      body: ['name', 'phone', 'message'],
       description: `Отправляя форму, вы даете <mark class="primary"><a href="/">согласие</a></mark> на обработку своих персональных данных и
                     соглашаетесь с
                     <mark class="primary"><a href="/">политикой обработки персональных данных</a></mark>`,

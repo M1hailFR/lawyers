@@ -66,14 +66,14 @@
           defaultClass="text-sm md:text-base my-2 text-neutral3" />
         <div
           v-if="item.explanation"
-          class="p-4 md:p-6 bg-neutral3/20 rounded-xl mt-4">
+          class="p-4 md:p-6 bg-secondary/20 rounded-xl mt-4">
           <VTitle
             :title="item.explanation"
             defaultClass="text-sm md:text-base text-neutral2/70 leading-6" />
         </div>
       </div>
     </div>
-    <div class="md:col-span-2 h-max sticky top-20">
+    <div class="md:col-span-2 h-max sticky top-[90px]">
       <BlockBannerSimple :fields="ARTICLES_SIMPLE_BANNER_CONFIG.block_fields" />
 
       <nav class="mt-4 rounded-xl bg-secondary/20 p-4 md:p-6">

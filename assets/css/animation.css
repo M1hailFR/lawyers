@@ -84,3 +84,20 @@
   opacity: 0;
   transform: translateX(100px);
 }
+
+/* k-zoom */
+.k-zoom {
+  animation: smooth-zoom 2s linear infinite;
+}
+@keyframes smooth-zoom {
+  0% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+

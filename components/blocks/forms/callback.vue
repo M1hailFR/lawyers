@@ -5,23 +5,29 @@
     additionalClass="title" />
   <div
     class="card h-full relative"
-    :class="fields.isEquals ? 'md:grid-cols-2' : 'md:grid-cols-5'">
+    :class="[
+      fields.isEquals ? 'md:grid-cols-2' : 'md:grid-cols-5',
+      fields.isBackground ? 'text-neutral1' : 'text-neutral2',
+    ]">
     <div
       ref="cardLeft"
-      class="card--left relative md:sticky md:top-24 h-max"
-      :class="[
-        fields.isBackground ? 'bg-primary' : '',
-        fields.isEquals ? '' : 'md:col-span-3',
-      ]">
-      <div class="">
+      class="card--left md:sticky md:top-24 h-max"
+      :class="[fields.isEquals ? '' : 'md:col-span-3']">
+      <div
+        class="p-4 md:p-8 rounded-xl relative z-10"
+        :class="[fields.isBackground ? 'bg-primary' : '']">
         <SharedFormCallback
           :settings="fields.formSettings"
           isBackground
           color="neutral1" />
       </div>
+      <VTitle
+        v-if="fields.text"
+        :title="fields.text"
+        defaultClass="text-sm md:text-base leading-6 text-neutral3" />
     </div>
     <div
-      class="card--right h-max"
+      class="card--right h-max text-neutral2"
       :class="[
         fields.isEquals ? '' : 'md:col-span-2',
         { 'order-first': fields.isReverse },
@@ -30,7 +36,11 @@
         v-if="fields.cards"
         class="flex flex-col gap-4"
         :class="{ 'card--scroll': fields.isResize }"
-        :style="fields.isResize ? `height: ${cardLeftHeight}px; padding-right: 8px` : 'height: 100%'">
+        :style="
+          fields.isResize
+            ? `height: ${cardLeftHeight}px; padding-right: 8px`
+            : 'height: 100%'
+        ">
         <component
           v-for="(card, idx) in fields.cards"
           :key="idx"
@@ -40,7 +50,11 @@
           :customMark="card.customMark || card.icon"
           :index="idx + 1" />
       </div>
-      <div v-else class="p-4 border h-[100px] rounded-xl">questions</div>
+      <div
+        v-else
+        class="p-4 border h-[100px] rounded-xl">
+        questions
+      </div>
     </div>
   </div>
 </template>
@@ -93,18 +107,18 @@ const cardLeftHeight = computed(() => {
 
 <style lang="scss" scoped>
 .card {
-  @apply grid gap-4 text-neutral2;
+  @apply grid gap-4;
 
-  &--left {
-    @apply p-8 rounded-xl z-10;
-  }
+  // &--left {
+  //   @apply z-10;
+  // }
 
   &--right {
-    @apply rounded-xl border-neutral5;
+    @apply rounded-xl border-neutral5 sticky top-[90px];
   }
 
   &--scroll {
-    @apply overflow-y-scroll ;
+    @apply overflow-y-scroll;
     &::-webkit-scrollbar {
       @apply bg-transparent w-1 rounded-lg;
     }

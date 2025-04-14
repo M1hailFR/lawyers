@@ -1,5 +1,9 @@
 <template>
-  <div class="callback flex flex-col" :class="`text-${color}`, isModal ? 'items-center justify-center gap-x-4' : ''">
+  <div
+    class="callback flex flex-col"
+    :class="
+      (`text-${color}`, isModal ? 'items-center justify-center gap-x-4' : '')
+    ">
     <VTitle
       v-if="settings && settings.title"
       :title="settings.title"
@@ -26,22 +30,27 @@
             v-if="settings.body.includes('name')"
             v-model="form.name"
             clearable
-            placeholder="Имя" />
+            placeholder="Имя"
+            :error="errors.name" />
           <v-input
             v-if="settings.body.includes('phone')"
             v-model="form.phone"
             clearable
-            placeholder="Номер телефона" />
+            placeholder="Номер телефона"
+            v-mask="'mobile'"
+            :error="errors.phone" />
           <v-input
             v-if="settings.body.includes('email')"
             v-model="form.email"
             clearable
-            placeholder="Email" />
+            placeholder="Email"
+            :error="errors.email" />
           <v-textarea
             v-if="settings.body.includes('message')"
             v-model="form.message"
             clearable
             placeholder="Ваш вопрос..."
+            :error="errors.message"
             class="h-24" />
         </div>
         <div
@@ -59,6 +68,7 @@
               v-model="message"
               clearable
               placeholder="Ваш вопрос..."
+              :error="errors.message"
               class="h-40" />
           </div>
 
@@ -74,7 +84,8 @@
               <v-input
                 v-model="form.name"
                 clearable
-                placeholder="Имя" />
+                placeholder="Имя"
+                :error="errors.name" />
             </div>
 
             <div class="flex flex-col gap-3">
@@ -87,7 +98,9 @@
                 v-if="settings.body.includes('phone')"
                 v-model="form.phone"
                 clearable
-                placeholder="Номер телефона" />
+                placeholder="Номер телефона"
+                v-mask="'mobile'"
+                :error="errors.phone" />
             </div>
           </div>
         </div>
@@ -101,11 +114,10 @@
             native-type="submit"
             class="text-nowrap"
             :type="isBackground ? 'default' : 'flat'"
-            :disabled="!isValidForm"
+            :disabled="!isFormValid"
             :size="isModal ? 'small' : 'middle'">
             {{ settings.buttonText }}
           </VButton>
-          <!-- :type="isBackground ? 'flat' : 'flat'" -->
           <VTitle
             v-if="settings.showDescription"
             :title="settings.description"
@@ -122,6 +134,7 @@
 <script setup>
 import { VInput, VTextarea, VTitle, VButton } from '~/components/ui'
 import { useModal } from '~/stores/modal'
+import { useFormValidation } from '~/composables/useFormValidation'
 
 defineOptions({
   name: 'SharedFormCallback',
@@ -149,12 +162,21 @@ const props = defineProps({
 
 const emit = defineEmits(['send-form'])
 
-const form = ref({
+const initialForm = {
   name: '',
   phone: '',
   email: '',
   message: '',
-})
+}
+
+const {
+  form,
+  errors,
+  isSubmitted,
+  isFormValid,
+  validateForm,
+  resetForm
+} = useFormValidation(initialForm, props.settings.body || [])
 
 const message = computed({
   get: () => form.value.message,
@@ -166,39 +188,34 @@ const message = computed({
 
 const modalStore = useModal()
 
-const isSubmitted = ref(false)
-const isValidForm = computed(() => {
-  const requiredFields = props.settings.body.reduce((acc, field) => {
-    acc[field] = form.value[field]
-    return acc
-  }, {})
-
-  return Object.values(requiredFields).every(
-    (value) => value && value.length > 0,
-  )
-})
-
 const onSendForm = async () => {
+  // Устанавливаем флаг отправки для показа ошибок
   isSubmitted.value = true
-  console.log('Попытка отправки формы')
-  console.log('Значения формы:', form.value)
-
-  if (isValidForm.value) {
-    emit('send-form', 'success')
-    console.log('типа отправлено')
-
-    form.value = {
-      name: '',
-      phone: '',
-      email: '',
-      message: '',
+  
+  // Проверяем валидацию
+  const isValid = validateForm()
+  
+  if (isValid) {
+    // Формируем данные для отправки
+    const formData = {
+      ...form.value,
+      phone: `+79${form.value.phone}`,
     }
+    
+    // Отправляем форму
+    emit('send-form', 'success')
+    console.log('Значения формы:', formData)
 
+    // Закрываем модальное окно если это модальная форма
     if (props.isModal) {
       modalStore.close()
     }
     
+    // Очищаем данные
     modalStore.question = ''
+    resetForm()
+    
+    // Показываем сообщение об успехе
     modalStore.open('success')
     setTimeout(() => modalStore.close(), 2000)
   }
