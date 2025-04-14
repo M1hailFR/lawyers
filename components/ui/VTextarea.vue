@@ -21,6 +21,11 @@
         :class="`text-${textColor}`"
         name="IconCross" />
     </transition>
+    <div
+      v-show="error"
+      class="text-danger font-medium text-xs -mb-2 leading-4 block">
+      {{ error }}
+    </div>
   </div>
 </template>
 
@@ -42,8 +47,8 @@ const props = defineProps({
     default: 'Type here...',
   },
   error: {
-    type: Boolean,
-    default: false,
+    type: String,
+    default: '',
   },
   clearable: {
     type: Boolean,
@@ -73,7 +78,7 @@ const clear = () => {
 
 <style lang="scss" scoped>
 .v-textarea {
-  @apply relative hover:opacity-90 transition-all duration-300 ease-in-out;
+  @apply relative hover:opacity-90 transition-all duration-300 ease-in-out block mb-4;
   textarea {
     @apply w-full h-full resize-none cursor-pointer outline-none rounded-lg pl-4 py-2 pr-6  border border-neutral5 appearance-none;
     &::-webkit-scrollbar {

@@ -26,6 +26,7 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
+    "inputmask": "^5.0.9",
     "nuxt": "^3.16.0",
     "nuxt-swiper": "2.0.0",
     "pinia-plugin-persistedstate": "^4.2.0",

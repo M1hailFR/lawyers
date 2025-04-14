@@ -7,6 +7,7 @@
       class="v-input--floating peer"
       :class="`bg-${color} text-${textColor}`"
       :placeholder="placeholder"
+      v-bind="$attrs"
       @change="change"
       @input="change" />
     <!-- v-mask -->
@@ -24,6 +25,11 @@
         :class="`text-${textColor}`"
         name="IconCross" />
     </transition>
+    <div
+      v-show="error"
+      class="text-danger font-medium text-xs -mb-2 leading-4 mt-1">
+      {{ error }}
+    </div>
   </div>
 </template>
 
@@ -59,8 +65,8 @@ const props = defineProps({
     default: false,
   },
   error: {
-    type: Boolean,
-    default: false,
+    type: String,
+    default: '',
   },
   clearable: {
     type: Boolean,
@@ -74,6 +80,10 @@ const props = defineProps({
     type: String,
     default: 'neutral2',
   },
+  rules: {
+    type: String,
+    default: '',
+  }
 })
 
 const emit = defineEmits(['update:modelValue', 'change'])
@@ -132,6 +142,9 @@ const clear = () => {
     }
     label {
       @apply text-danger;
+    }
+    .v-input--clear {
+      @apply top-5;
     }
   }
 }
