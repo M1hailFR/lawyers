@@ -49,6 +49,10 @@ mark {
   @apply text-left font-medium text-base xl:text-lg leading-6;
 }
 
+.caption {
+  @apply text-left font-medium text-xs leading-4;
+}
+
 input[type='number'] {
   -moz-appearance: textfield;
 }

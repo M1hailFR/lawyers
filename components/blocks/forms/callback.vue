@@ -38,7 +38,7 @@
         :class="{ 'card--scroll': fields.isResize }"
         :style="
           fields.isResize
-            ? `height: ${cardLeftHeight}px; padding-right: 8px`
+            ? `height: ${cardLeftHeight}px; padding-right: 16px`
             : 'height: 100%'
         ">
         <component

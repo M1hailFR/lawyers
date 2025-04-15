@@ -20,14 +20,14 @@
             nativeType="text"
             clearable
             placeholder="Найти..."
-            class="text-xs w-full hidden md:block" />
+            class="text-sm w-full hidden md:block" />
         </div>
 
         <div class="flex items-center gap-2 ml-4">
           <v-button
             type="outline"
             size="small"
-            textSize="text-xs"
+            textSize="text-sm"
             @click="openModal('phoneCall')">
             <div class="flex items-center gap-1 pr-2">
               <v-icon name="IconPhone" />
@@ -37,7 +37,7 @@
           <v-button
             type="outline"
             size="small"
-            textSize="text-xs"
+            textSize="text-sm"
             @click="openModal('auth')">
             <div class="flex items-center gap-1 pr-2">
               <v-icon name="IconLogin" />
@@ -123,7 +123,7 @@
               type="flat"
               size="small"
               class="hidden md:flex items-center gap-1"
-              textSize="text-xs"
+              textSize="text-sm"
               @click="openModal('askQuestion')">
               <v-icon name="IconQuestion" />
               <div class="text-nowrap pr-2">Задать вопрос</div>

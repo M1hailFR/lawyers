@@ -57,19 +57,19 @@ const CONFIG = computed(() => {
     }
   }
 
-  const articleCards = foundCategory.articles.map((article) => ({
-    slug: article.slug,
-    title: article.title,
-    text: article.description || '',
-    image: foundCategory.image || '/images/pages/main/management.png',
-    cardVariant: 'outline',
-    link: `/articles/${categorySlug}/${article.slug}`,
-    date: article.date,
-  }))
+  // const articleCards = foundCategory.articles.map((article) => ({
+  //   slug: article.slug,
+  //   title: article.title,
+  //   text: article.description || '',
+  //   image: foundCategory.image || '/images/pages/main/management.png',
+  //   cardVariant: 'outline',
+  //   link: `/articles/${categorySlug}/${article.slug}`,
+  //   date: article.date,
+  // }))
 
   return {
     ...ARTICLES_CATEGORY_GRID_CONFIG.block_fields,
-    cards: articleCards,
+    cards: foundCategory.articles,
   }
 })
 </script>
