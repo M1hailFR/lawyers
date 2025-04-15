@@ -49,7 +49,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: '',
+    default: 'neutral2',
   },
 })
 

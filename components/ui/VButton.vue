@@ -46,10 +46,10 @@ const { classes } = setBasicUiProps(props, 'v-button')
   @apply font-semibold transition-all duration-150 rounded-lg text-neutral2;
   &.type {
     &-flat {
-      @apply bg-primary text-neutral1 hover:bg-secondary;
+      @apply bg-primary border text-neutral1 hover:bg-secondary border-primary hover:border-secondary;
     }
     &-outline {
-      @apply border-neutral5 border hover:text-neutral1 hover:bg-secondary hover:border-secondary/90;
+      @apply border-neutral5 border hover:text-neutral1 hover:bg-secondary hover:border-secondary;
     }
     &-default {
       @apply bg-neutral1 hover:bg-neutral1;
