@@ -69,7 +69,7 @@ const setSentStatus = (value) => {
     @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col max-w-[500px] max-h-screen shadow-sm p-8 bg-neutral1 sm:rounded-xl z-50 w-full h-full sm:h-auto;
   }
   &--menu {
-    @apply text-neutral2 fixed top-0 right-0 flex flex-col h-dvh p-6 bg-neutral1 sm:rounded-l-xl z-50 w-full sm:max-w-[400px] overflow-auto shadow-sm;
+    @apply text-neutral2 fixed top-0 right-0 flex flex-col h-dvh bg-neutral1 sm:rounded-l-xl z-50 w-full sm:max-w-[400px] overflow-auto shadow-sm;
   }
 }
 </style>

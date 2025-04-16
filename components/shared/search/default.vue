@@ -1,15 +1,29 @@
 <template>
   <div class="mb-8">
-    <VInput
-      v-model="search"
-      :placeholder="settings.placeholder"
-      clearable
-      class="text-sm" />
+    <div class="flex items-center gap-2 transition-transform duration-300">
+      <VInput
+        v-model="search"
+        :placeholder="settings.placeholder"
+        clearable
+        class="text-sm w-full" />
+      <transition name="slide-right">
+        <VButton
+          v-if="search || selectedTags.size"
+          size="small"
+          type="flat"
+          class="text-sm flex items-center gap-1"
+          @click="reset">
+          <VIcon name="IconCircle" />
+          <span class="caption pr-2 text-nowrap">Сбросить фильтры</span>
+        </VButton>
+      </transition>
+    </div>
+
     <div
-      v-if="settings.tags"
+      v-if="computedTags"
       class="flex items-center gap-2 flex-wrap max-h-[150px] mt-2 overflow-y-auto scroll">
       <VButton
-        v-for="tag in settings.tags"
+        v-for="tag in computedTags"
         :key="tag"
         size="small"
         :type="
@@ -64,9 +78,15 @@ const computedCards = computed(() => {
     .map((card) => {
       const matchesSearch =
         !searchValue ||
-        props.settings.fieldsForSearch.some((field) =>
-          card[field]?.toLowerCase().includes(searchValue),
-        )
+        props.settings.fieldsForSearch.some((field) => {
+          if (Array.isArray(card[field])) {
+            return card[field].some((item) =>
+              item.toLowerCase().includes(searchValue),
+            )
+          } else {
+            return card[field]?.toLowerCase().includes(searchValue)
+          }
+        })
 
       if (!matchesSearch) return null
 
@@ -87,6 +107,20 @@ const computedCards = computed(() => {
     .sort((a, b) => b.matches - a.matches)
     .map((item) => item.card)
 })
+
+const computedTags = computed(() => {
+  let filteredTags = props.settings.tags
+
+  return filteredTags.filter((tag) => {
+    const searchValue = search.value?.toLowerCase() || ''
+    return tag.title.toLowerCase().includes(searchValue)
+  })
+})
+
+const reset = () => {
+  search.value = ''
+  selectedTags.value.clear()
+}
 
 const update = () => {
   emit('update', computedCards.value)

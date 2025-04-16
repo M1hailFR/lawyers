@@ -25,7 +25,8 @@
               type="secondary">
               <v-icon
                 :name="item.icon"
-                class="bg-neutral5 rounded-full p-2" />
+                class="bg-neutral5 rounded-full p-2 md:p-3"
+                :size="scrollStore.isMobile ? 20 : 28" />
               <div class="flex flex-col py-2 md:py-0">
                 <span class="text-opacity-10 text-xs md:text-sm">{{
                   item.name

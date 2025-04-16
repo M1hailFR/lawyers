@@ -15,6 +15,7 @@
               cover
               class="w-auto" />
           </VLink>
+          
           <v-input
             v-model="search"
             nativeType="text"
@@ -52,7 +53,7 @@
           <VLink
             :link="'/'"
             v-if="
-              (fields.logo && scrollStore.isScrolling) || scrollStore.isMobile
+              (fields.logo && scrollStore.isScrolling) || (scrollStore.isMobile && scrollStore.windowS < 64)
             ">
             <v-image
               :src="fields.logo"

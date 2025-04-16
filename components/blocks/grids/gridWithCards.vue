@@ -3,10 +3,16 @@
     v-if="fields"
     class="card overflow-hidden">
     <div class="d-flex flex-col items-center">
-      <div class="relative" :class="`max-w-[${computedMaxWidth}]`">
+      <div
+        class="relative"
+        :class="`max-w-[${computedMaxWidth}]`">
         <div class="d-flex flex-col items-center">
           <div
-            :class="isSingle ? '' : 'flex gap-4 flex-wrap items-center justify-between w-full mb-4'">
+            :class="
+              isSingle
+                ? ''
+                : 'flex gap-4 flex-wrap items-center justify-between w-full mb-4'
+            ">
             <VTitle
               :title="fields.title"
               default-class="title"
@@ -40,12 +46,11 @@
           v-if="cards.length && components[fields.cardType]"
           class="grid relative"
           :class="
-            ({ 'mt-8 md:mt-14': fields.title || fields.subtitle || fields.buttonText },
+            ({ 'mt-8 md:mt-14': fields.title || fields.subtitle || fields.buttonText,},
             `${getGridCols(fields.cols)} ${fields.gap}`),
             { 'card--compact card--scroll': fields.compactMobile || fields.compact }
           "
-          :style="`max-height: ${computedMaxHeight}`"
-          >
+          :style="`max-height: ${computedMaxHeight}`">
           <component
             v-for="(card, idx) in cards"
             :key="idx"
@@ -56,7 +61,17 @@
             :index="idx + 1" />
         </div>
         <div
-          v-if="fields.compactMobile || fields.compact" 
+          v-if="!cards.length"
+          class="flex flex-col items-center justify-center h-32">
+          <VTitle
+            title="Ничего не найдено"
+            default-class="title" />
+          <VTitle
+            title="Попробуйте изменить поисковый запрос"
+            default-class="subtitle" />
+        </div>
+        <div
+          v-if="fields.compactMobile || fields.compact"
           class="absolute h-20 w-full right-0 scale-x-[2] -bottom-12 blur-[20px] z-20 bg-gradient-white" />
       </div>
     </div>
