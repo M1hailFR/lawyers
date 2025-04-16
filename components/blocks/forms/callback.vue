@@ -62,6 +62,7 @@
 <script setup>
 import { VTitle } from '~/components/ui'
 import { SharedFormCallback } from '~/components/shared/forms'
+import { useScroll } from '~/stores/scroll'
 
 import {
   CardWithIcon,
@@ -98,10 +99,11 @@ const props = defineProps({
   },
 })
 
+const scrollStore = useScroll()
 const cardLeft = ref(null)
 
 const cardLeftHeight = computed(() => {
-  return cardLeft?.value?.offsetHeight
+  return scrollStore.isMobile ? cardLeft?.value?.offsetHeight - 20 : cardLeft?.value?.offsetHeight
 })
 </script>
 

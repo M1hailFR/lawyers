@@ -26,8 +26,8 @@ export const useScroll = defineStore('scroll', {
       window.addEventListener('scroll', updateScroll)
       window.addEventListener('resize', updateWidth)
 
-      this._updateScroll = updateScroll
-      this._updateWidth = updateWidth
+      this._updateScroll = updateScroll()
+      this._updateWidth = updateWidth()
     },
     clearWindowListeners() {
       window.removeEventListener('scroll', this._updateScroll)

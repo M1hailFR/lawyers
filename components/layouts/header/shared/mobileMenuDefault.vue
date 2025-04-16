@@ -1,13 +1,13 @@
 <template>
-  <div class="mobile-menu w-full h-full flex flex-col justify-between">
+  <div class="mobile-menu w-full h-full flex flex-col justify-between container">
     <VLink :link="'/'">
       <VImage
         :src="settings.logo"
         cover
-        class="w-auto h-[28px] absolute top-3 left-6" />
+        class="w-auto h-[24px] absolute top-5 left-8" />
     </VLink>
     <div
-      class="mobile-menu--header flex items-center gap-2 justify-between pt-10 w-full">
+      class="mobile-menu--header flex items-center gap-2 justify-between pt-20 w-full">
       <div class="flex items-center gap-2 w-full">
         <v-input
           v-model="search"
@@ -44,10 +44,10 @@
           class="">
           <template #header="{ list }">
             <div
-              class="flex flex-wrap gap-4 justify-between text-sm md:text-lg font-medium flex-row w-full h-full">
+              class="flex relative flex-wrap gap-4 justify-between text-sm md:text-lg font-medium flex-row w-full h-full">
               <VLink
                 :link="list?.link"
-                class="collapse--title">
+                class="collapse--title w-full block">
                 {{ list?.text }}
               </VLink>
             </div>
@@ -91,7 +91,7 @@
             <v-icon
               name="IconQuestion"
               size="16" />
-            <span class="text-nowrap">Задать вопрос</span>
+            <span class="text-nowrap text-xs">Задать вопрос</span>
           </div>
         </v-button>
         <v-button
