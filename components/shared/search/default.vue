@@ -5,7 +5,7 @@
         v-model="search"
         :placeholder="settings.placeholder"
         clearable
-        class="text-sm w-full" />
+        class="text-sm w-full mb-2" />
       <transition name="slide-right">
         <VButton
           v-if="search || selectedTags.size"
@@ -21,7 +21,7 @@
 
     <div
       v-if="computedTags"
-      class="flex items-center gap-2 flex-wrap max-h-[150px] mt-2 overflow-y-auto scroll">
+      class="flex items-center gap-2 flex-wrap max-h-[150px] mt-2 overflow-y-auto scroll pr-4">
       <VButton
         v-for="tag in computedTags"
         :key="tag"

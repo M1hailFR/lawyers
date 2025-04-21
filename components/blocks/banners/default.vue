@@ -1,13 +1,14 @@
 <template>
   <div
     class="relative bg-primary p-4 md:p-8 min-h-[236px] overflow-hidden h-full flex items-center rounded-xl justify-center">
-    <div class="flex flex-col gap-x-10 md:flex-row w-full items-center">
+    <div class="flex flex-col gap-x-10 lg:flex-row w-full">
       <!-- left block -->
       <div
         class="absolute -bottom-20 -left-20 w-80 aspect-square bg-secondary/50 rounded-full z-[1]" />
       <div
         v-if="fields.image"
-        class="hidden lg:block mr-[200px]">
+        class="hidden lg:mr-[110px]"
+        :class="fields.formSettings ? 'lg:block' : 'md:block'">
         <VImage
           class="absolute -bottom-1 left-0 w-56 aspect-square z-[1]"
           :src="fields.image"
@@ -17,24 +18,24 @@
       <!-- phone block -->
       <div
         v-if="fields.phone"
-        class="flex-1 w-full min-w-[340px] flex flex-col relative z-10 items-center md:items-start mb-4 md:mb-0">
+        class="flex-1 w-full flex flex-col relative z-10 items-center lg:items-start mb-8 lg:mb-0">
         <VTitle
           :title="fields.phone.text"
           defaultClass="subtitle text-neutral1/70 mb-4" />
         <VLink
           :link="fields.phone.link"
           color="neutral1"
-          class="flex items-center gap-4 mb-2">
+          class="flex items-center gap-4 mb-4">
           <VIcon
             name="IconPhone"
             size="32" />
           <VTitle
             :title="fields.phone.value"
-            defaultClass="text-center md:text-left font-medium text-xl xl:text-3xl leading-5" />
+            defaultClass="text-center md:text-left font-medium text-3xl xl:text-3xl  text-nowrap" />
         </VLink>
         <VTitle
           :title="fields.phone.description"
-          defaultClass="text-sm text-center max-w-[290px] md:max-w-full md:text-left text-neutral1/70" />
+          defaultClass="text-sm text-center max-w-[400px] lg:max-w-full lg:text-left text-neutral1/70" />
       </div>
 
       <!-- layers block -->
@@ -43,7 +44,8 @@
         class="relative z-10 mt-4 md:mt-0">
         <VTitle
           title="53 юриста сейчас онлайн"
-          defaultClass="subtitle text-neutral1" />
+          defaultClass="subtitle text-neutral1"
+          style="text-align: center;" />
         <div class="flex flex-row justify-center items-center my-4">
           <div
             v-for="(layer, idx) in 10"
@@ -61,7 +63,7 @@
         <VTitle
           :title="fields.title"
           :class="fields.subtitle ? 'mb-3' : ''"
-          defaultClass="text-center md:text-left font-medium text-xl xl:text-3xl leading-5" />
+          defaultClass="text-center md:text-left font-medium text-xl xl:text-3xl" />
         <VTitle
           :title="fields.subtitle"
           defaultClass="text-sm text-center md:text-left text-neutral1/70" />

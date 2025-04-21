@@ -35,12 +35,12 @@ export const MAIN_FORM_CONFIG = Object.freeze({
 
 export const MAIN_STATISTICS_CONFIG = Object.freeze({
   desktopPadding: {
-    top: '0px',
-    bottom: '0px',
+    top: '32px',
+    bottom: '32px',
   },
   mobilePadding: {
     top: '16px',
-    bottom: '0px',
+    bottom: '16px',
   },
   block_fields: {
     items: [

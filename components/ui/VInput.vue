@@ -1,30 +1,33 @@
 <template>
-  <div :class="[classes, { error: error }]">
-    <input
-      :id="id"
-      type="nativeType"
-      :value="modelValue"
-      class="v-input--floating peer"
-      :class="`bg-${color} text-${textColor}`"
-      :placeholder="placeholder"
-      v-bind="$attrs"
-      @change="change"
-      @input="change" />
-    <!-- v-mask -->
-    <label
-      class="v-input--floating-label"
-      :class="[`bg-${color}`, { error: error }]"
-      :for="id"
-      >{{ placeholder }}
-    </label>
-    <transition name="slide-right">
-      <v-icon
-        v-if="modelValue && clearable"
-        @click="clear"
-        class="v-input--clear"
-        :class="`text-${textColor}`"
-        name="IconCross" />
-    </transition>
+  <div class="relative transition-transform duration-300 ease-in-out">
+    <div :class="[classes, { error: error }]">
+      <input
+        :id="id"
+        type="nativeType"
+        :value="modelValue"
+        class="v-input--floating peer"
+        :class="`bg-${color} text-${textColor}`"
+        :placeholder="placeholder"
+        v-bind="$attrs"
+        @change="change"
+        @input="change" />
+      <!-- v-mask -->
+      <label
+        class="v-input--floating-label"
+        :class="[`bg-${color}`, { error: error }]"
+        :for="id"
+        >{{ placeholder }}
+      </label>
+      <transition name="slide-right">
+        <v-icon
+          v-if="modelValue && clearable"
+          @click="clear"
+          class="v-input--clear"
+          :class="`text-${textColor}`"
+          name="IconCross" />
+      </transition>
+    </div>
+
     <div
       v-show="error"
       class="text-danger font-medium text-xs -mb-2 leading-4 mt-1">
@@ -83,7 +86,7 @@ const props = defineProps({
   rules: {
     type: String,
     default: '',
-  }
+  },
 })
 
 const emit = defineEmits(['update:modelValue', 'change'])
@@ -100,7 +103,7 @@ const clear = () => {
 .v-input {
   @apply relative hover:opacity-90 transition-all duration-300 ease-in-out;
   input {
-    @apply w-full cursor-pointer outline-none rounded-lg pl-4 py-2 pr-6 border border-neutral5 appearance-none;
+    @apply w-full cursor-pointer outline-none rounded-lg pl-4 pr-6 py-2 border border-neutral5 appearance-none leading-5;
 
     &:focus,
     &:hover {
@@ -118,11 +121,11 @@ const clear = () => {
   }
 
   &--clear {
-    @apply absolute right-1 top-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-150 ease-in-out hover:rotate-90 z-20;
+    @apply absolute right-2 top-1/2 -translate-y-1/2  cursor-pointer transition-transform duration-150 ease-in-out hover:rotate-90 z-20;
   }
 
   &--floating-label {
-    @apply top-1 left-2 rounded-lg px-2 py-1 mt-[2px] pointer-events-none absolute w-max overflow-hidden text-ellipsis text-neutral3;
+    @apply top-1 left-2 rounded-lg px-2 py-1 pointer-events-none absolute w-max overflow-hidden text-ellipsis text-neutral3 leading-5;
     @apply transition-all duration-150 ease-out;
   }
 
@@ -142,9 +145,6 @@ const clear = () => {
     }
     label {
       @apply text-danger;
-    }
-    .v-input--clear {
-      @apply top-5;
     }
   }
 }
