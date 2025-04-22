@@ -2,31 +2,43 @@
   <div
     class="w-full relative"
     :class="
-      isCompact ? '' : 'grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-0'
+      isCompact ? '' : 'grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 md:p-0'
     ">
-    <div class="w-full h-full flex flex-col">
-      <VTitle
-        tag="h2"
-        :title="fields.title"
-        :defaultClass="isCompact ? 'title-compact' : 'title'">
-      </VTitle>
-      <VTitle
-        tag="h3"
-        v-if="fields.subtitle"
-        :title="fields.subtitle"
-        defaultClass="subtitle text-neutral2/70 max-w-xl">
-      </VTitle>
+    <div :class="isCompact ? '' : 'w-full h-full flex flex-col justify-center'">
+      <div :class="isCompact ? '' : 'h-full flex flex-row gap-4 justify-center items-center xl:items-end'">
+        <div>
+          <VTitle
+            tag="h2"
+            :title="fields.title"
+            :defaultClass="
+              isCompact
+                ? 'title-compact'
+                : 'text-left font-medium text-4xl md:text-6xl mb-4 leading-none'
+            ">
+          </VTitle>
+          <VTitle
+            tag="h3"
+            v-if="fields.subtitle"
+            :title="fields.subtitle"
+            defaultClass="subtitle text-neutral2/70 max-w-xl mb-2">
+          </VTitle>
+        </div>
+        <VImage
+          v-if="fields.image"
+          :src="fields.image"
+          cover
+          class="max-h-[500px] lg:hidden aspect-square rounded-full overflow-hidden block" />
+      </div>
+
       <VTextarea
         v-model="modalStore.question"
         clearable
         placeholder="Ваш вопрос..."
         class="text-sm md:text-base leading-4 my-3"
-        :class="isCompact ? 'h-24' : 'h-24 md:h-40'" />
+        :class="isCompact ? 'h-24' : 'h-24 md:h-52'" />
       <div
         class="flex gap-2 w-full"
-        :class="
-          isCompact ? 'sm:justify-end' : 'flex-wrap'
-        ">
+        :class="isCompact ? 'sm:justify-end' : 'flex-wrap'">
         <VButton
           type="flat"
           size="middle"
@@ -38,7 +50,7 @@
         <VButton
           type="outline"
           size="middle"
-          class=" w-full sm:w-auto"
+          class="w-full sm:w-auto"
           :textSize="isCompact ? 'text-xs md:text-sm' : 'text-sm md:text-base'"
           @click="openModal('phoneCall')">
           {{ fields.buttonOrderCall }}
@@ -49,10 +61,7 @@
       v-if="fields.image"
       :src="fields.image"
       cover
-      class="w-full h-full rounded-xl overflow-hidden block absolute md:relative top-0 left-0 z-[-1]" />
-    <div
-      v-if="!isCompact"
-      class="bg-neutral1/70 absolute backdrop-blur-[4px] top-0 left-0 w-full h-full z-[-1] md:hidden rounded-xl overflow-hidden" />
+      class="hidden lg:block max-h-[500px] aspect-square rounded-full overflow-hidden  relative ml-auto" />
   </div>
 </template>
 

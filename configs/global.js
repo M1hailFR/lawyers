@@ -84,26 +84,18 @@ export const GLOBAL_CONFIG = Object.freeze({
       text: 'Услуги',
       childs: [
         {
-          text: 'О компании',
-          link: '/',
+          text: 'Физическим лицам',
+          link: '/services/individuals',
         },
         {
-          text: 'Блог',
-          link: '/',
+          text: 'Юридическим лицам',
+          link: '/services/legalServices',
         },
         {
-          text: 'Отзывы',
-          link: '/',
-        },
-        {
-          text: 'Контакты',
-          link: '/contacts',
+          text: 'Цены на услуги',
+          link: '/services/price',
         },
       ],
-    },
-    {
-      text: 'О компании',
-      link: '/',
     },
     {
       text: 'Статьи',
@@ -115,7 +107,7 @@ export const GLOBAL_CONFIG = Object.freeze({
     },
     {
       text: 'Отзывы',
-      link: '/',
+      link: '/reviews',
     },
     {
       text: 'Контакты',
@@ -132,7 +124,7 @@ export const GLOBAL_CONFIG = Object.freeze({
         },
         {
           text: 'Контакты',
-          link: '/',
+          link: '/contacts',
         },
         {
           text: 'Новости',
@@ -140,7 +132,7 @@ export const GLOBAL_CONFIG = Object.freeze({
         },
         {
           text: 'Статьи',
-          link: '/',
+          link: '/articles',
         },
         {
           text: 'Архиви',
@@ -148,7 +140,7 @@ export const GLOBAL_CONFIG = Object.freeze({
         },
         {
           text: 'Отзывы',
-          link: '/',
+          link: '/reviews',
         },
       ],
     },
@@ -157,28 +149,28 @@ export const GLOBAL_CONFIG = Object.freeze({
       childs: [
         {
           text: 'Юристы',
-          link: '/',
+          link: '/  ',
         },
         {
           text: 'Горячая линия',
           link: '/',
         },
         {
-          text: 'Консультация',
-          link: '/',
+          text: 'Физическим лицам',
+          link: '/services/individuals',
+        },
+        {
+          text: 'Юридическим лицам',
+          link: '/services/legalServices',
+        },
+        {
+          text: 'Цены на услуги',
+          link: '/services/price',
         },
         {
           text: 'Задать вопрос',
-          link: '/',
-        },
-        {
-          text: 'Юридические услуги',
-          link: '/',
-        },
-        {
-          text: 'Цены',
-          link: '/',
-        },
+          link: '/questions/create',
+        }
       ],
     },
     {

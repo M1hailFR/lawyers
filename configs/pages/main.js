@@ -11,23 +11,21 @@ export const MAIN_FORM_CONFIG = Object.freeze({
     bottom: '16px',
   },
   block_fields: {
-    promptFormSettings: {
-      title: `<span class="text-primary">Бесплатная </span> <br> юридическая <span class="text-primary">консультация </span> онлайн`,
-      subtitle: `<span class="text-primary">Нужна помощь?</span> Проконсультируйтесь <br> с профессиональным юристом прямо сейчас`,
-      buttonAskQuestion: 'Задать вопрос',
-      buttonOrderCall: 'Заказать звонок',
-      image: '/images/pages/main/management.png',
-      phoneCall: {
-        payload: {
-          icon: '',
-          title: 'Заявка на звонок',
-          subtitle:
-            'Оставьте ваши контактные данные и мы перезвоним вам в течение 15 минут',
-          buttonText: 'Заказать звонок',
-          showDescription: true,
-          body: ['name', 'phone'],
-          description: GLOBAL_CONFIG.formDescriptionPrimary,
-        },
+    title: `<span class="text-primary">Бесплатная </span> <br> юридическая <span class="text-primary">консультация </span> онлайн`,
+    subtitle: `<span class="text-primary">Нужна помощь?</span> Проконсультируйтесь <br> с профессиональным юристом прямо сейчас`,
+    buttonAskQuestion: 'Задать вопрос',
+    buttonOrderCall: 'Заказать звонок',
+    image: '/images/pages/main/management.png',
+    phoneCall: {
+      payload: {
+        icon: '',
+        title: 'Заявка на звонок',
+        subtitle:
+          'Оставьте ваши контактные данные и мы перезвоним вам в течение 15 минут',
+        buttonText: 'Заказать звонок',
+        showDescription: true,
+        body: ['name', 'phone'],
+        description: GLOBAL_CONFIG.formDescriptionPrimary,
       },
     },
   },
@@ -35,12 +33,12 @@ export const MAIN_FORM_CONFIG = Object.freeze({
 
 export const MAIN_STATISTICS_CONFIG = Object.freeze({
   desktopPadding: {
-    top: '0px',
-    bottom: '0px',
+    top: '32px',
+    bottom: '32px',
   },
   mobilePadding: {
     top: '16px',
-    bottom: '0px',
+    bottom: '16px',
   },
   block_fields: {
     items: [

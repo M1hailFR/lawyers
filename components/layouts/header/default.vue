@@ -86,12 +86,13 @@
                   <VDropdownOptions
                     v-for="(item, idx) in item.childs"
                     :key="idx"
-                    class="text-sm">
+                    class="text-sm overflow-x-hidden">
                     <v-link
                       :link="item.link"
-                      type="secondary"
+                      
+                      
                       color="neutral3"
-                      class="hover:translate-x-1"
+                      class="hover:translate-x-1 py-2 px-3 hover:text-neutral1"
                       >{{ item.text }}</v-link
                     >
                   </VDropdownOptions>

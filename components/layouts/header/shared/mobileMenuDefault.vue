@@ -1,10 +1,10 @@
 <template>
-  <div class="mobile-menu w-full h-full flex flex-col justify-between container">
+  <div class="mobile-menu w-full h-full flex flex-col justify-between container pb-4">
     <VLink :link="'/'">
       <VImage
         :src="settings.logo"
         cover
-        class="w-auto h-[24px] absolute top-5 left-8" />
+        class="w-auto h-[24px] absolute top-5 left-6" />
     </VLink>
     <div
       class="mobile-menu--header flex items-center gap-2 justify-between pt-20 w-full">

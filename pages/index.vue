@@ -4,7 +4,7 @@
       :desktop-padding="MAIN_FORM_CONFIG.desktopPadding"
       :mobile-padding="MAIN_FORM_CONFIG.mobilePadding">
       <BlockFormPrompt
-        :fields="MAIN_FORM_CONFIG.block_fields.promptFormSettings" />
+        :fields="MAIN_FORM_CONFIG.block_fields" />
     </VVerticalPadding>
 
     <VVerticalPadding

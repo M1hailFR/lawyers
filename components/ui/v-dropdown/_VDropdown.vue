@@ -23,7 +23,7 @@
     <div
       class="sub-level"
       :class="`bg-${color}`">
-      <div class="sub-level-container flex flex-col gap-y-1 pl-2 pr-6">
+      <div class="sub-level-container flex flex-col gap-y-1">
         <div
           class="options"
           :class="`bg-${color}`">
@@ -91,7 +91,7 @@ const toggle = () => {
   &:hover {
     @apply text-secondary visible drop-shadow-sm;
     .sub-level {
-      @apply visible opacity-100 drop-shadow-sm;
+      @apply visible opacity-100 drop-shadow-lg;
     }
     .chevron {
       @apply rotate-180;
@@ -99,7 +99,7 @@ const toggle = () => {
   }
 }
 .sub-level {
-  @apply absolute w-max p-2 left-1/2 -translate-x-1/2 top-6 invisible opacity-0 transition-all rounded-lg text-neutral2 bg-background shadow-sm;
+  @apply absolute w-max p-2 top-6 invisible opacity-0 transition-all rounded-lg text-neutral2 bg-background shadow-sm;
   &::after {
     content: '';
     @apply absolute left-0 -top-10 w-full h-full bg-transparent z-[-1];
