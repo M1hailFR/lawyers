@@ -1,13 +1,13 @@
 <template>
   <div
     class="relative bg-primary p-4 md:p-8 min-h-[236px] overflow-hidden h-full flex items-center rounded-xl justify-center">
-    <div class="flex flex-col gap-x-10 lg:flex-row w-full">
+    <div class="flex flex-col gap-x-10 lg:flex-row w-full items-center">
       <!-- left block -->
       <div
         class="absolute -bottom-20 -left-20 w-80 aspect-square bg-secondary/50 rounded-full z-[1]" />
       <div
         v-if="fields.image"
-        class="hidden lg:mr-[110px]"
+        class="hidden lg:mr-[110px] xl:mr-[210px]"
         :class="fields.formSettings ? 'lg:block' : 'md:block'">
         <VImage
           class="absolute -bottom-1 left-0 w-56 aspect-square z-[1]"
@@ -31,11 +31,11 @@
             size="32" />
           <VTitle
             :title="fields.phone.value"
-            defaultClass="text-center md:text-left font-medium text-3xl xl:text-3xl  text-nowrap" />
+            defaultClass="text-center md:text-left font-medium text-3xl xl:text-3xl text-nowrap" />
         </VLink>
         <VTitle
           :title="fields.phone.description"
-          defaultClass="text-sm text-center max-w-[400px] lg:max-w-full lg:text-left text-neutral1/70" />
+          defaultClass="text-sm text-center max-w-[400px] lg:text-left text-neutral1/70" />
       </div>
 
       <!-- layers block -->

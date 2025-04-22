@@ -17,6 +17,8 @@ import BlockSliderDefault from './sliders/default.vue'
 
 import BlockCardBlog from './cards/blog.vue'
 
+import BlockHeroeDefault from './heroes/default.vue'
+
 export {
   BlockBannerDefault,
   BlockBannerSimple,
@@ -36,4 +38,6 @@ export {
   BlockSliderDefault,
 
   BlockCardBlog,
+
+  BlockHeroeDefault,
 }

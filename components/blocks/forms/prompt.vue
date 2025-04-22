@@ -62,9 +62,6 @@
       :src="fields.image"
       cover
       class="hidden lg:block max-h-[500px] aspect-square rounded-full overflow-hidden  relative ml-auto" />
-    <div
-      v-if="!isCompact"
-      class="bg-neutral1/70 absolute backdrop-blur-[4px] top-0 left-0 w-full h-full z-[-1] md:hidden rounded-xl overflow-hidden" />
   </div>
 </template>
 
