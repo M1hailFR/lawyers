@@ -81,6 +81,10 @@ export const GLOBAL_CONFIG = Object.freeze({
   },
   headerMenu: [
     {
+      text: 'Консультация',
+      link: '/consultation',
+    },
+    {
       text: 'Услуги',
       childs: [
         {
@@ -103,7 +107,7 @@ export const GLOBAL_CONFIG = Object.freeze({
     },
     {
       text: 'Блог',
-      link: '/',
+      link: '/blog',
     },
     {
       text: 'Отзывы',

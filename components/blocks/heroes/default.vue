@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full relative grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-0">
+  <div class="w-full relative grid grid-cols-1 md:grid-cols-2 gap-4">
     <div class="flex flex-col gap-4 justify-center order-2 md:order-1">
       <VTitle
         tag="h2"
@@ -35,7 +35,7 @@
       v-if="fields.image"
       :src="fields.image"
       cover
-      class="block max-h-[500px] aspect-square rounded-full overflow-hidden relative md:ml-auto order-1 md:order-2" />
+      class="block max-h-[400px] aspect-square rounded-full overflow-hidden relative md:ml-auto order-1 md:order-2" />
   </div>
 </template>
 

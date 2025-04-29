@@ -120,7 +120,7 @@ const cardLeftHeight = computed(() => {
   }
 
   &--scroll {
-    @apply overflow-y-scroll;
+    @apply overflow-y-scroll mb-6 md:mb-0;
     &::-webkit-scrollbar {
       @apply bg-transparent w-1 rounded-lg;
     }

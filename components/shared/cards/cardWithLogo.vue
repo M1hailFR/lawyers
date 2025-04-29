@@ -1,6 +1,8 @@
 <template>
   <div
     class="card flex flex-col gap-2 p-4 md:p-6 relative overflow-hidden rounded-xl backdrop-blur-lg"
+    @mouseenter="isHovered = true"
+    @mouseleave="isHovered = false"
     :class="`card--${item.cardVariant || 'default'}`"
     @click="openModal('info')">
     <div class="flex flex-col gap-2">
@@ -49,7 +51,9 @@
         {{ item.text }}
       </span>
     </div>
-    <div class="card--bottom-circle" />
+    <div
+      class="card--bottom-circle"
+      :class="isHovered ? 'card--bottom-circle-hover' : ''" />
   </div>
 </template>
 
@@ -70,6 +74,7 @@ const props = defineProps({
   },
 })
 
+const isHovered = ref(false)
 const modalStore = useModal()
 const scrollStore = useScroll()
 
@@ -126,9 +131,12 @@ const openModal = (type, variant) => {
   }
   &:hover {
     @apply cursor-pointer;
-    .card--bottom-circle {
-      @apply w-[1000px] h-[1000px] -bottom-64 -left-64;
-    }
+    // .card--bottom-circle {
+    //   @apply w-[1000px] h-[1000px] -bottom-64 -left-64;
+    // }
+  }
+  &--bottom-circle-hover {
+    @apply w-[1000px] h-[1000px] -bottom-64 -left-64;
   }
 }
 </style>

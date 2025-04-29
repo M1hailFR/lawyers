@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card flex flex-col gap-2 p-4 md:p-6 relative rounded-xl overflow-hidden"
+    class="card flex flex-col gap-2 p-4 pt-8 md:p-6 relative rounded-xl overflow-hidden"
     :class="`card--${item.cardVariant || 'default'}`">
     <div class="flex-1">
       <div class="flex flex-row gap-2">
