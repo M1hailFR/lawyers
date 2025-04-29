@@ -30,7 +30,7 @@
 
     <div
       v-show="error"
-      class="text-danger font-medium text-xs -mb-2 leading-4 mt-1">
+      class="text-danger font-medium text-xs -mb-2 leading-4 mt-[6px] pb-1">
       {{ error }}
     </div>
   </div>

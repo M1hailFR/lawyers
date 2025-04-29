@@ -25,13 +25,13 @@
               type="secondary">
               <v-icon
                 :name="item.icon"
-                class="bg-neutral5 rounded-full p-2 md:p-3"
-                :size="scrollStore.isMobile ? 20 : 28" />
+                class="bg-neutral5 rounded-xl p-2"
+                :size="scrollStore.isMobile ? 20 : 20" />
               <div class="flex flex-col py-2 md:py-0">
                 <span class="text-opacity-10 text-xs md:text-sm">{{
                   item.name
                 }}</span>
-                <span class="md:text-lg font-semibold">{{ item.value }}</span>
+                <span class="md:text-base font-semibold">{{ item.value }}</span>
               </div>
             </VLink>
           </div>

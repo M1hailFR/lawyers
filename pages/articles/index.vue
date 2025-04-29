@@ -1,6 +1,12 @@
 <template>
   <div class="container">
     <VVerticalPadding
+      :desktop-padding="ARTICLES_HERO_CONFIG.desktopPadding"
+      :mobile-padding="ARTICLES_HERO_CONFIG.mobilePadding">
+      <BlockHeroeDefault :fields="ARTICLES_HERO_CONFIG.block_fields" />
+    </VVerticalPadding>
+
+    <VVerticalPadding
       :desktop-padding="ARTICLES_MATERIALS_GRID_CONFIG.desktopPadding"
       :mobile-padding="ARTICLES_MATERIALS_GRID_CONFIG.mobilePadding">
       <BlockGridWithCards
@@ -34,6 +40,7 @@ import { VVerticalPadding } from '~/components/ui'
 import {
   ARTICLES_GRID_CONFIG,
   ARTICLES_MATERIALS_GRID_CONFIG,
+  ARTICLES_HERO_CONFIG,
 } from '~/configs/pages/articles'
 import {
   MAIN_QUESTIONS_CALLBACK_CONFIG,
@@ -44,5 +51,6 @@ import {
   BlockBannerDefault,
   BlockGridWithCards,
   BlockFormCallback,
+  BlockHeroeDefault
 } from '~/components/blocks'
 </script>

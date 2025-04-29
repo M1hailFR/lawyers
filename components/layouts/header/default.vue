@@ -76,7 +76,7 @@
             <li
               v-for="(item, idx) of fields.menu"
               :key="idx"
-              class="list-none">
+              class="list-none ">
               <VDropdown
                 v-if="item?.childs?.length"
                 icon="null">

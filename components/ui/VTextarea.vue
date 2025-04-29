@@ -23,7 +23,7 @@
     </transition>
     <div
       v-show="error"
-      class="text-danger font-medium text-xs -mb-2 leading-4 block">
+      class="text-danger font-medium text-xs -mb-2 pb-1 leading-4 block">
       {{ error }}
     </div>
   </div>

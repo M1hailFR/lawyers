@@ -2,11 +2,21 @@
   <div
     class="w-full relative"
     :class="
-      isCompact ? '' : 'grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 md:p-0'
+      isCompact ? '' : 'grid grid-cols-1 lg:grid-cols-2 gap-4'
     ">
     <div :class="isCompact ? '' : 'w-full h-full flex flex-col justify-center'">
-      <div :class="isCompact ? '' : 'h-full flex flex-row gap-4 justify-center items-center xl:items-end'">
-        <div>
+      <div
+        :class="
+          isCompact
+            ? ''
+            : 'h-full flex flex-col md:flex-row gap-4 justify-center items-center xl:items-end'
+        ">
+        <VImage
+          v-if="fields.image"
+          :src="fields.image"
+          cover
+          class="max-h-[300px] lg:hidden aspect-square rounded-full overflow-hidden block order-1 md:order-2" />
+        <div class="order-2 md:order-1">
           <VTitle
             tag="h2"
             :title="fields.title"
@@ -23,11 +33,6 @@
             defaultClass="subtitle text-neutral2/70 max-w-xl mb-2">
           </VTitle>
         </div>
-        <VImage
-          v-if="fields.image"
-          :src="fields.image"
-          cover
-          class="max-h-[500px] lg:hidden aspect-square rounded-full overflow-hidden block" />
       </div>
 
       <VTextarea
@@ -61,7 +66,7 @@
       v-if="fields.image"
       :src="fields.image"
       cover
-      class="hidden lg:block max-h-[500px] aspect-square rounded-full overflow-hidden  relative ml-auto" />
+      class="hidden lg:block max-h-[500px] aspect-square rounded-full overflow-hidden relative ml-auto" />
   </div>
 </template>
 

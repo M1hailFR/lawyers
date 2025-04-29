@@ -1,11 +1,11 @@
 <template>
   <div class="mb-8">
-    <div class="flex items-center gap-2 transition-transform duration-300">
+    <div class="flex items-center gap-2 transition-transform duration-300 mb-4">
       <VInput
         v-model="search"
         :placeholder="settings.placeholder"
         clearable
-        class="text-sm w-full mb-2" />
+        class="text-sm w-full" />
       <transition name="slide-right">
         <VButton
           v-if="search || selectedTags.size"
